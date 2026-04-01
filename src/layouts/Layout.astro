@@ -1,23 +1,184 @@
+---
+interface Props {
+  title?: string;
+}
+const { title = 'Clark Handy Solutions, LLC' } = Astro.props;
+---
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Clark Handy Solutions — Orange County's trusted handyman. Plumbing, electrical, painting, flooring, junk removal & more. Book today." />
+    <title>{title}</title>
+    <link rel="stylesheet" href="/src/styles/global.css" />
+  </head>
+  <body class="antialiased">
+    <!-- NAVBAR -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+      <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
+          <img src="/assets/logo.png" alt="Clark Handy Solutions Logo" class="h-12 w-12 object-contain" />
+          <div class="leading-tight">
+            <div class="font-['Playfair_Display'] font-black text-lg text-[#FAF7F2] group-hover:text-[#C46A1F] transition-colors">CLARK</div>
+            <div class="text-[10px] tracking-[0.2em] uppercase text-[#C46A1F] font-medium">Handy Solutions</div>
+          </div>
+        </a>
+
+        <!-- Desktop Links -->
+        <ul class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide text-[#FAF7F2]">
+          <li><a href="/" class="hover:text-[#C46A1F] transition-colors">Home</a></li>
+          <li><a href="/services" class="hover:text-[#C46A1F] transition-colors">Services</a></li>
+          <li><a href="/portfolio" class="hover:text-[#C46A1F] transition-colors">Portfolio</a></li>
+          <li><a href="/contact" class="hover:text-[#C46A1F] transition-colors">Contact</a></li>
+        </ul>
+
+        <!-- CTA + Social -->
+        <div class="hidden md:flex items-center gap-4">
+          <!-- Social Icons -->
+          <a href="https://www.instagram.com/chandysolutions/" target="_blank" rel="noopener" aria-label="Instagram" class="text-[#FAF7F2] hover:text-[#C46A1F] transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </a>
+          <a href="https://www.facebook.com/CHandySolutionsOC/" target="_blank" rel="noopener" aria-label="Facebook" class="text-[#FAF7F2] hover:text-[#C46A1F] transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+          <a href="https://www.yelp.com/biz/clark-handy-solutions-westminster" target="_blank" rel="noopener" aria-label="Yelp" class="text-[#FAF7F2] hover:text-[#C46A1F] transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20.16 12.73l-4.703 1.14c-.103.025-.198.078-.275.152a.625.625 0 0 0-.056.77l2.91 3.956c.14.19.37.28.6.237.23-.044.413-.214.474-.44.47-1.733.558-3.556.234-5.332a.627.627 0 0 0-.563-.483h-.621zm-8.202 4.853l-1.49 4.537c-.073.22-.005.463.172.614.178.15.426.18.634.072 1.618-.85 3.01-2.088 4.037-3.594a.625.625 0 0 0-.109-.845l-3.244-1.022zm-4.47-1.985l-4.703-1.14a.627.627 0 0 0-.742.487c-.324 1.776-.236 3.6.234 5.332.06.226.244.396.473.44.23.043.461-.047.6-.237l2.91-3.956a.625.625 0 0 0-.056-.77.627.627 0 0 0-.716-.156zm1.524-3.647L4.302 9.942a.625.625 0 0 0-.845.109c-1.097 1.464-1.79 3.2-2.001 5.013a.625.625 0 0 0 .613.694l4.86-.005c.27 0 .505-.172.59-.428l.023-.069a.625.625 0 0 0-.34-.725zm4.386-8.02c-1.812.21-3.548.904-5.013 2.001a.625.625 0 0 0-.109.845l3.009 4.208c.16.224.444.317.703.232l.069-.023c.256-.086.428-.32.428-.59V4.622a.625.625 0 0 0-.694-.613l.607.912zm4.47 0a.625.625 0 0 0-.694.613v4.948c0 .27.172.504.428.59l.069.023c.259.085.543-.008.703-.232l3.009-4.208a.625.625 0 0 0-.109-.845c-1.465-1.097-3.2-1.79-5.013-2.001l.607-.888z"/>
+            </svg>
+          </a>
+
+          <!-- Book Now -->
+          <a
+            href="https://book.squareup.com/appointments/khle4gl514w5yy/location/LM8HDZG27SBX4/services"
+            target="_blank"
+            rel="noopener"
+            class="ml-2 bg-[#C46A1F] hover:bg-[#E08030] text-white text-sm font-semibold px-5 py-2.5 rounded-full transition-all duration-200 hover:shadow-lg hover:shadow-amber-900/20 hover:-translate-y-0.5"
+          >
+            Book Now
+          </a>
+        </div>
+
+        <!-- Mobile Hamburger -->
+        <button id="menu-toggle" class="md:hidden text-[#FAF7F2] focus:outline-none" aria-label="Toggle menu">
+          <svg id="icon-open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+          <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </nav>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="hidden md:hidden bg-[#1E1208] px-6 pb-6 space-y-4">
+        <a href="/" class="block text-[#FAF7F2] hover:text-[#C46A1F] py-2 border-b border-white/10">Home</a>
+        <a href="/services" class="block text-[#FAF7F2] hover:text-[#C46A1F] py-2 border-b border-white/10">Services</a>
+        <a href="/portfolio" class="block text-[#FAF7F2] hover:text-[#C46A1F] py-2 border-b border-white/10">Portfolio</a>
+        <a href="/contact" class="block text-[#FAF7F2] hover:text-[#C46A1F] py-2 border-b border-white/10">Contact</a>
+        <div class="flex items-center gap-4 pt-2">
+          <a href="https://www.instagram.com/chandysolutions/" target="_blank" class="text-[#FAF7F2] hover:text-[#C46A1F]">Instagram</a>
+          <a href="https://www.facebook.com/CHandySolutionsOC/" target="_blank" class="text-[#FAF7F2] hover:text-[#C46A1F]">Facebook</a>
+          <a href="https://www.yelp.com/biz/clark-handy-solutions-westminster" target="_blank" class="text-[#FAF7F2] hover:text-[#C46A1F]">Yelp</a>
+        </div>
+        <a
+          href="https://book.squareup.com/appointments/khle4gl514w5yy/location/LM8HDZG27SBX4/services"
+          target="_blank"
+          class="inline-block bg-[#C46A1F] text-white text-sm font-semibold px-5 py-2.5 rounded-full"
+        >
+          Book Now
+        </a>
+      </div>
+    </header>
+
+    <!-- PAGE CONTENT -->
+    <main>
+      <slot />
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#1E1208] text-[#FAF7F2] pt-16 pb-8">
+      <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-12 mb-12">
+        <!-- Brand -->
+        <div>
+          <div class="font-['Playfair_Display'] font-black text-2xl mb-1">CLARK</div>
+          <div class="text-xs tracking-[0.25em] uppercase text-[#C46A1F] mb-4">Handy Solutions, LLC</div>
+          <p class="text-sm text-white/60 leading-relaxed">Serving Orange County homeowners with honest work, fair pricing, and craftsmanship you can count on.</p>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-xs tracking-[0.2em] uppercase text-[#C46A1F] mb-4 font-semibold">Quick Links</h4>
+          <ul class="space-y-2 text-sm text-white/70">
+            <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+            <li><a href="/services" class="hover:text-white transition-colors">Services</a></li>
+            <li><a href="/portfolio" class="hover:text-white transition-colors">Portfolio</a></li>
+            <li><a href="/contact" class="hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h4 class="text-xs tracking-[0.2em] uppercase text-[#C46A1F] mb-4 font-semibold">Get In Touch</h4>
+          <ul class="space-y-2 text-sm text-white/70">
+            <li><a href="tel:+1XXXXXXXXXX" class="hover:text-white transition-colors">📞 (XXX) XXX-XXXX</a></li>
+            <li><a href="sms:+1XXXXXXXXXX" class="hover:text-white transition-colors">💬 Text Us</a></li>
+            <li class="pt-2">Orange County, CA</li>
+          </ul>
+          <div class="flex gap-4 mt-4">
+            <a href="https://www.instagram.com/chandysolutions/" target="_blank" class="text-white/50 hover:text-[#C46A1F] transition-colors text-xs">Instagram</a>
+            <a href="https://www.facebook.com/CHandySolutionsOC/" target="_blank" class="text-white/50 hover:text-[#C46A1F] transition-colors text-xs">Facebook</a>
+            <a href="https://www.yelp.com/biz/clark-handy-solutions-westminster" target="_blank" class="text-white/50 hover:text-[#C46A1F] transition-colors text-xs">Yelp</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-6 pt-8 border-t border-white/10 text-center text-xs text-white/30">
+        © {new Date().getFullYear()} Clark Handy Solutions, LLC. All rights reserved. · Orange County, CA
+      </div>
+    </footer>
+
+    <script>
+      // Navbar scroll behavior
+      const navbar = document.getElementById('navbar');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          navbar?.classList.add('bg-[#1E1208]', 'shadow-xl');
+          navbar?.classList.remove('bg-transparent');
+        } else {
+          navbar?.classList.remove('bg-[#1E1208]', 'shadow-xl');
+          navbar?.classList.add('bg-transparent');
+        }
+      });
+      // Start transparent
+      navbar?.classList.add('bg-transparent');
+
+      // Mobile menu toggle
+      const toggle = document.getElementById('menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const iconOpen = document.getElementById('icon-open');
+      const iconClose = document.getElementById('icon-close');
+      toggle?.addEventListener('click', () => {
+        mobileMenu?.classList.toggle('hidden');
+        iconOpen?.classList.toggle('hidden');
+        iconClose?.classList.toggle('hidden');
+      });
+
+      // Scroll fade-in
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.section-fade').forEach(el => observer.observe(el));
+    </script>
+  </body>
+</html>
