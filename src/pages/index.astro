@@ -1,247 +1,512 @@
 ---
 import Layout from '../layouts/Layout.astro';
 ---
-<Layout title="Clark Handy Solutions — Orange County Handyman">
+
+<Layout title="Home">
 
   <!-- HERO -->
-  <section class="relative min-h-screen flex items-center justify-center overflow-hidden grain">
-    <!-- Background -->
-    <div class="absolute inset-0 bg-[#1E1208]"></div>
-    <!-- Warm radial glow -->
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_60%,rgba(196,106,31,0.18),transparent)]"></div>
-    <!-- Diagonal texture lines -->
-    <div class="absolute inset-0 opacity-5" style="background-image: repeating-linear-gradient(45deg, #C46A1F 0, #C46A1F 1px, transparent 0, transparent 50%); background-size: 24px 24px;"></div>
+  <section class="hero">
+    <img class="hero-bg" src="/images/hero-bg.jpg" alt="Clark Handy Solutions — professional handyman services" />
+    <div class="hero-overlay"></div>
+    <div class="hero-content container">
+      <span class="section-eyebrow fade-up delay-1">Orange County's Trusted Handyman</span>
+      <h1 class="fade-up delay-2">Built Right.<br /><span>Done Right.</span></h1>
+      <p class="hero-sub fade-up delay-3">From plumbing and electrical to painting and flooring, Clark Handy Solutions handles it all with skill, speed, and integrity.</p>
+      <div class="hero-btns fade-up delay-4">
+        <a href="/contact" class="btn btn-gold">Get a Free Quote</a>
+        <a href="/services" class="btn btn-outline">View Services</a>
+      </div>
+    </div>
+    <div class="hero-scroll-indicator">
+      <span></span>
+    </div>
+  </section>
 
-    <div class="relative z-10 max-w-5xl mx-auto px-6 text-center pt-32 pb-20">
-      <h1 class="font-['Playfair_Display'] font-black text-5xl md:text-7xl lg:text-8xl text-[#FAF7F2] leading-[1.05] mb-6">
-        Craftsmanship<br/>
-        <span class="text-[#C46A1F]">You Can Trust.</span>
-      </h1>
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    <div class="container trust-inner">
+      <div class="trust-item">
+        <span class="trust-num">8+</span>
+        <span class="trust-label">Years of Experience</span>
+      </div>
+      <div class="trust-divider"></div>
+      <div class="trust-item">
+        <span class="trust-num">500+</span>
+        <span class="trust-label">Projects Completed</span>
+      </div>
+      <div class="trust-divider"></div>
+      <div class="trust-item">
+        <span class="trust-num">30+</span>
+        <span class="trust-label">Services Offered</span>
+      </div>
+      <div class="trust-divider"></div>
+      <div class="trust-item">
+        <span class="trust-num">5★</span>
+        <span class="trust-label">Rated on Yelp</span>
+      </div>
+    </div>
+  </div>
 
-      <p class="text-lg md:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed mb-10">
-        From plumbing and electrical to flooring and junk removal, Clark Handy Solutions brings reliable, professional workmanship to your home or business.
-      </p>
-
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a
-          href="https://book.squareup.com/appointments/khle4gl514w5yy/location/LM8HDZG27SBX4/services"
-          target="_blank"
-          rel="noopener"
-          class="bg-[#C46A1F] hover:bg-[#E08030] text-white font-semibold px-8 py-4 rounded-full transition-all duration-200 hover:shadow-xl hover:shadow-amber-900/30 hover:-translate-y-0.5 text-base"
-        >
-          Book an Appointment
-        </a>
-        <a
-          href="/services"
-          class="border border-white/30 hover:border-[#C46A1F] text-white/80 hover:text-white font-semibold px-8 py-4 rounded-full transition-all duration-200 text-base"
-        >
-          View Services
-        </a>
+  <!-- ABOUT -->
+  <section class="about-section">
+    <div class="container about-grid">
+      <div class="about-image-wrap">
+        <img class="about-img" src="/images/about-oscar.jpg" alt="Oscar Clark — Clark Handy Solutions" />
+        <div class="about-img-accent"></div>
+      </div>
+      <div class="about-text">
+        <span class="section-eyebrow">Who We Are</span>
+        <div class="gold-line"></div>
+        <h2 class="section-title">Your Neighborhood<br />Problem Solver</h2>
+        <p class="section-body">Clark Handy Solutions was built on one simple idea: every home deserves quality workmanship without the headache. Whether it's a leaky faucet, a fresh coat of paint, or a full room renovation, we show up on time, do the job right, and leave your space better than we found it.</p>
+        <p class="section-body" style="margin-top: 1rem;">Based in Orange County and proudly serving the surrounding area, we bring professional-grade skills to jobs of every size.</p>
+        <div class="about-actions">
+          <a href="/contact" class="btn btn-gold">Work With Us</a>
+          <a href="/portfolio" class="btn btn-outline">See Our Work</a>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- SERVICES PREVIEW -->
-  <section class="py-24 bg-[#F5F0E8] section-fade">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="text-center mb-16">
-        <p class="text-xs tracking-[0.3em] uppercase text-[#C46A1F] font-semibold mb-3">What We Do</p>
-        <h2 class="font-['Playfair_Display'] text-4xl md:text-5xl font-bold text-[#1E1208]">Services Built Around<br/>Your Home</h2>
+  <section class="services-preview">
+    <div class="container">
+      <div class="services-header">
+        <div>
+          <span class="section-eyebrow">What We Do</span>
+          <div class="gold-line"></div>
+          <h2 class="section-title">A Full Range of<br />Home Services</h2>
+        </div>
+        <a href="/services" class="btn btn-outline-gold">All Services</a>
       </div>
-
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-
-        <!-- Plumbing -->
-        <div class="bg-white border border-[#EDE5D4] rounded-2xl p-6 flex flex-col items-center text-center gap-3 hover:border-[#C46A1F] hover:shadow-lg hover:shadow-amber-900/10 transition-all duration-200 group cursor-default">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-[#C46A1F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.047 8.287 8.287 0 0 0 9 9.601a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z" />
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 0 0 .495-7.468 5.99 5.99 0 0 0-1.925 3.547 5.975 5.975 0 0 1-2.133-1.001A3.75 3.75 0 0 0 12 18Z" />
-          </svg>
-          <span class="text-sm font-semibold text-[#3B2310] group-hover:text-[#C46A1F] transition-colors">Plumbing</span>
-        </div>
-
-        <!-- Electrical -->
-        <div class="bg-white border border-[#EDE5D4] rounded-2xl p-6 flex flex-col items-center text-center gap-3 hover:border-[#C46A1F] hover:shadow-lg hover:shadow-amber-900/10 transition-all duration-200 group cursor-default">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-[#C46A1F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" />
-          </svg>
-          <span class="text-sm font-semibold text-[#3B2310] group-hover:text-[#C46A1F] transition-colors">Electrical</span>
-        </div>
-
-        <!-- Door Installation -->
-        <div class="bg-white border border-[#EDE5D4] rounded-2xl p-6 flex flex-col items-center text-center gap-3 hover:border-[#C46A1F] hover:shadow-lg hover:shadow-amber-900/10 transition-all duration-200 group cursor-default">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-[#C46A1F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
-          </svg>
-          <span class="text-sm font-semibold text-[#3B2310] group-hover:text-[#C46A1F] transition-colors">Door Installation</span>
-        </div>
-
-        <!-- Painting -->
-        <div class="bg-white border border-[#EDE5D4] rounded-2xl p-6 flex flex-col items-center text-center gap-3 hover:border-[#C46A1F] hover:shadow-lg hover:shadow-amber-900/10 transition-all duration-200 group cursor-default">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-[#C46A1F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 0 0-5.78 1.128 2.25 2.25 0 0 1-2.4 2.245 4.5 4.5 0 0 0 8.4-2.245c0-.399-.078-.78-.22-1.128Zm0 0a15.998 15.998 0 0 0 3.388-1.62m-5.043-.025a15.994 15.994 0 0 1 1.622-3.395m3.42 3.42a15.995 15.995 0 0 0 4.764-4.648l3.876-5.814a1.151 1.151 0 0 0-1.597-1.597L14.146 6.32a15.996 15.996 0 0 0-4.649 4.763m3.42 3.42a6.776 6.776 0 0 0-3.42-3.42" />
-          </svg>
-          <span class="text-sm font-semibold text-[#3B2310] group-hover:text-[#C46A1F] transition-colors">Painting</span>
-        </div>
-
-        <!-- Junk Removal -->
-        <div class="bg-white border border-[#EDE5D4] rounded-2xl p-6 flex flex-col items-center text-center gap-3 hover:border-[#C46A1F] hover:shadow-lg hover:shadow-amber-900/10 transition-all duration-200 group cursor-default">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-[#C46A1F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 0 0-3.213-9.193 2.056 2.056 0 0 0-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 0 0-10.026 0 1.106 1.106 0 0 0-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
-          </svg>
-          <span class="text-sm font-semibold text-[#3B2310] group-hover:text-[#C46A1F] transition-colors">Junk Removal</span>
-        </div>
-
-        <!-- Drywall -->
-        <div class="bg-white border border-[#EDE5D4] rounded-2xl p-6 flex flex-col items-center text-center gap-3 hover:border-[#C46A1F] hover:shadow-lg hover:shadow-amber-900/10 transition-all duration-200 group cursor-default">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-[#C46A1F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z" />
-          </svg>
-          <span class="text-sm font-semibold text-[#3B2310] group-hover:text-[#C46A1F] transition-colors">Drywall</span>
-        </div>
-
-        <!-- Flooring -->
-        <div class="bg-white border border-[#EDE5D4] rounded-2xl p-6 flex flex-col items-center text-center gap-3 hover:border-[#C46A1F] hover:shadow-lg hover:shadow-amber-900/10 transition-all duration-200 group cursor-default">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-[#C46A1F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" />
-          </svg>
-          <span class="text-sm font-semibold text-[#3B2310] group-hover:text-[#C46A1F] transition-colors">Flooring</span>
-        </div>
-
-        <!-- Interior Trim -->
-        <div class="bg-white border border-[#EDE5D4] rounded-2xl p-6 flex flex-col items-center text-center gap-3 hover:border-[#C46A1F] hover:shadow-lg hover:shadow-amber-900/10 transition-all duration-200 group cursor-default">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-[#C46A1F]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l5.654-4.654m5.546-4.615 3.57-3.57a2.25 2.25 0 0 0-3.182-3.182l-3.57 3.57" />
-          </svg>
-          <span class="text-sm font-semibold text-[#3B2310] group-hover:text-[#C46A1F] transition-colors">Interior Trim</span>
-        </div>
-
-      </div>
-
-      <div class="text-center mt-10">
-        <a href="/services" class="inline-flex items-center gap-2 text-[#C46A1F] font-semibold hover:gap-3 transition-all text-sm">
-          See all services <span>→</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT SECTION -->
-  <section class="py-24 bg-[#1E1208] grain section-fade">
-    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-      <!-- Text -->
-      <div>
-        <p class="text-xs tracking-[0.3em] uppercase text-[#C46A1F] font-semibold mb-3">About Oscar</p>
-        <h2 class="font-['Playfair_Display'] text-4xl md:text-5xl font-bold text-[#FAF7F2] mb-6 leading-tight">A Local Pro Who<br/>Takes Pride in the Work</h2>
-        <p class="text-white/60 leading-relaxed mb-4 text-base">
-          Oscar Clark founded Clark Handy Solutions, LLC in 2022 with a simple belief: every homeowner deserves a handyman they can actually trust. Based right here in Orange County, Oscar brings hands-on experience, attention to detail, and honest communication to every job, big or small.
-        </p>
-        <p class="text-white/60 leading-relaxed mb-8 text-base">
-          Whether it's a leaky pipe, a fresh coat of paint, or a full flooring install, Clark Handy Solutions treats your home like their own. No shortcuts. No surprises on the bill.
-        </p>
-        <a href="/contact" class="inline-flex items-center gap-2 bg-[#C46A1F] hover:bg-[#E08030] text-white font-semibold px-6 py-3 rounded-full transition-all duration-200 text-sm">
-          Get a Free Estimate
-        </a>
-      </div>
-
-      <!-- Stats / Visual -->
-      <div class="grid grid-cols-2 gap-4">
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-8 text-center">
-          <div class="font-['Playfair_Display'] text-5xl font-black text-[#C46A1F] mb-2">3+</div>
-          <div class="text-white/50 text-sm">Years Serving OC</div>
-        </div>
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-8 text-center">
-          <div class="font-['Playfair_Display'] text-5xl font-black text-[#C46A1F] mb-2">8+</div>
-          <div class="text-white/50 text-sm">Services Offered</div>
-        </div>
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-8 text-center">
-          <div class="font-['Playfair_Display'] text-5xl font-black text-[#C46A1F] mb-2">5★</div>
-          <div class="text-white/50 text-sm">Google Rated</div>
-        </div>
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-8 text-center">
-          <div class="font-['Playfair_Display'] text-5xl font-black text-[#C46A1F] mb-2">100%</div>
-          <div class="text-white/50 text-sm">Satisfaction Focus</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- REVIEWS -->
-  <section class="py-24 bg-[#EDE5D4] section-fade">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="text-center mb-16">
-        <p class="text-xs tracking-[0.3em] uppercase text-[#C46A1F] font-semibold mb-3">Customer Reviews</p>
-        <h2 class="font-['Playfair_Display'] text-4xl md:text-5xl font-bold text-[#1E1208]">What Our Customers Say</h2>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-6">
-        {[
-          {
-            name: 'Customer Name',
-            rating: 5,
-            text: 'Placeholder.',
-            date: 'March 2025',
-          },
-          {
-            name: 'Customer Name',
-            rating: 5,
-            text: 'Placeholder.',
-            date: 'February 2025',
-          },
-          {
-            name: 'Customer Name',
-            rating: 5,
-            text: 'Placeholder.',
-            date: 'January 2025',
-          },
-        ].map(review => (
-          <div class="bg-white rounded-2xl p-8 border border-[#EDE5D4] shadow-sm hover:shadow-md transition-shadow">
-            <div class="flex gap-1 mb-4 text-[#C46A1F]">
-              {'★'.repeat(review.rating)}
-            </div>
-            <p class="text-[#3B2310] leading-relaxed mb-6 text-sm italic">"{review.text}"</p>
-            <div class="flex justify-between items-center">
-              <span class="font-semibold text-[#1E1208] text-sm">{review.name}</span>
-              <span class="text-xs text-[#7A6652]">{review.date}</span>
-            </div>
+      <div class="services-grid">
+        <a href="/services#plumbing" class="service-card">
+          <img class="service-card-img" src="/images/service-plumbing.jpg" alt="Plumbing services" />
+          <div class="service-card-body">
+            <h3>Plumbing</h3>
+            <p>Faucets, toilets, sinks, drain clogs, shower valves & more.</p>
+            <span class="service-card-link">Learn More →</span>
           </div>
-        ))}
-      </div>
-
-      <div class="text-center mt-10">
-        <a
-          href="https://www.google.com/search?q=Clark+Handy+Solutions+reviews"
-          target="_blank"
-          rel="noopener"
-          class="inline-flex items-center gap-2 border border-[#C46A1F] text-[#C46A1F] hover:bg-[#C46A1F] hover:text-white font-semibold px-6 py-3 rounded-full transition-all duration-200 text-sm"
-        >
-          See All Google Reviews →
+        </a>
+        <a href="/services#electrical" class="service-card">
+          <img class="service-card-img" src="/images/service-electrical.jpg" alt="Electrical services" />
+          <div class="service-card-body">
+            <h3>Electrical</h3>
+            <p>Light fixtures, outlets, ceiling fans, panel upgrades & more.</p>
+            <span class="service-card-link">Learn More →</span>
+          </div>
+        </a>
+        <a href="/services#painting" class="service-card">
+          <img class="service-card-img" src="/images/service-painting.jpg" alt="Painting services" />
+          <div class="service-card-body">
+            <h3>Painting</h3>
+            <p>Interior painting with patching, sanding, and caulking included.</p>
+            <span class="service-card-link">Learn More →</span>
+          </div>
+        </a>
+        <a href="/services#flooring" class="service-card">
+          <img class="service-card-img" src="/images/service-flooring.jpg" alt="Flooring services" />
+          <div class="service-card-body">
+            <h3>Flooring</h3>
+            <p>Laminate and plank flooring installation and removal.</p>
+            <span class="service-card-link">Learn More →</span>
+          </div>
+        </a>
+        <a href="/services#drywall" class="service-card">
+          <img class="service-card-img" src="/images/service-drywall.jpg" alt="Drywall services" />
+          <div class="service-card-body">
+            <h3>Drywall</h3>
+            <p>Installation, patching, texturing, and painting options.</p>
+            <span class="service-card-link">Learn More →</span>
+          </div>
+        </a>
+        <a href="/services#smarthome" class="service-card">
+          <img class="service-card-img" src="/images/service-smarthome.jpg" alt="Smart home services" />
+          <div class="service-card-body">
+            <h3>Smart Home</h3>
+            <p>TV mounting, smart devices, cameras, and doorbells.</p>
+            <span class="service-card-link">Learn More →</span>
+          </div>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- CTA BANNER -->
-  <section class="py-20 bg-[#C46A1F] section-fade">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <h2 class="font-['Playfair_Display'] text-4xl md:text-5xl font-black text-white mb-4">Ready to Get Started?</h2>
-      <p class="text-white/80 text-lg mb-8">Book an appointment online or call us directly. We'll take care of the rest.</p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a
-          href="https://book.squareup.com/appointments/khle4gl514w5yy/location/LM8HDZG27SBX4/services"
-          target="_blank"
-          class="bg-white text-[#C46A1F] font-bold px-8 py-4 rounded-full hover:bg-[#FAF7F2] transition-colors text-base"
-        >
-          Book Now
-        </a>
-        <a
-          href="/contact"
-          class="border-2 border-white text-white font-bold px-8 py-4 rounded-full hover:bg-white/10 transition-colors text-base"
-        >
-          Contact Us
-        </a>
+  <!-- CTA BANNER — no image, typographic -->
+  <section class="cta-banner">
+    <div class="cta-banner-inner container">
+      <div class="cta-text">
+        <span class="section-eyebrow">Ready to Get Started?</span>
+        <div class="gold-line"></div>
+        <h2 class="cta-heading">Let's Talk About<br />Your Project.</h2>
+        <p class="section-body">No job is too big or too small. Reach out today for a free estimate and let's get it done.</p>
+        <div class="cta-actions">
+          <a href="/contact" class="btn btn-gold">Request a Quote</a>
+          <a href="tel:9497340972" class="btn btn-outline">(949) 734-0972</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO TEASER -->
+  <section class="portfolio-teaser">
+    <div class="container">
+      <div class="portfolio-header">
+        <span class="section-eyebrow">Our Work</span>
+        <div class="gold-line"></div>
+        <h2 class="section-title">Results That Speak<br />For Themselves</h2>
+      </div>
+      <div class="portfolio-grid">
+        <img class="portfolio-item" src="/images/home-portfolio-01.jpg" alt="Project photo" />
+        <img class="portfolio-item" src="/images/home-portfolio-02.jpg" alt="Project photo" />
+        <img class="portfolio-item" src="/images/home-portfolio-03.jpg" alt="Project photo" />
+        <img class="portfolio-item" src="/images/home-portfolio-04.jpg" alt="Project photo" />
+        <img class="portfolio-item" src="/images/home-portfolio-05.jpg" alt="Project photo" />
+        <img class="portfolio-item" src="/images/home-portfolio-06.jpg" alt="Project photo" />
+      </div>
+      <div style="text-align:center; margin-top: 3rem;">
+        <a href="/portfolio" class="btn btn-outline-gold">View Full Portfolio</a>
       </div>
     </div>
   </section>
 
 </Layout>
+
+<style>
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    height: 100vh;
+    min-height: 640px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(0,0,0,0.82) 0%,
+      rgba(0,0,0,0.5) 60%,
+      rgba(0,0,0,0.7) 100%
+    );
+    z-index: 1;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding-top: var(--nav-h);
+  }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 10vw, 8rem);
+    line-height: 0.92;
+    letter-spacing: 0.02em;
+    color: var(--light);
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 span { color: var(--gold); }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    color: var(--light-dim);
+    max-width: 500px;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .hero-scroll-indicator {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+  }
+  .hero-scroll-indicator span {
+    display: block;
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    margin: 0 auto;
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.3; transform: scaleY(0.8); }
+    50% { opacity: 1; transform: scaleY(1); }
+  }
+
+  /* ─── TRUST BAR ─── */
+  .trust-bar {
+    background: var(--dark-2);
+    border-bottom: 1px solid var(--gold-dim);
+    border-top: 1px solid var(--gold-dim);
+    padding: 2.2rem 0;
+  }
+
+  .trust-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .trust-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .trust-num {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    color: var(--gold);
+    letter-spacing: 0.04em;
+    line-height: 1;
+  }
+
+  .trust-label {
+    font-family: var(--font-cond);
+    font-size: 0.75rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .trust-divider {
+    width: 1px;
+    height: 40px;
+    background: var(--gold-dim);
+  }
+
+  @media (max-width: 600px) {
+    .trust-divider { display: none; }
+    .trust-inner { justify-content: center; gap: 2.5rem; }
+  }
+
+  /* ─── ABOUT ─── */
+  .about-section {
+    padding: 7rem 0;
+    background: var(--dark);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .about-image-wrap {
+    position: relative;
+    height: 520px;
+  }
+
+  .about-img {
+    position: absolute;
+    inset: 0;
+    border-radius: 2px;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .about-img-accent {
+    position: absolute;
+    bottom: -16px;
+    right: -16px;
+    width: calc(100% - 32px);
+    height: calc(100% - 32px);
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 2px;
+    z-index: 0;
+  }
+
+  .about-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2.5rem;
+  }
+
+  @media (max-width: 860px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .about-image-wrap { height: 340px; }
+  }
+
+  /* ─── SERVICES PREVIEW ─── */
+  .services-preview {
+    padding: 7rem 0;
+    background: var(--dark-2);
+    border-top: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .services-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 3.5rem;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: var(--gold-dim);
+    border: 1px solid var(--gold-dim);
+  }
+
+  .service-card {
+    background: var(--dark-3);
+    display: flex;
+    flex-direction: column;
+    transition: background 0.25s;
+    text-decoration: none;
+    color: inherit;
+  }
+  .service-card:hover { background: var(--mid); }
+  .service-card:hover .service-card-link { color: var(--gold-light); }
+
+  .service-card-img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .service-card-body {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .service-card-body h3 {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    letter-spacing: 0.04em;
+    color: var(--light);
+    margin-bottom: 0.5rem;
+  }
+
+  .service-card-body p {
+    font-size: 0.875rem;
+    color: var(--muted);
+    line-height: 1.65;
+    flex: 1;
+  }
+
+  .service-card-link {
+    display: block;
+    margin-top: 1rem;
+    font-family: var(--font-cond);
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    transition: color 0.2s;
+  }
+
+  @media (max-width: 860px) {
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .services-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ─── CTA BANNER ─── */
+  .cta-banner {
+    background: #0e0c07;
+    border-top: 1px solid rgba(201,168,76,0.18);
+    border-bottom: 1px solid rgba(201,168,76,0.18);
+    padding: 7rem 0;
+  }
+
+  .cta-banner-inner {
+    max-width: 700px;
+  }
+
+  .cta-heading {
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    line-height: 0.93;
+    letter-spacing: 0.02em;
+    color: var(--light);
+    margin: 1rem 0 1.25rem;
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
+  /* ─── PORTFOLIO TEASER ─── */
+  .portfolio-teaser {
+    padding: 7rem 0;
+    background: var(--dark);
+  }
+
+  .portfolio-header {
+    margin-bottom: 3rem;
+  }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 260px 260px;
+    gap: 6px;
+  }
+
+  .portfolio-item {
+    border-radius: 1px;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+  .portfolio-item:first-child {
+    grid-column: 1 / 3;
+  }
+  .portfolio-item:nth-child(5) {
+    grid-column: 2 / 4;
+  }
+
+  @media (max-width: 768px) {
+    .portfolio-grid {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+    }
+    .portfolio-item { height: 180px; }
+    .portfolio-item:first-child,
+    .portfolio-item:nth-child(5) { grid-column: auto; }
+  }
+
+  @media (max-width: 480px) {
+    .portfolio-grid { grid-template-columns: 1fr; }
+    .portfolio-item { height: 220px; }
+  }
+</style>
