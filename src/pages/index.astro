@@ -22,31 +22,6 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
-  <!-- TRUST BAR -->
-  <div class="trust-bar">
-    <div class="container trust-inner">
-      <div class="trust-item">
-        <span class="trust-num">8+</span>
-        <span class="trust-label">Years of Experience</span>
-      </div>
-      <div class="trust-divider"></div>
-      <div class="trust-item">
-        <span class="trust-num">500+</span>
-        <span class="trust-label">Projects Completed</span>
-      </div>
-      <div class="trust-divider"></div>
-      <div class="trust-item">
-        <span class="trust-num">30+</span>
-        <span class="trust-label">Services Offered</span>
-      </div>
-      <div class="trust-divider"></div>
-      <div class="trust-item">
-        <span class="trust-num">5★</span>
-        <span class="trust-label">Rated on Yelp</span>
-      </div>
-    </div>
-  </div>
-
   <!-- ABOUT -->
   <section class="about-section">
     <div class="container about-grid">
@@ -58,7 +33,9 @@ import Layout from '../layouts/Layout.astro';
         <span class="section-eyebrow">Who We Are</span>
         <div class="gold-line"></div>
         <h2 class="section-title">Your Neighborhood<br />Problem Solver</h2>
-        <p class="section-body">Clark Handy Solutions was built on one simple idea: every home deserves quality workmanship without the headache. Whether it's a leaky faucet, a fresh coat of paint, or a full room renovation, we show up on time, do the job right, and leave your space better than we found it.</p>
+        <p class="section-body">Clark Handy Solutions prides itself on a work ethic designed to bring quality services into the homes of local neighborhoods. Flexible pricing is meant to communicate the desire for a business relationship rather than a series of financial transactions. Attention to detail is key because it’s the little things that matter in the grand scheme of things. Every problem has a solution, and solutions lie in wait for those who are eager to figure them out. The importance of home is well understood, giving a greater meaning to the industry of service. I accept the challenge in making customer satisfaction more than a possibility.
+
+        </p>
         <p class="section-body" style="margin-top: 1rem;">Based in Orange County and proudly serving the surrounding area, we bring professional-grade skills to jobs of every size.</p>
         <div class="about-actions">
           <a href="/contact" class="btn btn-gold">Work With Us</a>
@@ -128,22 +105,6 @@ import Layout from '../layouts/Layout.astro';
             <span class="service-card-link">Learn More →</span>
           </div>
         </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA BANNER -->
-  <section class="cta-banner">
-    <div class="cta-banner-inner container">
-      <div class="cta-text">
-        <span class="section-eyebrow">Ready to Get Started?</span>
-        <div class="gold-line"></div>
-        <h2 class="cta-heading">Let's Talk About<br />Your Project.</h2>
-        <p class="section-body">No job is too big or too small. Reach out today for a free estimate and let's get it done.</p>
-        <div class="cta-actions">
-          <a href="/contact" class="btn btn-gold">Request a Quote</a>
-          <a href="tel:9497340972" class="btn btn-outline">(949) 734-0972</a>
-        </div>
       </div>
     </div>
   </section>
@@ -306,56 +267,6 @@ import Layout from '../layouts/Layout.astro';
     50% { opacity: 1; transform: scaleY(1); }
   }
 
-  /* ─── TRUST BAR ─── */
-  .trust-bar {
-    background: var(--dark-2);
-    border-bottom: 1px solid var(--gold-dim);
-    border-top: 1px solid var(--gold-dim);
-    padding: 2.2rem 0;
-  }
-
-  .trust-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-  }
-
-  .trust-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.25rem;
-  }
-
-  .trust-num {
-    font-family: var(--font-display);
-    font-size: 2.2rem;
-    color: var(--gold);
-    letter-spacing: 0.04em;
-    line-height: 1;
-  }
-
-  .trust-label {
-    font-family: var(--font-cond);
-    font-size: 0.75rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-
-  .trust-divider {
-    width: 1px;
-    height: 40px;
-    background: var(--gold-dim);
-  }
-
-  @media (max-width: 600px) {
-    .trust-divider { display: none; }
-    .trust-inner { justify-content: center; gap: 2.5rem; }
-  }
-
   /* ─── ABOUT ─── */
   .about-section {
     padding: 7rem 0;
@@ -489,34 +400,6 @@ import Layout from '../layouts/Layout.astro';
     .services-grid { grid-template-columns: 1fr; }
   }
 
-  /* ─── CTA BANNER ─── */
-  .cta-banner {
-    background: #0e0c07;
-    border-top: 1px solid rgba(201,168,76,0.18);
-    border-bottom: 1px solid rgba(201,168,76,0.18);
-    padding: 7rem 0;
-  }
-
-  .cta-banner-inner {
-    max-width: 700px;
-  }
-
-  .cta-heading {
-    font-family: var(--font-display);
-    font-size: clamp(2.8rem, 6vw, 5rem);
-    line-height: 0.93;
-    letter-spacing: 0.02em;
-    color: var(--light);
-    margin: 1rem 0 1.25rem;
-  }
-
-  .cta-actions {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    margin-top: 2rem;
-  }
-
   /* ─── REVIEWS ─── */
   .reviews-section {
     padding: 7rem 0;
@@ -626,7 +509,8 @@ import Layout from '../layouts/Layout.astro';
   /* ─── PORTFOLIO TEASER ─── */
   .portfolio-teaser {
     padding: 7rem 0;
-    background: var(--dark);
+    background: var(--dark-2);
+    border-top: 1px solid rgba(255,255,255,0.05);
   }
 
   .portfolio-header {
