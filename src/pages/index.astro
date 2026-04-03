@@ -33,7 +33,7 @@ import Layout from '../layouts/Layout.astro';
         <span class="section-eyebrow">Who We Are</span>
         <div class="gold-line"></div>
         <h2 class="section-title">Your Neighborhood<br />Problem Solver</h2>
-        <p class="section-body">Clark Handy Solutions prides itself on a work ethic designed to bring quality services into the homes of local neighborhoods. Flexible pricing is meant to communicate the desire for a business relationship rather than a series of financial transactions. Attention to detail is key because it’s the little things that matter in the grand scheme of things. Every problem has a solution, and solutions lie in wait for those who are eager to figure them out. The importance of home is well understood, giving a greater meaning to the industry of service. I accept the challenge in making customer satisfaction more than a possibility.
+        <p class="section-body">Clark Handy Solutions prides itself on a work ethic designed to bring quality services into the homes of local neighborhoods. Flexible pricing is meant to communicate the desire for a business relationship rather than a series of financial transactions. Attention to detail is key because it's the little things that matter in the grand scheme of things. Every problem has a solution, and solutions lie in wait for those who are eager to figure them out. The importance of home is well understood, giving a greater meaning to the industry of service. I accept the challenge in making customer satisfaction more than a possibility.
 
         </p>
         <p class="section-body" style="margin-top: 1rem;">Based in Orange County and proudly serving the surrounding area, we bring professional-grade skills to jobs of every size.</p>
@@ -173,9 +173,6 @@ import Layout from '../layouts/Layout.astro';
         <img class="portfolio-item" src="/images/home-portfolio-01.jpg" alt="Project photo" />
         <img class="portfolio-item" src="/images/home-portfolio-02.jpg" alt="Project photo" />
         <img class="portfolio-item" src="/images/home-portfolio-03.jpg" alt="Project photo" />
-        <img class="portfolio-item" src="/images/home-portfolio-04.jpg" alt="Project photo" />
-        <img class="portfolio-item" src="/images/home-portfolio-05.jpg" alt="Project photo" />
-        <img class="portfolio-item" src="/images/home-portfolio-06.jpg" alt="Project photo" />
       </div>
       <div style="text-align:center; margin-top: 3rem;">
         <a href="/portfolio" class="btn btn-outline-gold">View Full Portfolio</a>
@@ -520,7 +517,7 @@ import Layout from '../layouts/Layout.astro';
   .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 260px 260px;
+    grid-template-rows: 300px;
     gap: 6px;
   }
 
@@ -530,25 +527,12 @@ import Layout from '../layouts/Layout.astro';
     width: 100%;
     height: 100%;
   }
-  .portfolio-item:first-child {
-    grid-column: 1 / 3;
-  }
-  .portfolio-item:nth-child(5) {
-    grid-column: 2 / 4;
-  }
 
   @media (max-width: 768px) {
     .portfolio-grid {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       grid-template-rows: auto;
     }
-    .portfolio-item { height: 180px; }
-    .portfolio-item:first-child,
-    .portfolio-item:nth-child(5) { grid-column: auto; }
-  }
-
-  @media (max-width: 480px) {
-    .portfolio-grid { grid-template-columns: 1fr; }
     .portfolio-item { height: 220px; }
   }
 </style>
