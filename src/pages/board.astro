@@ -1,0 +1,237 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const posts = [
+  {
+    id: 1,
+    tag: "Resource",
+    title: "Flooring Options",
+    body: "This is my company of choice for flooring. Browse their full selection and find something you like. I'll handle the rest.",
+    link: "http://www.tecsunflooring.com/",
+    linkLabel: "Visit Tecsun Flooring →",
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>`,
+  },
+  {
+    id: 2,
+    tag: "Resource",
+    title: "Trim & Moulding",
+    body: "For baseboards, door casing, and crown moulding Decorative Woods has a huge variety. Browse their catalog before we kick off your next project.",
+    link: "https://decorativewoods.com/",
+    linkLabel: "Browse Decorative Woods →",
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`,
+  },
+  {
+    id: 3,
+    tag: "Note",
+    title: "Don't See Your Service?",
+    body: "Just ask. If I'm not your guy, I know the guy. No project is too obscure, reach out and I'll point you in the right direction.",
+    link: "/contact",
+    linkLabel: "Get in Touch →",
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>`,
+  },
+  {
+    id: 4,
+    tag: "Offer",
+    title: "Gift Cards Available",
+    body: "Give the gift of a job well done. Gift cards redeemable for any home service are available. Perfect for new homeowners, housewarming gifts, or the person who has everything.",
+    link: "/contact",
+    linkLabel: "Inquire About Gift Cards →",
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>`,
+  },
+  {
+    id: 5,
+    tag: "Community",
+    title: "Find Me on Nextdoor",
+    body: "I'm active in the local Nextdoor community. Look me up, read reviews from your neighbors, and reach out directly through the platform.",
+    link: "https://nextdoor.com",
+    linkLabel: "Find on Nextdoor →",
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+  },
+];
+---
+
+<Layout title="Message Board">
+
+  <!-- PAGE HEADER -->
+  <section class="page-header">
+    <div class="container page-header-content">
+      <span class="section-eyebrow fade-up delay-1">Updates & Resources</span>
+      <h1 class="fade-up delay-2">Message<br /><span class="gold">Board.</span></h1>
+      <p class="fade-up delay-3">Notes, recommendations, and resources from Clark, things worth knowing before your next project.</p>
+    </div>
+    <div class="header-rule"></div>
+  </section>
+
+  <!-- BOARD -->
+  <section class="board-section">
+    <div class="container">
+      <div class="board-grid">
+        {posts.map((post, i) => (
+          <article class={`board-card fade-up delay-${i + 1}`}>
+            <div class="card-top">
+              <div class="card-icon" set:html={post.icon} />
+              <span class="card-tag">{post.tag}</span>
+            </div>
+            <h2 class="card-title">{post.title}</h2>
+            <p class="card-body">{post.body}</p>
+            <a href={post.link} class="card-link" target={post.link.startsWith('http') ? '_blank' : '_self'} rel="noopener">
+              {post.linkLabel}
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  /* ─── PAGE HEADER ─── */
+  .page-header {
+    position: relative;
+    padding-top: calc(var(--nav-h) + 5rem);
+    padding-bottom: 4rem;
+    overflow: hidden;
+  }
+
+  .page-header-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .page-header-content .section-eyebrow {
+    text-align: center;
+  }
+
+  .page-header-content h1 {
+    font-family: var(--font-display);
+    font-size: clamp(3.5rem, 8vw, 6.5rem);
+    line-height: 0.92;
+    letter-spacing: 0.02em;
+    color: var(--light);
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .page-header-content h1 .gold {
+    color: var(--gold);
+  }
+
+  .page-header-content p {
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 420px;
+    text-align: center;
+  }
+
+  .header-rule {
+    margin-top: 4rem;
+    height: 1px;
+    background: rgba(255,255,255,0.07);
+  }
+
+  /* ─── BOARD SECTION ─── */
+  .board-section {
+    padding: 7rem 0;
+  }
+
+  .board-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  /* ─── CARD ─── */
+  .board-card {
+    background: var(--dark-2);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-top: 2px solid var(--gold-dim);
+    padding: 2rem 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    transition: border-color 0.25s, transform 0.25s;
+    position: relative;
+  }
+
+  .board-card:hover {
+    border-top-color: var(--gold);
+    transform: translateY(-3px);
+  }
+
+  .card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.4rem;
+  }
+
+  .card-icon {
+    color: var(--gold);
+    opacity: 0.85;
+    display: flex;
+    align-items: center;
+  }
+
+  .card-tag {
+    font-family: var(--font-cond);
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 0.2rem 0.6rem;
+    border-radius: 2px;
+  }
+
+  .card-title {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    letter-spacing: 0.03em;
+    line-height: 1;
+    color: var(--light);
+    margin-bottom: 0.9rem;
+  }
+
+  .card-body {
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.75;
+    flex: 1;
+    margin-bottom: 1.5rem;
+  }
+
+  .card-link {
+    font-family: var(--font-cond);
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    transition: opacity 0.2s;
+    align-self: flex-start;
+    margin-top: auto;
+  }
+
+  .card-link:hover {
+    opacity: 0.7;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 1024px) {
+    .board-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .board-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
