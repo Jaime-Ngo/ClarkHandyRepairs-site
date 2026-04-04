@@ -35,51 +35,39 @@ import Layout from '../layouts/Layout.astro';
       <div class="services-grid">
         <a href="/services#plumbing" class="service-card">
           <img class="service-card-img" src="/images/service-plumbing.jpg" alt="Plumbing services" />
-          <div class="service-card-body">
-            <h3>Plumbing</h3>
-            <p>Faucets, toilets, sinks, drain clogs, shower valves & more.</p>
-            <span class="service-card-link">Learn More →</span>
-          </div>
+          <div class="service-card-overlay"></div>
+          <h3 class="service-card-name">Plumbing</h3>
+          <p class="service-card-tagline">Faucets, toilets, sinks, drain clogs, shower valves & more.</p>
         </a>
         <a href="/services#electrical" class="service-card">
           <img class="service-card-img" src="/images/service-electrical.jpg" alt="Electrical services" />
-          <div class="service-card-body">
-            <h3>Electrical</h3>
-            <p>Light fixtures, outlets, ceiling fans, panel upgrades & more.</p>
-            <span class="service-card-link">Learn More →</span>
-          </div>
+          <div class="service-card-overlay"></div>
+          <h3 class="service-card-name">Electrical</h3>
+          <p class="service-card-tagline">Light fixtures, outlets, ceiling fans, panel upgrades & more.</p>
         </a>
         <a href="/services#painting" class="service-card">
           <img class="service-card-img" src="/images/service-painting.jpg" alt="Painting services" />
-          <div class="service-card-body">
-            <h3>Painting</h3>
-            <p>Interior painting with patching, sanding, and caulking included.</p>
-            <span class="service-card-link">Learn More →</span>
-          </div>
+          <div class="service-card-overlay"></div>
+          <h3 class="service-card-name">Painting</h3>
+          <p class="service-card-tagline">Interior painting with patching, sanding, and caulking included.</p>
         </a>
         <a href="/services#flooring" class="service-card">
           <img class="service-card-img" src="/images/service-flooring.jpg" alt="Flooring services" />
-          <div class="service-card-body">
-            <h3>Flooring</h3>
-            <p>Laminate and plank flooring installation and removal.</p>
-            <span class="service-card-link">Learn More →</span>
-          </div>
+          <div class="service-card-overlay"></div>
+          <h3 class="service-card-name">Flooring</h3>
+          <p class="service-card-tagline">Laminate and plank flooring installation and removal.</p>
         </a>
         <a href="/services#drywall" class="service-card">
           <img class="service-card-img" src="/images/service-drywall.jpg" alt="Drywall services" />
-          <div class="service-card-body">
-            <h3>Drywall</h3>
-            <p>Installation, patching, texturing, and painting options.</p>
-            <span class="service-card-link">Learn More →</span>
-          </div>
+          <div class="service-card-overlay"></div>
+          <h3 class="service-card-name">Drywall</h3>
+          <p class="service-card-tagline">Installation, patching, texturing, and painting options.</p>
         </a>
         <a href="/services#smarthome" class="service-card">
           <img class="service-card-img" src="/images/service-smarthome.jpg" alt="Smart home services" />
-          <div class="service-card-body">
-            <h3>Smart Home</h3>
-            <p>TV mounting, smart devices, cameras, and doorbells.</p>
-            <span class="service-card-link">Learn More →</span>
-          </div>
+          <div class="service-card-overlay"></div>
+          <h3 class="service-card-name">Smart Home</h3>
+          <p class="service-card-tagline">TV mounting, smart devices, cameras, and doorbells.</p>
         </a>
       </div>
     </div>
@@ -155,7 +143,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
 
       <div class="reviews-cta">
-        <a href="https://www.google.com/search?q=Clark+Handy+Solutions+reviews" target="_blank" rel="noopener noreferrer" class="btn btn-outline-gold">See All Reviews</a>
+        <a href="https://www.google.com/search?sca_esv=29b6600cccac4cb2&biw=430&bih=829&sxsrf=ANbL-n5_DIiVYTAU6TofKyazUT95Xchmbw:1775345462544&q=clarkhandysolutions.com+reviews&uds=ALYpb_k0R-juhKYZrHAraPJyrHRcnExCfA6e44gRrDWpQu_wi7VWWLuwnxFRRN_yg-ydN_zc7A0JF-7yCXuB-ivNzk_HkmtxDuQNMcWDDBo84EJMA2ggFLclOSjvJtLvv2WJo-mEiRKrq50I0dQY9XG0rmw8FYfg_1Edzm4XgmGO333rUVKh2beJb7tP403NN9vBwsxEkcKArZn7ruLwhGsAD-Z0OO5E2pU22H-COdB3wLrxhwc4Tr9KINe6qXCrPZf1mHf0PlYLccpONF4tULcKqVsgxJXyDfVbpmjYVeRBAT-EZEy3hlGbE3BGGo9cOvCXnf7YS4TLUO2--ttOzhyY_ils7Ou9iJI6Bi1D-iN4UElwkfOSBu8ALUu4_pjEFBmyvVoO3OysSip-iyb_4yI59H-v9CX8ULguoo4uQA7bAU2UB-DZj4KWr8D4wfNAULTgg8Ri6cC7PEvRxCka3aGks2v1IYXinJ_jVWlTborK1c_MOBapnSvFU2M6DweFZTb1TQ-NclY9SObaSYc-Qo4ie6b82aaUt4-TpSELFt9okuM2M9ww2Rw&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOWKD3LvDjkxL2LdJPJ-wEpHshhyK-SPF8DJ8MnWGRL3QBFwYjfRh0I8qWDU7jQjaKXYqT6veDMsFOLGnDbScH6mB-VHAtEk0yWo7unS0BrLdcJKCsQ%3D%3D&sa=X&ved=2ahUKEwip4JedrdWTAxWpIDQIHdTKI1EQk8gLegQIGxAB&ictx=1" target="_blank" rel="noopener noreferrer" class="btn btn-outline-gold">See All Reviews</a>
       </div>
     </div>
   </section>
@@ -307,54 +295,93 @@ import Layout from '../layouts/Layout.astro';
     border: 1px solid var(--gold-dim);
   }
 
+  /* ─── SERVICE CARD (image-overlay style) ─── */
   .service-card {
-    background: var(--dark-3);
-    display: flex;
-    flex-direction: column;
-    transition: background 0.25s;
+    position: relative;
+    display: block;
+    overflow: hidden;
     text-decoration: none;
     color: inherit;
+    aspect-ratio: 4 / 3;
   }
-  .service-card:hover { background: var(--mid); }
-  .service-card:hover .service-card-link { color: var(--gold-light); }
 
   .service-card-img {
-    height: 200px;
+    position: absolute;
+    inset: 0;
     width: 100%;
+    height: 100%;
     object-fit: cover;
+    transition: transform 0.5s ease;
   }
 
-  .service-card-body {
-    padding: 1.5rem;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
+  .service-card:hover .service-card-img {
+    transform: scale(1.05);
   }
 
-  .service-card-body h3 {
+  /* Dark gradient overlay — always visible, darkens on hover */
+  .service-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(0,0,0,0.75) 0%,
+      rgba(0,0,0,0.15) 50%,
+      rgba(0,0,0,0.05) 100%
+    );
+    transition: background 0.4s ease;
+    z-index: 1;
+  }
+  .service-card:hover .service-card-overlay,
+  .service-card.is-tapped .service-card-overlay {
+    background: linear-gradient(
+      to top,
+      rgba(0,0,0,0.85) 0%,
+      rgba(0,0,0,0.45) 50%,
+      rgba(0,0,0,0.3) 100%
+    );
+  }
+
+  /* Service name — always visible at bottom */
+  .service-card-name {
+    position: absolute;
+    bottom: 1.25rem;
+    left: 1.5rem;
+    right: 1.5rem;
+    z-index: 2;
     font-family: var(--font-display);
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     letter-spacing: 0.04em;
     color: var(--light);
-    margin-bottom: 0.5rem;
+    margin: 0;
+    transition: transform 0.35s ease;
   }
 
-  .service-card-body p {
-    font-size: 0.875rem;
-    color: var(--muted);
-    line-height: 1.65;
-    flex: 1;
+  /* Tagline — hidden by default, slides up on hover */
+  .service-card-tagline {
+    position: absolute;
+    bottom: 1.25rem;
+    left: 1.5rem;
+    right: 1.5rem;
+    z-index: 2;
+    font-size: 0.85rem;
+    color: var(--light-dim);
+    line-height: 1.6;
+    margin: 0;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
   }
 
-  .service-card-link {
-    display: block;
-    margin-top: 1rem;
-    font-family: var(--font-cond);
-    font-size: 0.8rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--gold);
-    transition: color 0.2s;
+  /* On hover: push name up, reveal tagline */
+  .service-card:hover .service-card-name,
+  .service-card.is-tapped .service-card-name {
+    transform: translateY(-2.5rem);
+  }
+
+  .service-card:hover .service-card-tagline,
+  .service-card.is-tapped .service-card-tagline {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   @media (max-width: 860px) {
@@ -362,6 +389,7 @@ import Layout from '../layouts/Layout.astro';
   }
   @media (max-width: 560px) {
     .services-grid { grid-template-columns: 1fr; }
+    .service-card { aspect-ratio: 16 / 10; }
   }
 
   /* ─── REVIEWS ─── */
@@ -591,7 +619,36 @@ import Layout from '../layouts/Layout.astro';
 </style>
 
 <script>
-  // Reusable mobile carousel
+  // ─── Mobile tap-to-reveal for service cards ───
+  (function () {
+    const isTouchDevice = () => 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+    if (isTouchDevice()) {
+      document.querySelectorAll('.service-card').forEach(card => {
+        card.addEventListener('click', (e) => {
+          // If already tapped, allow the link to navigate
+          if (card.classList.contains('is-tapped')) return;
+
+          // First tap: reveal tagline, prevent navigation
+          e.preventDefault();
+          // Close any other open cards
+          document.querySelectorAll('.service-card.is-tapped').forEach(c => {
+            if (c !== card) c.classList.remove('is-tapped');
+          });
+          card.classList.add('is-tapped');
+        });
+      });
+
+      // Close cards when tapping elsewhere
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.service-card')) {
+          document.querySelectorAll('.service-card.is-tapped').forEach(c => c.classList.remove('is-tapped'));
+        }
+      });
+    }
+  })();
+
+  // ─── Reusable mobile carousel ───
   function initCarousel(config) {
     const wrap = document.getElementById(config.wrapperId);
     if (!wrap) return;
