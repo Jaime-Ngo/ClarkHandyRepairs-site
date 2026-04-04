@@ -21,29 +21,6 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section class="about-section">
-    <div class="container about-grid">
-      <div class="about-image-wrap">
-        <img class="about-img" src="/images/about-oscar.jpg" alt="Oscar Clark — Clark Handy Solutions" />
-        <div class="about-img-accent"></div>
-      </div>
-      <div class="about-text">
-        <span class="section-eyebrow">Who We Are</span>
-        <div class="gold-line"></div>
-        <h2 class="section-title">Your Neighborhood<br />Problem Solver</h2>
-        <p class="section-body">Clark Handy Solutions prides itself on a work ethic designed to bring quality services into the homes of local neighborhoods. Flexible pricing is meant to communicate the desire for a business relationship rather than a series of financial transactions. Attention to detail is key because it's the little things that matter in the grand scheme of things. Every problem has a solution, and solutions lie in wait for those who are eager to figure them out. The importance of home is well understood, giving a greater meaning to the industry of service. I accept the challenge in making customer satisfaction more than a possibility.
-
-        </p>
-        <p class="section-body" style="margin-top: 1rem;">Based in Orange County and proudly serving the surrounding area, we bring professional-grade skills to jobs of every size.</p>
-        <div class="about-actions">
-          <a href="/contact" class="btn btn-gold">Work With Us</a>
-          <a href="/portfolio" class="btn btn-outline">See Our Work</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- SERVICES PREVIEW -->
   <section class="services-preview">
     <div class="container">
@@ -115,45 +92,68 @@ import Layout from '../layouts/Layout.astro';
         <span style="font-family: var(--font-cond); font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 1rem;">What Clients Say</span>
         <h2 style="font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4rem); line-height: 0.95; letter-spacing: 0.02em; color: var(--light); margin: 0;">Real Work.<br />Real Results.</h2>
       </div>
-      <div class="reviews-grid">
 
-        <div class="review-card">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-body">"Oscar does amazing work! He installed my chandelier and kitchen sink and I could not be happier with the results. His attention to detail is second to none. I would highly recommend him to anybody."</p>
-          <div class="review-author">
-            <div class="review-avatar" style="background:#9e9e9e;">M</div>
-            <div>
-              <span class="review-name">Michael Mulcahy</span>
-              <span class="review-source">Google Review</span>
+      <div class="reviews-carousel" id="reviewsCarousel">
+        <div class="reviews-grid">
+
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-body">"Oscar does amazing work! He installed my chandelier and kitchen sink and I could not be happier with the results. His attention to detail is second to none. I would highly recommend him to anybody."</p>
+            <div class="review-author">
+              <div class="review-avatar" style="background:#9e9e9e;">M</div>
+              <div>
+                <span class="review-name">Michael Mulcahy</span>
+                <span class="review-source">Google Review</span>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="review-card">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-body">"I had a nagging leak in my small bathroom shower for months. It was time to take care of the problem before it becomes a bigger issue. I called Oscar C. to repair the leak and replace the cartridge for my Delta Tub/Shower. Oscar was very professional, courteous and efficient. He came in and assessed the leak and went right to work. Oscar immediately checked if the cartridge I supplied to him will fit. It was too big. Oscar found a cartridge at the local hardware store. Once he returned it was smooth transition to repair the cartridge and clean up and make sure it was done properly. Magnificent job!"</p>
-          <div class="review-author">
-            <div class="review-avatar" style="background:#5c6bc0;">W</div>
-            <div>
-              <span class="review-name">Wayne Rayford</span>
-              <span class="review-source">Google Review</span>
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-body">"I had a nagging leak in my small bathroom shower for months. It was time to take care of the problem before it becomes a bigger issue. I called Oscar C. to repair the leak and replace the cartridge for my Delta Tub/Shower. Oscar was very professional, courteous and efficient. He came in and assessed the leak and went right to work. Oscar immediately checked if the cartridge I supplied to him will fit. It was too big. Oscar found a cartridge at the local hardware store. Once he returned it was smooth transition to repair the cartridge and clean up and make sure it was done properly. Magnificent job!"</p>
+            <div class="review-author">
+              <div class="review-avatar" style="background:#5c6bc0;">W</div>
+              <div>
+                <span class="review-name">Wayne Rayford</span>
+                <span class="review-source">Google Review</span>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="review-card">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-body">"Excellent service and genuine care for the client are Oscar's gifts! He was thorough and meticulous in putting together 2 bookcases and a entertainment center and QUICK! I really expected a 2 day job...he got it all done in 4 and half hours! I will definitely call on him again!"</p>
-          <div class="review-author">
-            <div class="review-avatar" style="background:#e91e8c;">C</div>
-            <div>
-              <span class="review-name">Chrisanne Blankenship</span>
-              <span class="review-source">Google Review</span>
+          <div class="review-card">
+            <div class="review-stars">★★★★★</div>
+            <p class="review-body">"Excellent service and genuine care for the client are Oscar's gifts! He was thorough and meticulous in putting together 2 bookcases and a entertainment center and QUICK! I really expected a 2 day job...he got it all done in 4 and half hours! I will definitely call on him again!"</p>
+            <div class="review-author">
+              <div class="review-avatar" style="background:#e91e8c;">C</div>
+              <div>
+                <span class="review-name">Chrisanne Blankenship</span>
+                <span class="review-source">Google Review</span>
+              </div>
             </div>
           </div>
+
         </div>
 
+        <!-- Mobile carousel controls -->
+        <div class="reviews-nav">
+          <button class="reviews-arrow reviews-prev" id="reviewsPrev" aria-label="Previous review">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M12 4l-6 6 6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="reviews-dots" id="reviewsDots">
+            <button class="reviews-dot active" aria-label="Review 1"></button>
+            <button class="reviews-dot" aria-label="Review 2"></button>
+            <button class="reviews-dot" aria-label="Review 3"></button>
+          </div>
+          <button class="reviews-arrow reviews-next" id="reviewsNext" aria-label="Next review">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M8 4l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
       </div>
+
       <div class="reviews-cta">
         <a href="https://www.google.com/search?q=Clark+Handy+Solutions+reviews" target="_blank" rel="noopener noreferrer" class="btn btn-outline-gold">See All Reviews</a>
       </div>
@@ -168,10 +168,29 @@ import Layout from '../layouts/Layout.astro';
         <div class="gold-line"></div>
         <h2 class="section-title">Results That Speak<br />For Themselves</h2>
       </div>
-      <div class="portfolio-grid">
-        <img class="portfolio-item" src="/images/home-portfolio-01.jpg" alt="Project photo" />
-        <img class="portfolio-item" src="/images/home-portfolio-02.jpg" alt="Project photo" />
-        <img class="portfolio-item" src="/images/home-portfolio-03.jpg" alt="Project photo" />
+      <div class="portfolio-carousel" id="portfolioCarousel">
+        <div class="portfolio-grid">
+          <img class="portfolio-item" src="/images/home-portfolio-01.jpg" alt="Project photo" />
+          <img class="portfolio-item" src="/images/home-portfolio-02.jpg" alt="Project photo" />
+          <img class="portfolio-item" src="/images/home-portfolio-03.jpg" alt="Project photo" />
+        </div>
+        <div class="portfolio-nav">
+          <button class="reviews-arrow" id="portfolioPrev" aria-label="Previous photo">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M12 4l-6 6 6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="reviews-dots" id="portfolioDots">
+            <button class="reviews-dot active" aria-label="Photo 1"></button>
+            <button class="reviews-dot" aria-label="Photo 2"></button>
+            <button class="reviews-dot" aria-label="Photo 3"></button>
+          </div>
+          <button class="reviews-arrow" id="portfolioNext" aria-label="Next photo">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M8 4l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
       </div>
       <div style="text-align:center; margin-top: 3rem;">
         <a href="/portfolio" class="btn btn-outline-gold">View Full Portfolio</a>
@@ -261,57 +280,6 @@ import Layout from '../layouts/Layout.astro';
   @keyframes scrollPulse {
     0%, 100% { opacity: 0.3; transform: scaleY(0.8); }
     50% { opacity: 1; transform: scaleY(1); }
-  }
-
-  /* ─── ABOUT ─── */
-  .about-section {
-    padding: 7rem 0;
-    background: var(--dark);
-  }
-
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: center;
-  }
-
-  .about-image-wrap {
-    position: relative;
-    height: 520px;
-  }
-
-  .about-img {
-    position: absolute;
-    inset: 0;
-    border-radius: 2px;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .about-img-accent {
-    position: absolute;
-    bottom: -16px;
-    right: -16px;
-    width: calc(100% - 32px);
-    height: calc(100% - 32px);
-    border: 1px solid rgba(201,168,76,0.3);
-    border-radius: 2px;
-    z-index: 0;
-  }
-
-  .about-actions {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    margin-top: 2.5rem;
-  }
-
-  @media (max-width: 860px) {
-    .about-grid { grid-template-columns: 1fr; }
-    .about-image-wrap { height: 340px; }
   }
 
   /* ─── SERVICES PREVIEW ─── */
@@ -404,29 +372,6 @@ import Layout from '../layouts/Layout.astro';
     border-bottom: 1px solid rgba(255,255,255,0.05);
   }
 
-  .reviews-header {
-    text-align: center;
-    margin-bottom: 3.5rem;
-  }
-
-  .reviews-eyebrow {
-    font-family: var(--font-cond);
-    font-size: 0.75rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--gold);
-    display: block;
-    margin-bottom: 1rem;
-  }
-
-  .reviews-title {
-    font-family: var(--font-display);
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    line-height: 0.95;
-    letter-spacing: 0.02em;
-    color: var(--light);
-  }
-
   .reviews-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -498,8 +443,49 @@ import Layout from '../layouts/Layout.astro';
     margin-top: 3rem;
   }
 
-  @media (max-width: 860px) {
-    .reviews-grid { grid-template-columns: 1fr; }
+  /* ─── REVIEWS CAROUSEL CONTROLS (hidden on desktop by default) ─── */
+  .reviews-nav {
+    display: none;
+  }
+
+  .reviews-arrow {
+    background: none;
+    border: 1px solid var(--gold-dim);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all 0.2s;
+    flex-shrink: 0;
+  }
+  .reviews-arrow:hover {
+    color: var(--gold);
+    border-color: var(--gold);
+  }
+
+  .reviews-dots {
+    display: flex;
+    gap: 0.6rem;
+    align-items: center;
+  }
+
+  .reviews-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: none;
+    background: var(--gold-dim);
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.2s;
+  }
+  .reviews-dot.active {
+    background: var(--gold);
+    transform: scale(1.25);
   }
 
   /* ─── PORTFOLIO TEASER ─── */
@@ -527,6 +513,10 @@ import Layout from '../layouts/Layout.astro';
     height: 100%;
   }
 
+  .portfolio-nav {
+    display: none;
+  }
+
   @media (max-width: 768px) {
     .portfolio-grid {
       grid-template-columns: 1fr;
@@ -535,3 +525,146 @@ import Layout from '../layouts/Layout.astro';
     .portfolio-item { height: 220px; }
   }
 </style>
+
+<style is:global>
+  /* Mobile carousels — must be global so JS-toggled classes work */
+  @media (max-width: 860px) {
+    /* Reviews */
+    .reviews-carousel .reviews-grid {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    .reviews-carousel .review-card {
+      display: none !important;
+    }
+
+    .reviews-carousel .review-card.is-active {
+      display: flex !important;
+    }
+
+    .reviews-carousel .reviews-nav {
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    /* Portfolio */
+    .portfolio-carousel .portfolio-grid {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+    }
+
+    .portfolio-carousel .portfolio-item {
+      display: none !important;
+      height: 220px;
+    }
+
+    .portfolio-carousel .portfolio-item.is-active {
+      display: block !important;
+    }
+
+    .portfolio-carousel .portfolio-nav {
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+  }
+
+  /* Make sure navs are hidden on desktop */
+  @media (min-width: 861px) {
+    .reviews-carousel .reviews-nav {
+      display: none !important;
+    }
+  }
+  @media (min-width: 769px) {
+    .portfolio-carousel .portfolio-nav {
+      display: none !important;
+    }
+  }
+</style>
+
+<script>
+  // Reusable mobile carousel
+  function initCarousel(config) {
+    const wrap = document.getElementById(config.wrapperId);
+    if (!wrap) return;
+    const items = wrap.querySelectorAll(config.itemSelector);
+    const dots = wrap.querySelectorAll('.reviews-dot');
+    const prev = document.getElementById(config.prevId);
+    const next = document.getElementById(config.nextId);
+    let cur = 0;
+
+    function isMobile() {
+      return window.matchMedia('(max-width: ' + config.breakpoint + 'px)').matches;
+    }
+
+    function show(i) {
+      items.forEach((el, idx) => el.classList.toggle('is-active', idx === i));
+      dots.forEach((d, idx) => d.classList.toggle('active', idx === i));
+      cur = i;
+    }
+
+    function init() {
+      if (isMobile()) {
+        show(0);
+      } else {
+        items.forEach(el => el.classList.remove('is-active'));
+      }
+    }
+
+    prev?.addEventListener('click', () => {
+      show(cur <= 0 ? items.length - 1 : cur - 1);
+    });
+
+    next?.addEventListener('click', () => {
+      show(cur >= items.length - 1 ? 0 : cur + 1);
+    });
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => show(i));
+    });
+
+    // Swipe support
+    let startX = 0;
+    wrap.addEventListener('touchstart', (e) => {
+      startX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    wrap.addEventListener('touchend', (e) => {
+      if (!isMobile()) return;
+      const diff = startX - e.changedTouches[0].screenX;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) show(cur >= items.length - 1 ? 0 : cur + 1);
+        else show(cur <= 0 ? items.length - 1 : cur - 1);
+      }
+    }, { passive: true });
+
+    window.addEventListener('resize', init);
+    init();
+  }
+
+  // Reviews carousel
+  initCarousel({
+    wrapperId: 'reviewsCarousel',
+    itemSelector: '.review-card',
+    prevId: 'reviewsPrev',
+    nextId: 'reviewsNext',
+    breakpoint: 860
+  });
+
+  // Portfolio carousel
+  initCarousel({
+    wrapperId: 'portfolioCarousel',
+    itemSelector: '.portfolio-item',
+    prevId: 'portfolioPrev',
+    nextId: 'portfolioNext',
+    breakpoint: 768
+  });
+</script>

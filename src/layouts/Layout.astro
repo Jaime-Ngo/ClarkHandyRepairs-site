@@ -24,10 +24,30 @@ const { title = 'Clark Handy Solutions' } = Astro.props;
 
       <ul class="nav-links-desktop">
         <li><a href="/">Home</a></li>
-        <li><a href="/services">Services</a></li>
+        <li><a href="/about">About</a></li>
+        <li class="nav-item-dropdown">
+          <a href="/services" class="nav-dropdown-trigger">
+            Services
+            <svg class="nav-dropdown-chevron" width="11" height="11" viewBox="0 0 11 11" fill="none">
+              <path d="M1.5 3.5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </a>
+          <div class="nav-dropdown">
+            <div class="nav-dropdown-inner">
+              <a href="/services#plumbing-kitchen">Kitchen Plumbing</a>
+              <a href="/services#plumbing-bathroom">Bathroom Plumbing</a>
+              <a href="/services#electrical">Electrical</a>
+              <a href="/services#painting">Painting</a>
+              <a href="/services#flooring">Flooring</a>
+              <a href="/services#drywall">Drywall</a>
+              <a href="/services#doors">Doors & Hardware</a>
+              <a href="/services#smarthome">Smart Home & Tech</a>
+              <a href="/services#general">General Handyman</a>
+            </div>
+          </div>
+        </li>
         <li><a href="/portfolio">Portfolio</a></li>
         <li><a href="/board">Board</a></li>
-        <li><a href="/contact">Contact</a></li>
         <li><a href="/contact" class="nav-cta">Get a Quote</a></li>
       </ul>
 
@@ -42,10 +62,28 @@ const { title = 'Clark Handy Solutions' } = Astro.props;
     <div class="nav-mobile-menu" id="mobileMenu">
       <ul>
         <li><a href="/">Home</a></li>
-        <li><a href="/services">Services</a></li>
+        <li><a href="/about">About</a></li>
+        <li>
+          <button class="mobile-section-toggle" id="servicesToggle" aria-expanded="false">
+            <span class="mobile-section-label">Services</span>
+            <svg class="mobile-chevron" width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </button>
+          <ul class="mobile-sub" id="servicesSub">
+            <li><a href="/services#plumbing-kitchen">Kitchen Plumbing</a></li>
+            <li><a href="/services#plumbing-bathroom">Bathroom Plumbing</a></li>
+            <li><a href="/services#electrical">Electrical</a></li>
+            <li><a href="/services#painting">Painting</a></li>
+            <li><a href="/services#flooring">Flooring</a></li>
+            <li><a href="/services#drywall">Drywall</a></li>
+            <li><a href="/services#doors">Doors & Hardware</a></li>
+            <li><a href="/services#smarthome">Smart Home & Tech</a></li>
+            <li><a href="/services#general">General Handyman</a></li>
+          </ul>
+        </li>
         <li><a href="/portfolio">Portfolio</a></li>
         <li><a href="/board">Board</a></li>
-        <li><a href="/contact">Contact</a></li>
         <li><a href="/contact" class="mobile-cta">Get a Quote</a></li>
       </ul>
       <div class="mobile-socials">
@@ -105,28 +143,16 @@ const { title = 'Clark Handy Solutions' } = Astro.props;
           <h4>Navigation</h4>
           <ul>
             <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
             <li><a href="/services">Services</a></li>
             <li><a href="/portfolio">Portfolio</a></li>
             <li><a href="/board">Message Board</a></li>
-            <li><a href="/contact">Contact</a></li>
+            <li><a href="/contact">Get a Quote</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h4>Services</h4>
-          <ul>
-            <li><a href="/services#plumbing">Plumbing</a></li>
-            <li><a href="/services#electrical">Electrical</a></li>
-            <li><a href="/services#painting">Painting</a></li>
-            <li><a href="/services#flooring">Flooring</a></li>
-            <li><a href="/services#drywall">Drywall</a></li>
-            <li><a href="/services#doors">Doors & Hardware</a></li>
-            <li><a href="/services#smarthome">Smart Home</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>Contact</h4>
+          <h4>Get a Quote</h4>
           <ul>
             <li><a href="tel:9497340972">(949) 734-0972</a></li>
             <li><a href="mailto:Info@clarkhandysolutions.com">Info@clarkhandysolutions.com</a></li>
@@ -226,6 +252,69 @@ const { title = 'Clark Handy Solutions' } = Astro.props;
     border-color: var(--gold) !important;
   }
 
+  /* SERVICES DROPDOWN */
+  .nav-item-dropdown {
+    position: relative;
+  }
+
+  .nav-dropdown-trigger {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .nav-dropdown-chevron {
+    transition: transform 0.2s ease;
+    opacity: 0.6;
+  }
+
+  .nav-item-dropdown:hover .nav-dropdown-chevron {
+    transform: rotate(180deg);
+    opacity: 1;
+  }
+
+  .nav-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 210px;
+    flex-direction: column;
+    z-index: 200;
+    padding-top: 0.75rem;
+  }
+
+  .nav-dropdown-inner {
+    background: var(--dark-2);
+    border: 1px solid var(--gold-dim);
+    border-radius: 2px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav-item-dropdown:hover .nav-dropdown {
+    display: flex;
+  }
+
+  .nav-dropdown a {
+    font-family: var(--font-cond);
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted) !important;
+    padding: 0.8rem 1.2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    transition: color 0.2s, background 0.2s;
+  }
+  .nav-dropdown a:last-child { border-bottom: none; }
+  .nav-dropdown a:hover {
+    color: var(--gold) !important;
+    background: rgba(255,255,255,0.03);
+  }
+
+  /* MOBILE TOGGLE */
   .nav-mobile-toggle {
     display: none;
     flex-direction: column;
@@ -243,11 +332,16 @@ const { title = 'Clark Handy Solutions' } = Astro.props;
     transition: all 0.3s;
   }
 
+  /* MOBILE MENU */
   .nav-mobile-menu {
     display: none;
     background: var(--dark-2);
     border-top: 1px solid var(--gold-dim);
     padding: 1.5rem 2rem 2rem;
+    max-height: calc(100vh - var(--nav-h));
+    max-height: calc(100dvh - var(--nav-h));
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
   .nav-mobile-menu.open { display: block; }
   .nav-mobile-menu ul {
@@ -267,6 +361,58 @@ const { title = 'Clark Handy Solutions' } = Astro.props;
   }
   .nav-mobile-menu a:hover { color: var(--gold); }
   .mobile-cta { color: var(--gold) !important; }
+
+  /* SERVICES ACCORDION TOGGLE */
+  .mobile-section-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .mobile-section-label {
+    font-family: var(--font-cond);
+    font-size: 1.1rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--light-dim);
+  }
+
+  .mobile-chevron {
+    color: var(--muted);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .mobile-section-toggle[aria-expanded="true"] .mobile-chevron {
+    transform: rotate(180deg);
+  }
+
+  .nav-mobile-menu .mobile-sub {
+    list-style: none;
+    display: none;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding-left: 1rem;
+    margin-top: 0.75rem;
+    margin-bottom: 0.5rem;
+    border-left: 1px solid var(--gold-dim);
+    overflow: hidden;
+  }
+  .nav-mobile-menu .mobile-sub.open {
+    display: flex;
+  }
+  .mobile-sub li { line-height: 1; }
+  .mobile-sub a {
+    font-size: 0.85rem !important;
+    color: var(--muted) !important;
+    letter-spacing: 0.08em !important;
+  }
+  .mobile-sub a:hover { color: var(--gold) !important; }
 
   .mobile-socials {
     display: flex;
@@ -299,7 +445,7 @@ const { title = 'Clark Handy Solutions' } = Astro.props;
 
   .footer-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr;
     gap: 3rem;
     margin-bottom: 3rem;
   }
@@ -406,9 +552,19 @@ const { title = 'Clark Handy Solutions' } = Astro.props;
 </style>
 
 <script>
+  // Mobile menu toggle
   const toggle = document.getElementById('menuToggle');
   const menu = document.getElementById('mobileMenu');
   toggle?.addEventListener('click', () => {
     menu?.classList.toggle('open');
+  });
+
+  // Services accordion toggle
+  const servicesToggle = document.getElementById('servicesToggle');
+  const servicesSub = document.getElementById('servicesSub');
+  servicesToggle?.addEventListener('click', () => {
+    const expanded = servicesToggle.getAttribute('aria-expanded') === 'true';
+    servicesToggle.setAttribute('aria-expanded', String(!expanded));
+    servicesSub?.classList.toggle('open');
   });
 </script>
