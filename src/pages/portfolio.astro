@@ -192,13 +192,15 @@ const usedCategories = ['All', ...new Set(projects.map(p => p.category))];
 
 <Layout title="Portfolio">
 
-  <!-- PAGE HERO  (unchanged) -->
+  <!-- PAGE HERO -->
   <section class="page-hero">
-    <div class="page-hero-bg img-ph" data-label="Portfolio Hero Image"></div>
+    <video class="page-hero-video" autoplay muted loop playsinline>
+      <source src="/portfolio/hero-reel.mp4" type="video/mp4" />
+    </video>
     <div class="page-hero-overlay"></div>
     <div class="container page-hero-content">
-      <span class="section-eyebrow fade-up delay-1">Our Work</span>
-      <h1 class="fade-up delay-2">Portfolio</h1>
+      <span class="section-eyebrow hero-eyebrow-swap fade-up delay-1">Portfolio</span>
+      <h1 class="hero-h1-swap fade-up delay-2">Our Work</h1>
       <p class="fade-up delay-3">Real jobs. Real results. Browse our completed projects and see the quality we bring to every home.</p>
     </div>
   </section>
@@ -325,11 +327,16 @@ const usedCategories = ['All', ...new Set(projects.map(p => p.category))];
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 .page-hero {
   position: relative;
-  height: 52vh;
-  min-height: 380px;
+  height: 70vh;
+  min-height: 520px;
   display: flex;
   align-items: flex-end;
   overflow: hidden;
+}
+.page-hero-video {
+  position: absolute; inset: 0; z-index: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
 }
 .page-hero-bg { position: absolute; inset: 0; z-index: 0; }
 .page-hero-overlay {
@@ -341,12 +348,25 @@ const usedCategories = ['All', ...new Set(projects.map(p => p.category))];
   position: relative; z-index: 2;
   padding-bottom: 4rem; padding-top: var(--nav-h);
 }
-.page-hero-content h1 {
+
+/* Swapped: eyebrow is now the large display heading, h1 is the small gold label */
+.hero-eyebrow-swap {
+  color: var(--light);
   font-family: var(--font-display);
   font-size: clamp(3rem, 7vw, 5.5rem);
   line-height: 0.95; letter-spacing: 0.02em;
-  color: var(--light); margin-bottom: 1rem;
+  display: block; margin-bottom: 0.5rem;
 }
+.hero-h1-swap {
+  font-family: var(--font-cond);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.2rem;
+  font-weight: 400;
+}
+
 .page-hero-content p {
   color: var(--light-dim); font-size: 1rem; max-width: 480px;
 }
