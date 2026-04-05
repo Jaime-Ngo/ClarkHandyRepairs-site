@@ -10,7 +10,8 @@ import Layout from '../layouts/Layout.astro';
     <div class="hero-overlay"></div>
     <div class="hero-content container">
       <span class="section-eyebrow fade-up delay-1">Orange County's Trusted Handyman</span>
-      <h1 class="fade-up delay-2">Solutions<br /><span>Begin Here.</span></h1>      <p class="hero-sub fade-up delay-3">From plumbing and electrical to painting and flooring, Clark Handy Solutions handles it all with skill, speed, and integrity.</p>
+      <h1 class="fade-up delay-2">Solutions<br /><span>Begin Here</span></h1>
+      <p class="hero-sub fade-up delay-3">From plumbing and electrical to painting and flooring, Clark Handy Solutions handles it all with skill, speed, and integrity.</p>
       <div class="hero-btns fade-up delay-4">
         <a href="/contact" class="btn btn-gold">Get a Free Quote</a>
         <a href="/services" class="btn btn-outline">View Services</a>
@@ -28,7 +29,7 @@ import Layout from '../layouts/Layout.astro';
         <div>
           <span class="section-eyebrow">What We Do</span>
           <div class="gold-line"></div>
-          <h2 class="section-title">A Full Range of<br />Home Services</h2>
+          <h2 class="section-title">A Full Range of<br /><span class="gold-text">Home Services</span></h2>
         </div>
         <a href="/services" class="btn btn-outline-gold">All Services</a>
       </div>
@@ -78,7 +79,7 @@ import Layout from '../layouts/Layout.astro';
     <div class="container">
       <div style="text-align: center; margin-bottom: 3.5rem; display: block; width: 100%;">
         <span style="font-family: var(--font-cond); font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 1rem;">What Clients Say</span>
-        <h2 style="font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4rem); line-height: 0.95; letter-spacing: 0.02em; color: var(--light); margin: 0;">Real Work.<br />Real Results.</h2>
+        <h2 style="font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4rem); line-height: 0.95; letter-spacing: 0.02em; color: var(--light); margin: 0;">Real Work<br /><span class="gold-text">Real Results</span></h2>
       </div>
 
       <div class="reviews-carousel" id="reviewsCarousel">
@@ -154,7 +155,7 @@ import Layout from '../layouts/Layout.astro';
       <div class="portfolio-header">
         <span class="section-eyebrow">Our Work</span>
         <div class="gold-line"></div>
-        <h2 class="section-title">Results That Speak<br />For Themselves</h2>
+        <h2 class="section-title">Results That Speak<br /><span class="gold-text">For Themselves</span></h2>
       </div>
       <div class="portfolio-carousel" id="portfolioCarousel">
         <div class="portfolio-grid">
@@ -189,6 +190,10 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <style>
+  .gold-text {
+    color: var(--gold);
+  }
+
   /* ─── HERO ─── */
   .hero {
     position: relative;
@@ -318,7 +323,6 @@ import Layout from '../layouts/Layout.astro';
     transform: scale(1.05);
   }
 
-  /* Dark gradient overlay — always visible, darkens on hover */
   .service-card-overlay {
     position: absolute;
     inset: 0;
@@ -341,7 +345,6 @@ import Layout from '../layouts/Layout.astro';
     );
   }
 
-  /* Service name — always visible at bottom */
   .service-card-name {
     position: absolute;
     bottom: 1.25rem;
@@ -356,7 +359,6 @@ import Layout from '../layouts/Layout.astro';
     transition: transform 0.35s ease;
   }
 
-  /* Tagline — hidden by default, slides up on hover */
   .service-card-tagline {
     position: absolute;
     bottom: 1.25rem;
@@ -372,7 +374,6 @@ import Layout from '../layouts/Layout.astro';
     transition: opacity 0.35s ease, transform 0.35s ease;
   }
 
-  /* On hover: push name up, reveal tagline */
   .service-card:hover .service-card-name,
   .service-card.is-tapped .service-card-name {
     transform: translateY(-2.5rem);
@@ -471,7 +472,6 @@ import Layout from '../layouts/Layout.astro';
     margin-top: 3rem;
   }
 
-  /* ─── REVIEWS CAROUSEL CONTROLS (hidden on desktop by default) ─── */
   .reviews-nav {
     display: none;
   }
@@ -555,9 +555,7 @@ import Layout from '../layouts/Layout.astro';
 </style>
 
 <style is:global>
-  /* Mobile carousels — must be global so JS-toggled classes work */
   @media (max-width: 860px) {
-    /* Reviews */
     .reviews-carousel .reviews-grid {
       grid-template-columns: 1fr;
       gap: 0;
@@ -581,7 +579,6 @@ import Layout from '../layouts/Layout.astro';
   }
 
   @media (max-width: 768px) {
-    /* Portfolio */
     .portfolio-carousel .portfolio-grid {
       grid-template-columns: 1fr;
       grid-template-rows: auto;
@@ -605,7 +602,6 @@ import Layout from '../layouts/Layout.astro';
     }
   }
 
-  /* Make sure navs are hidden on desktop */
   @media (min-width: 861px) {
     .reviews-carousel .reviews-nav {
       display: none !important;
@@ -626,12 +622,8 @@ import Layout from '../layouts/Layout.astro';
     if (isTouchDevice()) {
       document.querySelectorAll('.service-card').forEach(card => {
         card.addEventListener('click', (e) => {
-          // If already tapped, allow the link to navigate
           if (card.classList.contains('is-tapped')) return;
-
-          // First tap: reveal tagline, prevent navigation
           e.preventDefault();
-          // Close any other open cards
           document.querySelectorAll('.service-card.is-tapped').forEach(c => {
             if (c !== card) c.classList.remove('is-tapped');
           });
@@ -639,7 +631,6 @@ import Layout from '../layouts/Layout.astro';
         });
       });
 
-      // Close cards when tapping elsewhere
       document.addEventListener('click', (e) => {
         if (!e.target.closest('.service-card')) {
           document.querySelectorAll('.service-card.is-tapped').forEach(c => c.classList.remove('is-tapped'));
@@ -688,7 +679,6 @@ import Layout from '../layouts/Layout.astro';
       dot.addEventListener('click', () => show(i));
     });
 
-    // Swipe support
     let startX = 0;
     wrap.addEventListener('touchstart', (e) => {
       startX = e.changedTouches[0].screenX;
@@ -707,7 +697,6 @@ import Layout from '../layouts/Layout.astro';
     init();
   }
 
-  // Reviews carousel
   initCarousel({
     wrapperId: 'reviewsCarousel',
     itemSelector: '.review-card',
@@ -716,7 +705,6 @@ import Layout from '../layouts/Layout.astro';
     breakpoint: 860
   });
 
-  // Portfolio carousel
   initCarousel({
     wrapperId: 'portfolioCarousel',
     itemSelector: '.portfolio-item',

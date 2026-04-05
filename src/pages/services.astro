@@ -5,7 +5,7 @@ const services = [
 {
     id: 'plumbing-kitchen',
     category: 'Kitchen',
-    tagline: 'Kitchen Fixes, Done Clean',
+    tagline: ['Kitchen Fixes,', 'Done Clean'],
     description: 'From a dripping faucet to a full fixture installation, we handle all your kitchen plumbing needs with care and precision. No mess left behind.',
     items: [
       'Kitchen Sink Installation',
@@ -20,7 +20,7 @@ const services = [
   {
     id: 'plumbing-bathroom',
     category: 'Bathroom',
-    tagline: 'Reliable Fixes, No Surprises',
+    tagline: ['Reliable Fixes,', 'No Surprises'],
     description: 'From toilet installations to full bathtub replacements, we handle all your bathroom plumbing with care and precision. No mess left behind.',
     items: [
       'Faucet Replacement',
@@ -37,7 +37,7 @@ const services = [
   {
     id: 'electrical',
     category: 'Electrical',
-    tagline: 'Safe, Code-Compliant Work',
+    tagline: ['Safe,', 'Code-Compliant Work'],
     description: 'Whether you need a new ceiling fan, upgraded outlets, or a full panel upgrade, we get the job done safely and up to code.',
     items: [
       'Light Fixture Installation',
@@ -55,7 +55,7 @@ const services = [
   {
     id: 'painting',
     category: 'Painting',
-    tagline: 'A Fresh Look, Done Right',
+    tagline: ['A Fresh Look,', 'Done Right'],
     description: 'We don\'t just roll paint on walls. Every job includes patching, sanding, prepping, and caulking — so the finish lasts.',
     items: [
       'Interior Painting',
@@ -69,7 +69,7 @@ const services = [
   {
     id: 'flooring',
     category: 'Flooring',
-    tagline: 'From the Ground Up',
+    tagline: ['From the', 'Ground Up'],
     description: 'We handle everything from tearing out old flooring to installing beautiful new plank flooring — leaving your space transformed.',
     items: [
       'Laminate Flooring Installation',
@@ -81,7 +81,7 @@ const services = [
   {
     id: 'drywall',
     category: 'Drywall',
-    tagline: 'Seamless Walls, Every Time',
+    tagline: ['Seamless Walls,', 'Every Time'],
     description: 'Got a hole in the wall, water damage, or a full room that needs drywall? We patch, texture, and finish to match existing surfaces.',
     items: [
       'Drywall Installation',
@@ -94,7 +94,7 @@ const services = [
   {
     id: 'doors',
     category: 'Doors & Hardware',
-    tagline: 'Smooth Operation, Every Time',
+    tagline: ['Smooth Operation,', 'Every Time'],
     description: 'From hanging a new door to installing smart locks and adjusting stubborn cabinet hinges, we sweat the details so you don\'t have to.',
     items: [
       'Door Installation (Slab & Prehung)',
@@ -108,7 +108,7 @@ const services = [
   {
     id: 'smarthome',
     category: 'Smart Home & Tech',
-    tagline: 'Modern Living, Expertly Installed',
+    tagline: ['Modern Living,', 'Expertly Installed'],
     description: 'We install and set up smart home devices so everything works right from day one — no frustration, no loose wires.',
     items: [
       'TV Mounting',
@@ -122,7 +122,7 @@ const services = [
   {
     id: 'general',
     category: 'General Handyman',
-    tagline: 'The Jobs Others Won\'t Take',
+    tagline: ['The Jobs Others', 'Won\'t Take'],
     description: 'Have a list of odds and ends? We do that too. From appliance installs to furniture assembly and full demolition, no task is too random.',
     items: [
       'Furniture Assembly',
@@ -145,7 +145,7 @@ const services = [
     <div class="page-hero-overlay"></div>
     <div class="container page-hero-content">
       <span class="section-eyebrow fade-up delay-1">What We Offer</span>
-      <h1 class="fade-up delay-2">Our Services</h1>
+      <h1 class="fade-up delay-2">Our <span class="gold-text">Services</span></h1>
       <p class="fade-up delay-3">Professional handyman work across every corner of your home. Explore what we do and reach out for a free estimate.</p>
     </div>
   </section>
@@ -160,7 +160,9 @@ const services = [
         <div class="service-text-col">
           <span class="section-eyebrow">{service.category}</span>
           <div class="gold-line"></div>
-          <h2 class="section-title">{service.tagline}</h2>
+          <h2 class="section-title">
+            {service.tagline[0]}<br /><span class="gold-text">{service.tagline[1]}</span>
+          </h2>
           <p class="section-body">{service.description}</p>
           <ul class="service-list">
             {service.items.map(item => (
@@ -179,7 +181,7 @@ const services = [
     <div class="services-cta-overlay"></div>
     <div class="container services-cta-content">
       <span class="section-eyebrow">Don't See Your Job Listed?</span>
-      <h2 class="section-title">We Probably Do It.</h2>
+      <h2 class="section-title">We Probably <span class="gold-text">Do It.</span></h2>
       <p class="section-body">Our services go far beyond what's listed here. Reach out and describe what you need — chances are we can help.</p>
       <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:2rem;">
         <a href="/contact" class="btn btn-gold">Contact Us</a>
@@ -191,6 +193,10 @@ const services = [
 </Layout>
 
 <style>
+  .gold-text {
+    color: var(--gold);
+  }
+
   /* PAGE HERO */
   .page-hero {
     position: relative;

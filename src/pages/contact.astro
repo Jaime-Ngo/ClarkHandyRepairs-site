@@ -12,7 +12,7 @@ import Layout from '../layouts/Layout.astro';
       <div class="contact-form-wrap">
         <span class="section-eyebrow">Send a Message</span>
         <div class="gold-line"></div>
-        <h2 class="section-title">Request a<br />Free Estimate</h2>
+        <h2 class="section-title">Request a<br /><span class="gold-text">Free Estimate</span></h2>
         <p class="section-body" style="margin-bottom: 2.5rem;">Fill out the form below and we'll follow up with you shortly to discuss your project and schedule a visit.</p>
 
         <form class="contact-form" name="contact" netlify>
@@ -59,7 +59,14 @@ import Layout from '../layouts/Layout.astro';
       <div class="contact-info">
         <div class="info-card">
           <span class="section-eyebrow">Call or Text</span>
-          <a href="tel:9497340972" class="info-link">(949) 734-0972</a>
+          <div class="phone-row">
+            <span class="info-label">Cell</span>
+            <a href="tel:9494902399" class="info-link">(949) 490-2399</a>
+          </div>
+          <div class="phone-row">
+            <span class="info-label">Office</span>
+            <a href="tel:9497340972" class="info-link">(949) 734-0972</a>
+          </div>
         </div>
         <div class="info-card">
           <span class="section-eyebrow">Email</span>
@@ -110,6 +117,10 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <style>
+  .gold-text {
+    color: var(--gold);
+  }
+
   /* ─── CONTACT SECTION ─── */
   .contact-section {
     padding: 7rem 0;
@@ -213,6 +224,23 @@ import Layout from '../layouts/Layout.astro';
     border-bottom: 1px solid rgba(255,255,255,0.06);
   }
   .info-card:first-child { padding-top: 0; }
+
+  .phone-row {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    margin-top: 0.6rem;
+  }
+
+  .info-label {
+    font-family: var(--font-cond);
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
 
   .info-link {
     display: block;
