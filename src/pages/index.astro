@@ -151,39 +151,17 @@ import Layout from '../layouts/Layout.astro';
 
   <!-- PORTFOLIO TEASER -->
   <section class="portfolio-teaser">
-    <div class="container">
+    <video class="portfolio-bg-video" autoplay muted loop playsinline>
+      <source src="/videos/portfolio-reel.mp4" type="video/mp4" />
+    </video>
+    <div class="portfolio-video-overlay"></div>
+    <div class="container portfolio-teaser-inner">
       <div class="portfolio-header">
         <span class="section-eyebrow">Our Work</span>
         <div class="gold-line"></div>
         <h2 class="section-title">Results That Speak<br /><span class="gold-text">For Themselves</span></h2>
       </div>
-      <div class="portfolio-carousel" id="portfolioCarousel">
-        <div class="portfolio-grid">
-          <img class="portfolio-item" src="/images/home-portfolio-01.jpg" alt="Project photo" />
-          <img class="portfolio-item" src="/images/home-portfolio-02.jpg" alt="Project photo" />
-          <img class="portfolio-item" src="/images/home-portfolio-03.jpg" alt="Project photo" />
-        </div>
-        <div class="portfolio-nav">
-          <button class="reviews-arrow" id="portfolioPrev" aria-label="Previous photo">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <path d="M12 4l-6 6 6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-          <div class="reviews-dots" id="portfolioDots">
-            <button class="reviews-dot active" aria-label="Photo 1"></button>
-            <button class="reviews-dot" aria-label="Photo 2"></button>
-            <button class="reviews-dot" aria-label="Photo 3"></button>
-          </div>
-          <button class="reviews-arrow" id="portfolioNext" aria-label="Next photo">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <path d="M8 4l6 6-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-        </div>
-      </div>
-      <div style="text-align:center; margin-top: 3rem;">
-        <a href="/portfolio" class="btn btn-outline-gold">View Full Portfolio</a>
-      </div>
+      <a href="/portfolio" class="btn btn-outline-gold">View Full Portfolio</a>
     </div>
   </section>
 
@@ -518,39 +496,44 @@ import Layout from '../layouts/Layout.astro';
 
   /* ─── PORTFOLIO TEASER ─── */
   .portfolio-teaser {
-    padding: 7rem 0;
-    background: var(--dark-2);
+    position: relative;
+    padding: 10rem 0;
     border-top: 1px solid rgba(255,255,255,0.05);
+    overflow: hidden;
+  }
+
+  .portfolio-bg-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  .portfolio-video-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      rgba(0,0,0,0.78) 0%,
+      rgba(0,0,0,0.55) 60%,
+      rgba(0,0,0,0.72) 100%
+    );
+    z-index: 1;
+  }
+
+  .portfolio-teaser-inner {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2.5rem;
   }
 
   .portfolio-header {
-    margin-bottom: 3rem;
-  }
-
-  .portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 300px;
-    gap: 6px;
-  }
-
-  .portfolio-item {
-    border-radius: 1px;
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-  }
-
-  .portfolio-nav {
-    display: none;
-  }
-
-  @media (max-width: 768px) {
-    .portfolio-grid {
-      grid-template-columns: 1fr;
-      grid-template-rows: auto;
-    }
-    .portfolio-item { height: 220px; }
+    margin-bottom: 0;
   }
 </style>
 
@@ -578,37 +561,8 @@ import Layout from '../layouts/Layout.astro';
     }
   }
 
-  @media (max-width: 768px) {
-    .portfolio-carousel .portfolio-grid {
-      grid-template-columns: 1fr;
-      grid-template-rows: auto;
-    }
-
-    .portfolio-carousel .portfolio-item {
-      display: none !important;
-      height: 220px;
-    }
-
-    .portfolio-carousel .portfolio-item.is-active {
-      display: block !important;
-    }
-
-    .portfolio-carousel .portfolio-nav {
-      display: flex !important;
-      align-items: center;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-    }
-  }
-
   @media (min-width: 861px) {
     .reviews-carousel .reviews-nav {
-      display: none !important;
-    }
-  }
-  @media (min-width: 769px) {
-    .portfolio-carousel .portfolio-nav {
       display: none !important;
     }
   }
@@ -639,7 +593,7 @@ import Layout from '../layouts/Layout.astro';
     }
   })();
 
-  // ─── Reusable mobile carousel ───
+  // ─── Reviews mobile carousel ───
   function initCarousel(config) {
     const wrap = document.getElementById(config.wrapperId);
     if (!wrap) return;
@@ -703,13 +657,5 @@ import Layout from '../layouts/Layout.astro';
     prevId: 'reviewsPrev',
     nextId: 'reviewsNext',
     breakpoint: 860
-  });
-
-  initCarousel({
-    wrapperId: 'portfolioCarousel',
-    itemSelector: '.portfolio-item',
-    prevId: 'portfolioPrev',
-    nextId: 'portfolioNext',
-    breakpoint: 768
   });
 </script>
