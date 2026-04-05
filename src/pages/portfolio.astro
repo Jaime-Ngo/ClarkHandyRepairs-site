@@ -1,25 +1,19 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
 /*──────────────────────────────────────────────
   PROJECT DATA
   ─────────────────────────────────────────────
   type:
-    "transformation" → shows before / after slider + gallery
+    "transformation" → shows before / during / after labels in lightbox
     "gallery"        → simple photo gallery
     "grouped"        → collection of related one-offs
-
   images[]:
     phase: "before" | "during" | "after" | null
     src:   path relative to /public  (e.g. /portfolio/kitchen/sink-wide.jpg)
     alt:   accessibility text
-
   Place your real images in public/portfolio/<slug>/
   Then update the src paths below.
 ──────────────────────────────────────────────*/
-
-const categories = ['All', 'Full Remodel', 'Kitchen', 'Bathroom', 'Flooring', 'Exterior', 'Garage', 'Painting', 'Trim & Doors'];
-
 const projects = [
   {
     id: 'whole-home-remodel',
@@ -30,18 +24,22 @@ const projects = [
     scope: ['Flooring', 'Painting', 'Drywall', 'Kitchen Cabinets', 'Staircase'],
     thumbnail: '/portfolio/whole-home/entry-after.jpg',
     images: [
-      { phase: 'before', src: '/portfolio/whole-home/bedroom-carpet.jpg',     alt: 'Bedroom with old carpet and blue-green walls' },
-      { phase: 'before', src: '/portfolio/whole-home/stairs-carpet.jpg',      alt: 'Staircase with heavily stained carpet' },
-      { phase: 'during', src: '/portfolio/whole-home/bedroom-gutted.jpg',     alt: 'Bedroom gutted — carpet removed, ceiling scraped' },
-      { phase: 'during', src: '/portfolio/whole-home/flooring-install.jpg',   alt: 'Vinyl plank flooring being installed in living room' },
-      { phase: 'during', src: '/portfolio/whole-home/cabinets-install.jpg',   alt: 'White shaker kitchen cabinets being leveled' },
-      { phase: 'during', src: '/portfolio/whole-home/trim-install.jpg',       alt: 'Baseboard trim staged for installation' },
-      { phase: 'after',  src: '/portfolio/whole-home/entry-after.jpg',        alt: 'Finished entry with new flooring and painted railing' },
-      { phase: 'after',  src: '/portfolio/whole-home/stairs-after.jpg',       alt: 'Staircase with new vinyl plank treads' },
-      { phase: 'after',  src: '/portfolio/whole-home/stairs-dining.jpg',      alt: 'Stairs and dining area with cohesive flooring' },
-      { phase: 'after',  src: '/portfolio/whole-home/living-room.jpg',        alt: 'Finished living room with new floors' },
-      { phase: 'after',  src: '/portfolio/whole-home/bedroom1-after.jpg',     alt: 'Bedroom with new gray vinyl plank flooring' },
-      { phase: 'after',  src: '/portfolio/whole-home/bedroom2-after.jpg',     alt: 'Second bedroom with matching flooring and ceiling fan' },
+      // ── BEFORE ──
+      { phase: 'before', src: '/portfolio/whole-home/bedroom-carpet.jpg',    alt: 'Bedroom with old carpet and blue-green walls' },
+      { phase: 'before', src: '/portfolio/whole-home/stairs-carpet.jpg',     alt: 'Staircase with heavily stained carpet' },
+      // ── DURING ──
+      { phase: 'during', src: '/portfolio/whole-home/bedroom-gutted.jpg',    alt: 'Bedroom gutted — carpet removed, ceiling scraped' },
+      { phase: 'during', src: '/portfolio/whole-home/flooring-install.jpg',  alt: 'Vinyl plank flooring being installed in living room' },
+      { phase: 'during', src: '/portfolio/whole-home/cabinets-install.jpg',  alt: 'White shaker kitchen cabinets being leveled' },
+      { phase: 'during', src: '/portfolio/whole-home/trim-install.jpg',      alt: 'Baseboard trim staged for installation' },
+      // ── AFTER ──
+      { phase: 'after',  src: '/portfolio/whole-home/entry-after.jpg',       alt: 'Finished entry with new flooring and painted railing' },
+      { phase: 'after',  src: '/portfolio/whole-home/stairs-after.jpg',      alt: 'Staircase with new vinyl plank treads' },
+      { phase: 'after',  src: '/portfolio/whole-home/stairs-dining.jpg',     alt: 'Stairs and dining area with cohesive flooring' },
+      { phase: 'after',  src: '/portfolio/whole-home/living-room.jpg',       alt: 'Finished living room with new floors' },
+      { phase: 'after',  src: '/portfolio/whole-home/living-stairs-fan.jpg', alt: 'Finished living room with new flooring, painted staircase and ceiling fan' },
+      { phase: 'after',  src: '/portfolio/whole-home/bedroom1-after.jpg',    alt: 'Bedroom with new gray vinyl plank flooring' },
+      { phase: 'after',  src: '/portfolio/whole-home/bedroom2-after.jpg',    alt: 'Second bedroom with matching flooring and ceiling fan' },
     ],
   },
   {
@@ -49,13 +47,13 @@ const projects = [
     title: 'Pocket Door Installation & Flooring',
     subtitle: 'New cabinets, countertops, and pocket door framing with flooring',
     category: 'Kitchen',
-    type: 'gallery',
+    type: 'transformation',
     scope: ['Cabinetry', 'Countertops', 'Framing', 'Drywall', 'Flooring'],
-    thumbnail: '/portfolio/kitchen-laundry/open-wall.jpg',
+    thumbnail: '/portfolio/kitchen-laundry/drywall.jpg',
     images: [
-      { src: '/portfolio/kitchen-laundry/open-wall.jpg',  alt: 'Kitchen mid-reno — cabinets, granite, tools on counter' },
-      { src: '/portfolio/kitchen-laundry/framing.jpg',    alt: 'Wood framing for pocket door partition' },
-      { src: '/portfolio/kitchen-laundry/drywall.jpg',    alt: 'Drywall installed around pocket door area' },
+      { phase: 'during', src: '/portfolio/kitchen-laundry/open-wall.jpg', alt: 'Kitchen mid-reno — cabinets and granite in, pocket door framing not yet started' },
+      { phase: 'during', src: '/portfolio/kitchen-laundry/framing.jpg',   alt: 'Wood framing for pocket door partition' },
+      { phase: 'after',  src: '/portfolio/kitchen-laundry/drywall.jpg',   alt: 'Drywall installed, pocket door area closed up' },
     ],
   },
   {
@@ -67,16 +65,16 @@ const projects = [
     scope: ['Plumbing', 'Countertops'],
     thumbnail: '/portfolio/sink/sink-wide.jpg',
     images: [
-      { src: '/portfolio/sink/sink-wide.jpg',    alt: 'Wide shot — black sink, white counters, glass tile backsplash' },
-      { src: '/portfolio/sink/sink-top.jpg',      alt: 'Top-down view of double-bowl granite sink' },
-      { src: '/portfolio/sink/sink-angle.jpg',    alt: 'Angled view showing faucet and countertop detail' },
+      { src: '/portfolio/sink/sink-wide.jpg',   alt: 'Wide shot — black sink, white counters, glass tile backsplash' },
+      { src: '/portfolio/sink/sink-top.jpg',    alt: 'Top-down view of double-bowl granite sink' },
+      { src: '/portfolio/sink/sink-angle.jpg',  alt: 'Angled view showing faucet and countertop detail' },
     ],
   },
   {
     id: 'kitchen-flooring',
     title: 'Kitchen Flooring',
     subtitle: 'Vinyl plank installation over old linoleum with baseboard trim and pipe details',
-    category: 'Kitchen Flooring',
+    category: 'Kitchen',
     type: 'gallery',
     scope: ['Flooring', 'Baseboard', 'Trim'],
     thumbnail: '/portfolio/kitchen-floor/kitchen-finished.jpg',
@@ -93,20 +91,20 @@ const projects = [
     title: 'Backyard Deck & Play Structure',
     subtitle: 'Custom redwood deck with integrated slide and railing',
     category: 'Exterior',
-    type: 'gallery',
+    type: 'transformation',
     scope: ['Framing', 'Decking', 'Railing'],
-    thumbnail: '/portfolio/deck/deck-finished.jpg',
+    thumbnail: '/portfolio/deck/full-playset.jpg',
     images: [
-      { src: '/portfolio/deck/joists.jpg',            alt: 'Deck joist framing with posts set in concrete' },
-      { src: '/portfolio/deck/underside.jpg',          alt: 'Underside view showing post footings' },
-      { src: '/portfolio/deck/ramp-build.jpg',         alt: 'Ramp and railing framed with compressor on ground' },
-      { src: '/portfolio/deck/ramp-close.jpg',         alt: 'Close-up of ramp and railing with gate' },
-      { src: '/portfolio/deck/deck-top.jpg',           alt: 'Top-down view of deck boards with railing' },
-      { src: '/portfolio/deck/deck-finished.jpg',      alt: 'Finished deck platform with slide attached' },
-      { src: '/portfolio/deck/railing-detail.jpg',     alt: 'Close-up of redwood railing detail' },
-      { src: '/portfolio/deck/climbing-wall.jpg',      alt: 'Deck with climbing holds and chair on platform' },
-      { src: '/portfolio/deck/railing-handles.jpg',    alt: 'Railing corner with green safety handles' },
-      { src: '/portfolio/deck/full-playset.jpg',       alt: 'Full playset — slide, climbing wall, wheel, and canopy' },
+      { phase: 'before', src: '/portfolio/deck/joists.jpg',         alt: 'Deck joist framing with posts set in concrete' },
+      { phase: 'before', src: '/portfolio/deck/underside.jpg',       alt: 'Underside view showing post footings' },
+      { phase: 'during', src: '/portfolio/deck/deck-finished.jpg',   alt: 'Deck platform built, railing framing in progress' },
+      { phase: 'during', src: '/portfolio/deck/ramp-build.jpg',      alt: 'Ramp and railing framed with compressor on ground' },
+      { phase: 'during', src: '/portfolio/deck/ramp-close.jpg',      alt: 'Close-up of ramp and railing with gate' },
+      { phase: 'during', src: '/portfolio/deck/deck-top.jpg',        alt: 'Top-down view of deck boards with railing' },
+      { phase: 'during', src: '/portfolio/deck/railing-detail.jpg',  alt: 'Close-up of redwood railing detail' },
+      { phase: 'after',  src: '/portfolio/deck/climbing-wall.jpg',   alt: 'Deck with climbing holds and chair on platform' },
+      { phase: 'after',  src: '/portfolio/deck/railing-handles.jpg', alt: 'Railing corner with green safety handles' },
+      { phase: 'after',  src: '/portfolio/deck/full-playset.jpg',    alt: 'Full playset — slide, climbing wall, wheel, and canopy' },
     ],
   },
   {
@@ -119,7 +117,7 @@ const projects = [
     thumbnail: '/portfolio/bathroom-accent/wall-sconce.jpg',
     images: [
       { src: '/portfolio/bathroom-accent/wall-wide.jpg',   alt: 'Teal accent wall with brass towel bar' },
-      { src: '/portfolio/bathroom-accent/wall-sconce.jpg',  alt: 'Brass sconce with Edison bulbs against teal wall' },
+      { src: '/portfolio/bathroom-accent/wall-sconce.jpg', alt: 'Brass sconce with Edison bulbs against teal wall' },
     ],
   },
   {
@@ -132,27 +130,38 @@ const projects = [
     thumbnail: '/portfolio/bath-floor/floor-vanity.jpg',
     images: [
       { src: '/portfolio/bath-floor/floor-vanity.jpg',     alt: 'Bathroom floor with white vanity and cherry laminate' },
-      { src: '/portfolio/bath-floor/floor-shower.jpg',      alt: 'Floor meeting glass shower base with clean transition' },
-      { src: '/portfolio/bath-floor/floor-transition.jpg',  alt: 'Transition strip between bathroom and bedroom flooring' },
+      { src: '/portfolio/bath-floor/floor-shower.jpg',     alt: 'Floor meeting glass shower base with clean transition' },
+      { src: '/portfolio/bath-floor/floor-transition.jpg', alt: 'Transition strip between bathroom and bedroom flooring' },
     ],
   },
   {
-    id: 'garage-reno',
-    title: 'Garage — Drywall, Paint & Electrical',
-    subtitle: 'Complete garage buildout including drywall, paint, electrical, storage cabinets, and bonus room conversion',
+    id: 'garage-bonus-room',
+    title: 'Garage Bonus Room Conversion',
+    subtitle: 'Drywall, paint, electrical, and ceiling fan in converted garage space',
     category: 'Garage',
-    type: 'gallery',
-    scope: ['Drywall', 'Painting', 'Electrical', 'Cabinetry'],
+    type: 'transformation',
+    scope: ['Drywall', 'Painting', 'Electrical'],
     thumbnail: '/portfolio/garage/garage-living.jpg',
     images: [
-      { src: '/portfolio/garage/drywall-room.jpg',      alt: 'Room with drywall fully mudded and ready for sanding' },
-      { src: '/portfolio/garage/garage-tv-room.jpg',     alt: 'Garage room in progress — TV mounted, recessed lighting' },
-      { src: '/portfolio/garage/garage-workbench.jpg',   alt: 'Finished garage with workbench, pegboard, and LiftMaster opener' },
-      { src: '/portfolio/garage/garage-cabinets.jpg',    alt: 'Tall storage cabinets with garage door open to driveway' },
-      { src: '/portfolio/garage/garage-both-bays.jpg',   alt: 'Two-car garage — both doors open, freshly painted' },
-      { src: '/portfolio/garage/garage-bay1.jpg',        alt: 'Freshly painted garage bay with opener installed' },
-      { src: '/portfolio/garage/garage-bay2.jpg',         alt: 'Second angle showing workbench and cabinets' },
-      { src: '/portfolio/garage/garage-living.jpg',       alt: 'Converted garage space with ceiling fan and accent wall' },
+      { phase: 'before', src: '/portfolio/garage/drywall-room.jpg',   alt: 'Room with drywall fully mudded and ready for sanding' },
+      { phase: 'during', src: '/portfolio/garage/garage-tv-room.jpg', alt: 'Garage room in progress — TV mounted, recessed lighting installed' },
+      { phase: 'after',  src: '/portfolio/garage/garage-living.jpg',  alt: 'Converted garage space with ceiling fan and accent wall' },
+    ],
+  },
+  {
+    id: 'garage-bays',
+    title: 'Garage — Paint, Cabinets & Electrical',
+    subtitle: 'Full two-bay garage buildout with storage cabinets, workbench, and opener',
+    category: 'Garage',
+    type: 'transformation',
+    scope: ['Painting', 'Electrical', 'Cabinetry'],
+    thumbnail: '/portfolio/garage/garage-cabinets.jpg',
+    images: [
+      { phase: 'before', src: '/portfolio/garage/garage-bay1.jpg',      alt: 'Empty garage bay before buildout' },
+      { phase: 'before', src: '/portfolio/garage/garage-bay2.jpg',      alt: 'Second bay angle before buildout' },
+      { phase: 'during', src: '/portfolio/garage/garage-both-bays.jpg', alt: 'Two-car garage — both doors open, freshly painted' },
+      { phase: 'during', src: '/portfolio/garage/garage-workbench.jpg', alt: 'Workbench and pegboard installed with LiftMaster opener' },
+      { phase: 'after',  src: '/portfolio/garage/garage-cabinets.jpg',  alt: 'Tall storage cabinets with garage door open to driveway' },
     ],
   },
   {
@@ -164,7 +173,7 @@ const projects = [
     scope: ['Painting', 'Hardware'],
     thumbnail: '/portfolio/cabinets/doors-drying.jpg',
     images: [
-      { src: '/portfolio/cabinets/doors-drying.jpg',   alt: 'Cabinet doors laid out for spray painting' },
+      { src: '/portfolio/cabinets/doors-drying.jpg',     alt: 'Cabinet doors laid out for spray painting' },
       { src: '/portfolio/cabinets/vanity-installed.jpg', alt: 'Finished vanity with marble top and new hardware' },
     ],
   },
@@ -178,9 +187,9 @@ const projects = [
     thumbnail: '/portfolio/trim/shaker-door.jpg',
     images: [
       { src: '/portfolio/trim/shaker-door.jpg',     alt: 'White two-panel shaker door with matte black lever' },
-      { src: '/portfolio/trim/crown-detail.jpg',     alt: 'Crown molding corner detail' },
-      { src: '/portfolio/trim/hallway-molding.jpg',  alt: 'Hallway with crown molding and stairway' },
-      { src: '/portfolio/trim/light-floor.jpg',       alt: 'Light oak laminate floor with white baseboards' },
+      { src: '/portfolio/trim/crown-detail.jpg',    alt: 'Crown molding corner detail' },
+      { src: '/portfolio/trim/hallway-molding.jpg', alt: 'Hallway with crown molding and stairway' },
+      { src: '/portfolio/trim/light-floor.jpg',     alt: 'Light oak laminate floor with white baseboards' },
     ],
   },
   {
@@ -192,125 +201,113 @@ const projects = [
     scope: ['Flooring', 'Electrical', 'Closets'],
     thumbnail: '/portfolio/attic/attic-wide.jpg',
     images: [
-      { phase: 'before', src: '/portfolio/attic/subfloor-bedroom.jpg',  alt: 'Bedroom with old subfloor and green tile exposed' },
-      { phase: 'before', src: '/portfolio/attic/subfloor-living.jpg',   alt: 'Living area stripped to concrete subfloor' },
-      { phase: 'after',  src: '/portfolio/attic/floor-nook.jpg',        alt: 'Warm brown vinyl plank installed in under-stairs nook' },
-      { phase: 'after',  src: '/portfolio/attic/hallway-wide.jpg',      alt: 'Wide-plank oak flooring in hallway with baseboard' },
-      { phase: 'after',  src: '/portfolio/attic/step-transition.jpg',   alt: 'Clean step-up transition from carpet to hardwood' },
-      { phase: 'after',  src: '/portfolio/attic/attic-hallway.jpg',     alt: 'Attic hallway with new flooring looking toward closet' },
-      { phase: 'after',  src: '/portfolio/attic/attic-wide.jpg',        alt: 'Wide view of finished attic with flooring and stair rail' },
-      { phase: 'after',  src: '/portfolio/attic/attic-dining.jpg',      alt: 'Attic space with dining table and dormer windows' },
-      { phase: 'after',  src: '/portfolio/attic/attic-sitting.jpg',     alt: 'Sitting area with window AC and closet' },
-      { phase: 'after',  src: '/portfolio/attic/attic-closet.jpg',      alt: 'Built-in closet and wood sliding doors' },
+      { phase: 'before', src: '/portfolio/attic/subfloor-bedroom.jpg', alt: 'Bedroom with old subfloor and green tile exposed' },
+      { phase: 'before', src: '/portfolio/attic/subfloor-living.jpg',  alt: 'Living area stripped to concrete subfloor' },
+      { phase: 'after',  src: '/portfolio/attic/floor-nook.jpg',       alt: 'Warm brown vinyl plank installed in under-stairs nook' },
+      { phase: 'after',  src: '/portfolio/attic/hallway-wide.jpg',     alt: 'Wide-plank oak flooring in hallway with baseboard' },
+      { phase: 'after',  src: '/portfolio/attic/step-transition.jpg',  alt: 'Clean step-up transition from carpet to hardwood' },
+      { phase: 'after',  src: '/portfolio/attic/attic-hallway.jpg',    alt: 'Attic hallway with new flooring looking toward closet' },
+      { phase: 'after',  src: '/portfolio/attic/attic-wide.jpg',       alt: 'Wide view of finished attic with flooring and stair rail' },
+      { phase: 'after',  src: '/portfolio/attic/attic-dining.jpg',     alt: 'Attic space with dining table and dormer windows' },
+      { phase: 'after',  src: '/portfolio/attic/attic-sitting.jpg',    alt: 'Sitting area with window AC and closet' },
+      { phase: 'after',  src: '/portfolio/attic/attic-closet.jpg',     alt: 'Built-in closet and wood sliding doors' },
     ],
   },
 ];
 
-// Extract unique categories from projects for filtering
 const usedCategories = ['All', ...new Set(projects.map(p => p.category))];
 ---
-
 <Layout title="Portfolio">
 
-  <!-- PAGE HERO -->
-  <section class="page-hero">
-    <video class="page-hero-video" autoplay muted loop playsinline>
-      <source src="/portfolio/hero-reel.mp4" type="video/mp4" />
-    </video>
-    <div class="page-hero-overlay"></div>
-    <div class="page-hero-content">
-      <span class="section-eyebrow hero-eyebrow fade-up delay-1">Our Work</span>
-      <h1 class="hero-heading fade-up delay-2">Portfolio</h1>
-      <p class="fade-up delay-3">Real jobs. Real results. Browse our completed projects and see the quality we bring to every home.</p>
-    </div>
-  </section>
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <video class="page-hero-video" autoplay muted loop playsinline>
+    <source src="/portfolio/hero-reel.mp4" type="video/mp4" />
+  </video>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <span class="section-eyebrow hero-eyebrow fade-up delay-1">Our Work</span>
+    <h1 class="hero-heading fade-up delay-2">Portfolio</h1>
+    <p class="fade-up delay-3">Real jobs. Real results. Browse our completed projects and see the quality we bring to every home.</p>
+  </div>
+</section>
 
-  <!-- FILTER BAR -->
-  <div class="filter-bar">
-    <div class="container filter-inner">
-      {usedCategories.map(cat => (
-        <button class={`filter-btn ${cat === 'All' ? 'active' : ''}`} data-cat={cat}>{cat}</button>
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <div class="container filter-inner">
+    {usedCategories.map(cat => (
+      <button class={`filter-btn ${cat === 'All' ? 'active' : ''}`} data-cat={cat}>{cat}</button>
+    ))}
+  </div>
+</div>
+
+<!-- PROJECT GRID -->
+<section class="portfolio-section">
+  <div class="container">
+    <div class="project-grid" id="projectGrid">
+      {projects.map((project, idx) => (
+        <article
+          class="project-card"
+          data-cat={project.category}
+          data-idx={idx}
+          style={`animation-delay: ${idx * 0.06}s`}
+        >
+          <div class="card-thumb">
+            <div class="card-img img-ph" data-label={project.title} style={`background-image:url('${project.thumbnail}')`}></div>
+            <div class="card-overlay">
+              <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="11" cy="11" r="7" /><line x1="16.5" y1="16.5" x2="21" y2="21" />
+              </svg>
+            </div>
+          </div>
+          <div class="card-info">
+            <h3 class="card-title">{project.title}</h3>
+            <p class="card-subtitle">{project.subtitle}</p>
+            <div class="card-tags">
+              {project.scope.slice(0, 3).map(tag => (
+                <span class="card-tag">{tag}</span>
+              ))}
+            </div>
+          </div>
+        </article>
       ))}
     </div>
   </div>
+</section>
 
-  <!-- PROJECT GRID -->
-  <section class="portfolio-section">
-    <div class="container">
-      <div class="project-grid" id="projectGrid">
-        {projects.map((project, idx) => (
-          <article
-            class="project-card"
-            data-cat={project.category}
-            data-idx={idx}
-            style={`animation-delay: ${idx * 0.06}s`}
-          >
-            {/* Thumbnail */}
-            <div class="card-thumb">
-              <div class="card-img img-ph" data-label={project.title} style={`background-image:url('${project.thumbnail}')`}></div>
-              <div class="card-overlay">
-                <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <circle cx="11" cy="11" r="7" /><line x1="16.5" y1="16.5" x2="21" y2="21" />
-                </svg>
-              </div>
-            </div>
-            {/* Info */}
-            <div class="card-info">
-              <h3 class="card-title">{project.title}</h3>
-              <p class="card-subtitle">{project.subtitle}</p>
-              <div class="card-tags">
-                {project.scope.slice(0, 3).map(tag => (
-                  <span class="card-tag">{tag}</span>
-                ))}
-              </div>
-            </div>
-          </article>
-        ))}
-      </div>
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <div class="lb-backdrop"></div>
+  <div class="lb-container">
+    <button class="lb-close" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/></svg>
+    </button>
+    <div class="lb-header">
+      <h2 class="lb-title" id="lbTitle"></h2>
+      <p class="lb-subtitle" id="lbSubtitle"></p>
+      <div class="lb-scope" id="lbScope"></div>
     </div>
-  </section>
-
-  <!-- LIGHTBOX -->
-  <div class="lightbox" id="lightbox" aria-hidden="true">
-    <div class="lb-backdrop"></div>
-    <div class="lb-container">
-      {/* Close */}
-      <button class="lb-close" aria-label="Close">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/></svg>
-      </button>
-
-      {/* Header */}
-      <div class="lb-header">
-        <h2 class="lb-title" id="lbTitle"></h2>
-        <p class="lb-subtitle" id="lbSubtitle"></p>
-        <div class="lb-scope" id="lbScope"></div>
-      </div>
-
-      {/* Gallery */}
-      <div class="lb-gallery" id="lbGallery"></div>
-
-      {/* Counter */}
-      <div class="lb-counter" id="lbCounter"></div>
-    </div>
+    <div class="lb-gallery" id="lbGallery"></div>
+    <div class="lb-counter" id="lbCounter"></div>
   </div>
+</div>
 
-  <!-- CTA -->
-  <section class="portfolio-cta">
-    <div class="container" style="text-align:center;">
-      <span class="section-eyebrow">Like What You See?</span>
-      <div class="gold-line" style="margin: 0 auto 1.5rem;"></div>
-      <h2 class="section-title">Let's Add Your Project<br /><span style="color:var(--gold);">to This Wall</span></h2>
-      <p class="section-body" style="margin: 0 auto 2.5rem; max-width:440px; text-align:center;">Every great result starts with a conversation. Reach out and tell us what you need.</p>
-      <a href="/contact" class="btn btn-gold">Get a Free Quote</a>
-    </div>
-  </section>
+<!-- CTA -->
+<section class="portfolio-cta">
+  <div class="container" style="text-align:center;">
+    <span class="section-eyebrow">Like What You See?</span>
+    <div class="gold-line" style="margin: 0 auto 1.5rem;"></div>
+    <h2 class="section-title">Let's Add Your Project<br /><span style="color:var(--gold);">to This Wall</span></h2>
+    <p class="section-body" style="margin: 0 auto 2.5rem; max-width:440px; text-align:center;">Every great result starts with a conversation. Reach out and tell us what you need.</p>
+    <a href="/contact" class="btn btn-gold">Get a Free Quote</a>
+  </div>
+</section>
 
 </Layout>
 
-
 <style>
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   PAGE HERO  (same as before)
+   PAGE HERO
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 .page-hero {
   position: relative;
@@ -328,7 +325,6 @@ const usedCategories = ['All', ...new Set(projects.map(p => p.category))];
   width: 100%; height: 100%;
   object-fit: cover;
 }
-.page-hero-bg { position: absolute; inset: 0; z-index: 0; }
 .page-hero-overlay {
   position: absolute; inset: 0;
   background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.45) 100%);
@@ -342,11 +338,7 @@ const usedCategories = ['All', ...new Set(projects.map(p => p.category))];
 @media (max-width: 768px) {
   .page-hero-content { padding-left: 2.5rem; }
 }
-
-/* Colors swapped: eyebrow is white, heading is gold */
-.hero-eyebrow {
-  color: var(--light);
-}
+.hero-eyebrow { color: var(--light); }
 .hero-heading {
   font-family: var(--font-display);
   font-size: clamp(3rem, 7vw, 5.5rem);
@@ -354,7 +346,6 @@ const usedCategories = ['All', ...new Set(projects.map(p => p.category))];
   color: var(--gold);
   margin-bottom: 1rem;
 }
-
 .page-hero-content p {
   color: var(--light-dim); font-size: 1rem; max-width: 480px;
 }
@@ -393,14 +384,11 @@ const usedCategories = ['All', ...new Set(projects.map(p => p.category))];
    PROJECT GRID
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 .portfolio-section { padding: 4rem 0 6rem; }
-
 .project-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
 }
-
-/* ── Card ── */
 .project-card {
   cursor: pointer;
   border-radius: 3px;
@@ -418,8 +406,6 @@ const usedCategories = ['All', ...new Set(projects.map(p => p.category))];
   transform: translateY(-4px);
   box-shadow: 0 12px 40px rgba(0,0,0,0.4);
 }
-
-/* thumbnail */
 .card-thumb {
   position: relative;
   height: 260px;
@@ -431,7 +417,6 @@ const usedCategories = ['All', ...new Set(projects.map(p => p.category))];
   transition: transform 0.5s cubic-bezier(.22,1,.36,1);
 }
 .project-card:hover .card-img { transform: scale(1.05); }
-
 .card-overlay {
   position: absolute; inset: 0;
   background: rgba(0,0,0,0);
@@ -439,17 +424,13 @@ const usedCategories = ['All', ...new Set(projects.map(p => p.category))];
   transition: background 0.3s;
 }
 .project-card:hover .card-overlay { background: rgba(0,0,0,0.35); }
-
 .card-icon {
   width: 36px; height: 36px; color: var(--gold);
   opacity: 0; transform: scale(0.8);
   transition: all 0.3s ease 0.05s;
 }
 .project-card:hover .card-icon { opacity: 1; transform: scale(1); }
-
-/* info */
 .card-info { padding: 1.25rem 1.25rem 1.5rem; }
-
 .card-title {
   font-family: var(--font-display);
   font-size: 1.15rem; line-height: 1.2;
@@ -460,7 +441,6 @@ const usedCategories = ['All', ...new Set(projects.map(p => p.category))];
   font-size: 0.82rem; color: var(--muted);
   line-height: 1.45; margin-bottom: 0.9rem;
 }
-
 .card-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
 .card-tag {
   font-family: var(--font-cond);
@@ -470,11 +450,7 @@ const usedCategories = ['All', ...new Set(projects.map(p => p.category))];
   padding: 0.18rem 0.55rem; border-radius: 1px;
   opacity: 0.75;
 }
-
-/* hidden state for filtering */
-.project-card.hidden {
-  display: none;
-}
+.project-card.hidden { display: none; }
 
 @media (max-width: 960px) {
   .project-grid { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
@@ -495,13 +471,11 @@ const usedCategories = ['All', ...new Set(projects.map(p => p.category))];
   transition: opacity 0.3s ease;
 }
 .lightbox.open { pointer-events: all; opacity: 1; }
-
 .lb-backdrop {
   position: fixed; inset: 0;
   background: rgba(0,0,0,0.92);
   backdrop-filter: blur(8px);
 }
-
 .lb-container {
   position: relative; z-index: 2;
   width: 100%; max-width: 900px;
@@ -510,8 +484,6 @@ const usedCategories = ['All', ...new Set(projects.map(p => p.category))];
   transition: transform 0.35s cubic-bezier(.22,1,.36,1);
 }
 .lightbox.open .lb-container { transform: translateY(0); }
-
-/* close */
 .lb-close {
   position: fixed; top: 1.25rem; right: 1.5rem;
   background: rgba(255,255,255,0.06);
@@ -523,8 +495,6 @@ const usedCategories = ['All', ...new Set(projects.map(p => p.category))];
 }
 .lb-close svg { width: 18px; height: 18px; color: var(--light); }
 .lb-close:hover { background: rgba(255,255,255,0.12); border-color: var(--gold-dim); }
-
-/* header */
 .lb-header { margin-bottom: 2rem; text-align: center; }
 .lb-title {
   font-family: var(--font-display);
@@ -547,14 +517,38 @@ const usedCategories = ['All', ...new Set(projects.map(p => p.category))];
   transition: opacity 0.2s;
   border: 1px solid rgba(255,255,255,0.04);
 }
-.lb-gallery-img.img-ph {
-  aspect-ratio: 4 / 3;
-}
+.lb-gallery-img.img-ph { aspect-ratio: 4 / 3; }
 .lb-gallery-img:hover { opacity: 0.85; }
+.lb-gallery-img.wide { grid-column: 1 / -1; }
 
-/* single wide image */
-.lb-gallery-img.wide {
-  grid-column: 1 / -1;
+/* Phase labels */
+.phase-label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+  font-family: var(--font-cond);
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.65rem;
+  border-radius: 1px;
+  pointer-events: none;
+}
+.phase-before {
+  background: rgba(0,0,0,0.6);
+  color: #ccc;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+.phase-during {
+  background: rgba(201,168,76,0.15);
+  color: var(--gold);
+  border: 1px solid var(--gold-dim);
+}
+.phase-after {
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.25);
 }
 
 .lb-counter {
@@ -567,7 +561,6 @@ const usedCategories = ['All', ...new Set(projects.map(p => p.category))];
 @media (max-width: 560px) {
   .lb-gallery { grid-template-columns: 1fr; }
   .lb-container { padding: 1.5rem 1rem 3rem; }
-  .lb-slider { aspect-ratio: 4 / 3; }
 }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -580,87 +573,83 @@ const usedCategories = ['All', ...new Set(projects.map(p => p.category))];
 }
 </style>
 
-
 <script define:vars={{ projects }}>
-  const projectData = projects;
-  const lb = document.getElementById('lightbox');
-  const lbTitle = document.getElementById('lbTitle');
-  const lbSubtitle = document.getElementById('lbSubtitle');
-  const lbScope = document.getElementById('lbScope');
-  const lbGallery = document.getElementById('lbGallery');
-  const lbCounter = document.getElementById('lbCounter');
+const projectData = projects;
+const lb = document.getElementById('lightbox');
+const lbTitle = document.getElementById('lbTitle');
+const lbSubtitle = document.getElementById('lbSubtitle');
+const lbScope = document.getElementById('lbScope');
+const lbGallery = document.getElementById('lbGallery');
+const lbCounter = document.getElementById('lbCounter');
 
-  /* ── FILTER ── */
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const cards = document.querySelectorAll('.project-card');
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const cat = btn.dataset.cat;
-      cards.forEach(card => {
-        if (cat === 'All' || card.dataset.cat === cat) {
-          card.classList.remove('hidden');
-        } else {
-          card.classList.add('hidden');
-        }
-      });
+/* ── FILTER ── */
+const filterBtns = document.querySelectorAll('.filter-btn');
+const cards = document.querySelectorAll('.project-card');
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const cat = btn.dataset.cat;
+    cards.forEach(card => {
+      if (cat === 'All' || card.dataset.cat === cat) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
     });
   });
+});
 
-  /* ── OPEN LIGHTBOX ── */
-  cards.forEach(card => {
-    card.addEventListener('click', () => {
-      const idx = parseInt(card.dataset.idx);
-      openLightbox(idx);
-    });
+/* ── OPEN LIGHTBOX ── */
+cards.forEach(card => {
+  card.addEventListener('click', () => {
+    const idx = parseInt(card.dataset.idx);
+    openLightbox(idx);
   });
+});
 
-  function openLightbox(idx) {
-    const p = projectData[idx];
+function openLightbox(idx) {
+  const p = projectData[idx];
+  lbTitle.textContent = p.title;
+  lbSubtitle.textContent = p.subtitle;
+  lbScope.innerHTML = p.scope.map(s =>
+    `<span class="card-tag">${s}</span>`
+  ).join('');
+  renderGallery(p);
+  lb.classList.add('open');
+  lb.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
 
-    lbTitle.textContent = p.title;
-    lbSubtitle.textContent = p.subtitle;
-    lbScope.innerHTML = p.scope.map(s =>
-      `<span class="card-tag">${s}</span>`
-    ).join('');
-
-    renderGallery(p);
-
-    lb.classList.add('open');
-    lb.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function renderGallery(p) {
-    const imgs = p.images;
-
-    lbGallery.innerHTML = imgs.map((img, i) => {
-      const isWide = imgs.length === 1 || (imgs.length === 3 && i === 0);
-      return `
-        <div style="position:relative;" class="${isWide ? 'wide' : ''}">
-          <div class="lb-gallery-img img-ph${isWide ? ' wide' : ''}"
-               data-label="${img.alt}"
-               style="background-image:url('${img.src}');background-size:cover;background-position:center;aspect-ratio:${isWide ? '16/10' : '4/3'};">
-          </div>
+function renderGallery(p) {
+  const imgs = p.images;
+  lbGallery.innerHTML = imgs.map((img, i) => {
+    const isWide = imgs.length === 1 || (imgs.length === 3 && i === 0);
+    const phaseLabel = (p.type === 'transformation' && img.phase)
+      ? `<div class="phase-label phase-${img.phase}">${img.phase.charAt(0).toUpperCase() + img.phase.slice(1)}</div>`
+      : '';
+    return `
+      <div style="position:relative;" class="${isWide ? 'wide' : ''}">
+        ${phaseLabel}
+        <div class="lb-gallery-img img-ph${isWide ? ' wide' : ''}"
+             data-label="${img.alt}"
+             style="background-image:url('${img.src}');background-size:cover;background-position:center;aspect-ratio:${isWide ? '16/10' : '4/3'};">
         </div>
-      `;
-    }).join('');
+      </div>
+    `;
+  }).join('');
+  lbCounter.textContent = `${imgs.length} photo${imgs.length !== 1 ? 's' : ''}`;
+}
 
-    lbCounter.textContent = `${imgs.length} photo${imgs.length !== 1 ? 's' : ''}`;
-  }
-
-  /* ── CLOSE LIGHTBOX ── */
-  function closeLightbox() {
-    lb.classList.remove('open');
-    lb.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-  }
-
-  document.querySelector('.lb-close').addEventListener('click', closeLightbox);
-  document.querySelector('.lb-backdrop').addEventListener('click', closeLightbox);
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && lb.classList.contains('open')) closeLightbox();
-  });
+/* ── CLOSE LIGHTBOX ── */
+function closeLightbox() {
+  lb.classList.remove('open');
+  lb.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+document.querySelector('.lb-close').addEventListener('click', closeLightbox);
+document.querySelector('.lb-backdrop').addEventListener('click', closeLightbox);
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && lb.classList.contains('open')) closeLightbox();
+});
 </script>

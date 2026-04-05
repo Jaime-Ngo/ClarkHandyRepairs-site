@@ -123,16 +123,33 @@ import Layout from '../layouts/Layout.astro';
 
   /* ─── CONTACT SECTION ─── */
   .contact-section {
-    padding: 7rem 0;
-    padding-top: calc(var(--nav-h) + 5rem);
-  }
+  padding: 7rem 0;
+  padding-top: calc(var(--nav-h) + 5rem);
+  position: relative;
+  background-image: url('/images/construction-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* parallax feel — remove if you prefer static */
+}
 
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: 5rem;
-    align-items: start;
-  }
+/* Dark overlay so text stays readable */
+.contact-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  z-index: 0;
+}
+
+/* Lift content above overlay */
+.contact-grid {
+  display: grid;                          /* ← must still be here */
+  grid-template-columns: 1.4fr 1fr;
+  gap: 5rem;
+  align-items: start;
+  position: relative;                     /* add this */
+  z-index: 1;                             /* add this */
+}
 
   /* FORM */
   .contact-form {
@@ -243,15 +260,15 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .info-link {
-    display: block;
-    font-family: var(--font-display);
-    font-size: 1.8rem;
-    letter-spacing: 0.04em;
-    color: var(--light);
-    margin-top: 0.4rem;
-    transition: color 0.2s;
-  }
-  .info-link:hover { color: var(--gold); }
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  letter-spacing: 0.04em;
+  color: var(--gold);   /* ← changed from var(--light) */
+  margin-top: 0.4rem;
+  transition: color 0.2s;
+}
+.info-link:hover { color: var(--light); }  /* ← swapped hover */
   .info-link.small {
     font-family: var(--font-body);
     font-size: 0.95rem;
