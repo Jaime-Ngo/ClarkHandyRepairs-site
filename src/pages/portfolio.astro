@@ -199,8 +199,8 @@ const usedCategories = ['All', ...new Set(projects.map(p => p.category))];
     </video>
     <div class="page-hero-overlay"></div>
     <div class="container page-hero-content">
-      <span class="section-eyebrow hero-eyebrow-swap fade-up delay-1">Portfolio</span>
-      <h1 class="hero-h1-swap fade-up delay-2">Our Work</h1>
+      <span class="section-eyebrow hero-eyebrow fade-up delay-1">Our Work</span>
+      <h1 class="hero-heading fade-up delay-2">Portfolio</h1>
       <p class="fade-up delay-3">Real jobs. Real results. Browse our completed projects and see the quality we bring to every home.</p>
     </div>
   </section>
@@ -327,11 +327,14 @@ const usedCategories = ['All', ...new Set(projects.map(p => p.category))];
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 .page-hero {
   position: relative;
-  height: 70vh;
-  min-height: 520px;
+  height: 85vh;
+  min-height: 580px;
   display: flex;
   align-items: flex-end;
   overflow: hidden;
+}
+@media (max-width: 768px) {
+  .page-hero { height: 70vh; min-height: 420px; }
 }
 .page-hero-video {
   position: absolute; inset: 0; z-index: 0;
@@ -349,22 +352,16 @@ const usedCategories = ['All', ...new Set(projects.map(p => p.category))];
   padding-bottom: 4rem; padding-top: var(--nav-h);
 }
 
-/* Swapped: eyebrow is now the large display heading, h1 is the small gold label */
-.hero-eyebrow-swap {
+/* Colors swapped: eyebrow is white, heading is gold */
+.hero-eyebrow {
   color: var(--light);
+}
+.hero-heading {
   font-family: var(--font-display);
   font-size: clamp(3rem, 7vw, 5.5rem);
   line-height: 0.95; letter-spacing: 0.02em;
-  display: block; margin-bottom: 0.5rem;
-}
-.hero-h1-swap {
-  font-family: var(--font-cond);
-  font-size: 0.78rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
   color: var(--gold);
-  margin-bottom: 1.2rem;
-  font-weight: 400;
+  margin-bottom: 1rem;
 }
 
 .page-hero-content p {
