@@ -42,12 +42,11 @@ const projects = [
       { phase: 'after',  src: '/portfolio/whole-home/living-room.jpg',        alt: 'Finished living room with new floors' },
       { phase: 'after',  src: '/portfolio/whole-home/bedroom1-after.jpg',     alt: 'Bedroom with new gray vinyl plank flooring' },
       { phase: 'after',  src: '/portfolio/whole-home/bedroom2-after.jpg',     alt: 'Second bedroom with matching flooring and ceiling fan' },
-      { phase: 'after',  src: '/portfolio/whole-home/stairs-below.jpg',       alt: 'View from below — stairs with white railing' },
     ],
   },
   {
     id: 'kitchen-laundry',
-    title: 'Kitchen & Laundry Remodel',
+    title: 'Pocket Door Installation and Flooring',
     subtitle: 'New cabinets, countertops, and dedicated laundry alcove',
     category: 'Kitchen',
     type: 'gallery',
@@ -74,6 +73,22 @@ const projects = [
     ],
   },
   {
+    id: 'kitchen-flooring',
+    title: 'Kitchen Flooring',
+    subtitle: 'Vinyl plank installation over old linoleum with baseboard trim and pipe details',
+    category: 'Kitchen Flooring',
+    type: 'gallery',
+    scope: ['Flooring', 'Baseboard', 'Trim'],
+    thumbnail: '/portfolio/kitchen-floor/kitchen-finished.jpg',
+    images: [
+      { src: '/portfolio/kitchen-floor/plank-install.jpg',    alt: 'Installing vinyl plank over old linoleum tile in kitchen' },
+      { src: '/portfolio/kitchen-floor/baseboard-nail.jpg',   alt: 'Baseboard trim being nailed with Milwaukee brad nailer' },
+      { src: '/portfolio/kitchen-floor/pipe-detail.jpg',      alt: 'Clean pipe penetration through new flooring with baseboard' },
+      { src: '/portfolio/kitchen-floor/kitchen-finished.jpg', alt: 'Finished kitchen floor with gray vinyl plank' },
+      { src: '/portfolio/kitchen-floor/room-sweep.jpg',       alt: 'Sweeping finished floor in adjacent room' },
+    ],
+  },
+  {
     id: 'deck-build',
     title: 'Backyard Deck & Play Structure',
     subtitle: 'Custom redwood deck with integrated slide and railing',
@@ -82,10 +97,16 @@ const projects = [
     scope: ['Framing', 'Decking', 'Railing'],
     thumbnail: '/portfolio/deck/deck-finished.jpg',
     images: [
-      { src: '/portfolio/deck/joists.jpg',         alt: 'Deck joist framing with posts set in concrete' },
-      { src: '/portfolio/deck/underside.jpg',       alt: 'Underside view showing post footings' },
-      { src: '/portfolio/deck/deck-finished.jpg',   alt: 'Finished deck platform with slide attached' },
-      { src: '/portfolio/deck/railing-detail.jpg',  alt: 'Close-up of redwood railing detail' },
+      { src: '/portfolio/deck/joists.jpg',            alt: 'Deck joist framing with posts set in concrete' },
+      { src: '/portfolio/deck/underside.jpg',          alt: 'Underside view showing post footings' },
+      { src: '/portfolio/deck/ramp-build.jpg',         alt: 'Ramp and railing framed with compressor on ground' },
+      { src: '/portfolio/deck/ramp-close.jpg',         alt: 'Close-up of ramp and railing with gate' },
+      { src: '/portfolio/deck/deck-top.jpg',           alt: 'Top-down view of deck boards with railing' },
+      { src: '/portfolio/deck/deck-finished.jpg',      alt: 'Finished deck platform with slide attached' },
+      { src: '/portfolio/deck/railing-detail.jpg',     alt: 'Close-up of redwood railing detail' },
+      { src: '/portfolio/deck/climbing-wall.jpg',      alt: 'Deck with climbing holds and chair on platform' },
+      { src: '/portfolio/deck/railing-handles.jpg',    alt: 'Railing corner with green safety handles' },
+      { src: '/portfolio/deck/full-playset.jpg',       alt: 'Full playset — slide, climbing wall, wheel, and canopy' },
     ],
   },
   {
@@ -117,16 +138,21 @@ const projects = [
   },
   {
     id: 'garage-reno',
-    title: 'Garage Renovation',
-    subtitle: 'Two-car garage finished with epoxy-ready floors, built-in storage, and bonus room conversion',
+    title: 'Garage — Drywall, Paint & Electrical',
+    subtitle: 'Complete garage buildout including drywall, paint, electrical, storage cabinets, and bonus room conversion',
     category: 'Garage',
     type: 'gallery',
-    scope: ['Painting', 'Electrical', 'Cabinetry'],
+    scope: ['Drywall', 'Painting', 'Electrical', 'Cabinetry'],
     thumbnail: '/portfolio/garage/garage-living.jpg',
     images: [
-      { src: '/portfolio/garage/garage-bay1.jpg',    alt: 'Freshly painted garage bay with opener installed' },
-      { src: '/portfolio/garage/garage-bay2.jpg',     alt: 'Second angle showing workbench and cabinets' },
-      { src: '/portfolio/garage/garage-living.jpg',   alt: 'Converted garage space with ceiling fan and accent wall' },
+      { src: '/portfolio/garage/drywall-room.jpg',      alt: 'Room with drywall fully mudded and ready for sanding' },
+      { src: '/portfolio/garage/garage-tv-room.jpg',     alt: 'Garage room in progress — TV mounted, recessed lighting' },
+      { src: '/portfolio/garage/garage-workbench.jpg',   alt: 'Finished garage with workbench, pegboard, and LiftMaster opener' },
+      { src: '/portfolio/garage/garage-cabinets.jpg',    alt: 'Tall storage cabinets with garage door open to driveway' },
+      { src: '/portfolio/garage/garage-both-bays.jpg',   alt: 'Two-car garage — both doors open, freshly painted' },
+      { src: '/portfolio/garage/garage-bay1.jpg',        alt: 'Freshly painted garage bay with opener installed' },
+      { src: '/portfolio/garage/garage-bay2.jpg',         alt: 'Second angle showing workbench and cabinets' },
+      { src: '/portfolio/garage/garage-living.jpg',       alt: 'Converted garage space with ceiling fan and accent wall' },
     ],
   },
   {
@@ -158,30 +184,24 @@ const projects = [
     ],
   },
   {
-    id: 'drywall-rooms',
-    title: 'Drywall & Room Prep',
-    subtitle: 'Full drywall hang, tape, and mud for new construction rooms',
-    category: 'Full Remodel',
-    type: 'gallery',
-    scope: ['Drywall', 'Electrical Rough-in'],
-    thumbnail: '/portfolio/drywall/room-mudded.jpg',
-    images: [
-      { src: '/portfolio/drywall/room-mudded.jpg',    alt: 'Room with drywall fully mudded and ready for sanding' },
-      { src: '/portfolio/drywall/room-angle2.jpg',     alt: 'Second angle showing ceiling and electrical rough-in' },
-    ],
-  },
-  {
     id: 'attic-finish',
-    title: 'Attic Living Space',
-    subtitle: 'Finished attic with hardwood floors, closets, and recessed lighting',
+    title: 'Attic Renovation — Flooring & Electrical',
+    subtitle: 'Complete attic transformation with new hardwood flooring, electrical, and closet buildout',
     category: 'Full Remodel',
-    type: 'gallery',
-    scope: ['Flooring', 'Lighting', 'Closets'],
-    thumbnail: '/portfolio/attic/attic-dining.jpg',
+    type: 'transformation',
+    scope: ['Flooring', 'Electrical', 'Closets'],
+    thumbnail: '/portfolio/attic/attic-wide.jpg',
     images: [
-      { src: '/portfolio/attic/attic-dining.jpg',   alt: 'Attic space with dining table and dormer windows' },
-      { src: '/portfolio/attic/attic-sitting.jpg',    alt: 'Sitting area with window AC and closet' },
-      { src: '/portfolio/attic/attic-closet.jpg',     alt: 'Built-in closet and wood sliding doors' },
+      { phase: 'before', src: '/portfolio/attic/subfloor-bedroom.jpg',  alt: 'Bedroom with old subfloor and green tile exposed' },
+      { phase: 'before', src: '/portfolio/attic/subfloor-living.jpg',   alt: 'Living area stripped to concrete subfloor' },
+      { phase: 'after',  src: '/portfolio/attic/floor-nook.jpg',        alt: 'Warm brown vinyl plank installed in under-stairs nook' },
+      { phase: 'after',  src: '/portfolio/attic/hallway-wide.jpg',      alt: 'Wide-plank oak flooring in hallway with baseboard' },
+      { phase: 'after',  src: '/portfolio/attic/step-transition.jpg',   alt: 'Clean step-up transition from carpet to hardwood' },
+      { phase: 'after',  src: '/portfolio/attic/attic-hallway.jpg',     alt: 'Attic hallway with new flooring looking toward closet' },
+      { phase: 'after',  src: '/portfolio/attic/attic-wide.jpg',        alt: 'Wide view of finished attic with flooring and stair rail' },
+      { phase: 'after',  src: '/portfolio/attic/attic-dining.jpg',      alt: 'Attic space with dining table and dormer windows' },
+      { phase: 'after',  src: '/portfolio/attic/attic-sitting.jpg',     alt: 'Sitting area with window AC and closet' },
+      { phase: 'after',  src: '/portfolio/attic/attic-closet.jpg',      alt: 'Built-in closet and wood sliding doors' },
     ],
   },
 ];
@@ -228,10 +248,6 @@ const usedCategories = ['All', ...new Set(projects.map(p => p.category))];
             {/* Thumbnail */}
             <div class="card-thumb">
               <div class="card-img img-ph" data-label={project.title} style={`background-image:url('${project.thumbnail}')`}></div>
-              {/* Transformation badge */}
-              {project.type === 'transformation' && (
-                <span class="card-badge">Before &amp; After</span>
-              )}
               <div class="card-overlay">
                 <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                   <circle cx="11" cy="11" r="7" /><line x1="16.5" y1="16.5" x2="21" y2="21" />
@@ -270,35 +286,6 @@ const usedCategories = ['All', ...new Set(projects.map(p => p.category))];
         <div class="lb-scope" id="lbScope"></div>
       </div>
 
-      {/* Slider (transformation only) */}
-      <div class="lb-slider-wrap" id="lbSliderWrap" style="display:none;">
-        <div class="lb-slider-label">Drag to Compare</div>
-        <div class="lb-slider" id="lbSlider">
-          <div class="lb-slider-before" id="lbSliderBefore">
-            <img id="lbBeforeImg" src="" alt="" />
-            <span class="lb-phase-label lb-phase-before">Before</span>
-          </div>
-          <div class="lb-slider-after" id="lbSliderAfter">
-            <img id="lbAfterImg" src="" alt="" />
-            <span class="lb-phase-label lb-phase-after">After</span>
-          </div>
-          <div class="lb-slider-handle" id="lbSliderHandle">
-            <div class="lb-handle-line"></div>
-            <div class="lb-handle-grip">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,6 3,12 9,18"/><polyline points="15,6 21,12 15,18"/></svg>
-            </div>
-            <div class="lb-handle-line"></div>
-          </div>
-        </div>
-      </div>
-
-      {/* Phase Tabs (transformation only) */}
-      <div class="lb-phase-tabs" id="lbPhaseTabs" style="display:none;">
-        <button class="lb-phase-btn active" data-phase="before">Before</button>
-        <button class="lb-phase-btn" data-phase="during">During</button>
-        <button class="lb-phase-btn active" data-phase="after">After</button>
-      </div>
-
       {/* Gallery */}
       <div class="lb-gallery" id="lbGallery"></div>
 
@@ -312,7 +299,7 @@ const usedCategories = ['All', ...new Set(projects.map(p => p.category))];
     <div class="container" style="text-align:center;">
       <span class="section-eyebrow">Like What You See?</span>
       <div class="gold-line" style="margin: 0 auto 1.5rem;"></div>
-      <h2 class="section-title">Let's Add Your Project<br />to This Wall</h2>
+      <h2 class="section-title">Let's Add Your Project<br /><span style="color:var(--gold);">to This Wall</span></h2>
       <p class="section-body" style="margin: 0 auto 2.5rem; max-width:440px; text-align:center;">Every great result starts with a conversation. Reach out and tell us what you need.</p>
       <a href="/contact" class="btn btn-gold">Get a Free Quote</a>
     </div>
@@ -330,7 +317,7 @@ const usedCategories = ['All', ...new Set(projects.map(p => p.category))];
   height: 85vh;
   min-height: 580px;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   overflow: hidden;
 }
 @media (max-width: 768px) {
@@ -350,6 +337,9 @@ const usedCategories = ['All', ...new Set(projects.map(p => p.category))];
 .page-hero-content {
   position: relative; z-index: 2;
   padding-bottom: 4rem; padding-top: var(--nav-h);
+  display: flex; flex-direction: column;
+  justify-content: center;
+  height: 100%;
 }
 
 /* Colors swapped: eyebrow is white, heading is gold */
@@ -456,17 +446,6 @@ const usedCategories = ['All', ...new Set(projects.map(p => p.category))];
 }
 .project-card:hover .card-icon { opacity: 1; transform: scale(1); }
 
-/* badge */
-.card-badge {
-  position: absolute; top: 0.75rem; left: 0.75rem;
-  background: var(--gold); color: var(--dark);
-  font-family: var(--font-cond);
-  font-size: 0.65rem; font-weight: 700;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  padding: 0.25rem 0.6rem; border-radius: 2px;
-  z-index: 3;
-}
-
 /* info */
 .card-info { padding: 1.25rem 1.25rem 1.5rem; }
 
@@ -556,94 +535,6 @@ const usedCategories = ['All', ...new Set(projects.map(p => p.category))];
 .lb-scope { display: flex; gap: 0.4rem; justify-content: center; flex-wrap: wrap; }
 .lb-scope .card-tag { opacity: 1; }
 
-/* ── Before / After Slider ── */
-.lb-slider-wrap { margin-bottom: 2.5rem; }
-.lb-slider-label {
-  text-align: center; margin-bottom: 0.6rem;
-  font-family: var(--font-cond);
-  font-size: 0.7rem; letter-spacing: 0.16em;
-  text-transform: uppercase; color: var(--muted);
-}
-
-.lb-slider {
-  position: relative; width: 100%;
-  aspect-ratio: 16 / 10;
-  border-radius: 3px; overflow: hidden;
-  cursor: col-resize; user-select: none;
-  -webkit-user-select: none;
-  border: 1px solid rgba(255,255,255,0.06);
-}
-
-.lb-slider-before,
-.lb-slider-after {
-  position: absolute; inset: 0;
-}
-.lb-slider-before { z-index: 2; clip-path: inset(0 50% 0 0); }
-.lb-slider-after  { z-index: 1; }
-
-.lb-slider-before img,
-.lb-slider-after img {
-  width: 100%; height: 100%;
-  object-fit: cover; display: block;
-}
-
-.lb-phase-label {
-  position: absolute; bottom: 1rem;
-  font-family: var(--font-cond);
-  font-size: 0.68rem; font-weight: 700;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  background: rgba(0,0,0,0.7); color: var(--light);
-  padding: 0.3rem 0.8rem; border-radius: 2px;
-  z-index: 5; pointer-events: none;
-}
-.lb-phase-before { left: 1rem; }
-.lb-phase-after  { right: 1rem; }
-
-/* handle */
-.lb-slider-handle {
-  position: absolute; top: 0; bottom: 0;
-  left: 50%; z-index: 3;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  transform: translateX(-50%);
-  pointer-events: none;
-}
-.lb-handle-line {
-  width: 2px; flex: 1;
-  background: var(--gold);
-  opacity: 0.9;
-}
-.lb-handle-grip {
-  width: 40px; height: 40px;
-  background: var(--gold);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.4);
-  flex-shrink: 0;
-}
-.lb-handle-grip svg { width: 20px; height: 20px; color: var(--dark); }
-
-/* ── Phase Tabs ── */
-.lb-phase-tabs {
-  display: flex; justify-content: center;
-  gap: 0.5rem; margin-bottom: 1.5rem;
-}
-.lb-phase-btn {
-  background: transparent;
-  border: 1px solid rgba(255,255,255,0.1);
-  color: var(--muted);
-  font-family: var(--font-cond);
-  font-size: 0.72rem; letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 0.4rem 1.2rem; border-radius: 2px;
-  cursor: pointer; transition: all 0.2s;
-}
-.lb-phase-btn:hover { color: var(--light); border-color: rgba(255,255,255,0.2); }
-.lb-phase-btn.active {
-  color: var(--gold); border-color: var(--gold-dim);
-  background: rgba(201,168,76,0.08);
-}
-
 /* ── Gallery ── */
 .lb-gallery {
   display: grid; grid-template-columns: repeat(2, 1fr);
@@ -690,24 +581,13 @@ const usedCategories = ['All', ...new Set(projects.map(p => p.category))];
 
 
 <script define:vars={{ projects }}>
-  /* ── STATE ── */
   const projectData = projects;
   const lb = document.getElementById('lightbox');
   const lbTitle = document.getElementById('lbTitle');
   const lbSubtitle = document.getElementById('lbSubtitle');
   const lbScope = document.getElementById('lbScope');
-  const lbSliderWrap = document.getElementById('lbSliderWrap');
-  const lbSlider = document.getElementById('lbSlider');
-  const lbBeforeImg = document.getElementById('lbBeforeImg');
-  const lbAfterImg = document.getElementById('lbAfterImg');
-  const lbSliderBefore = document.getElementById('lbSliderBefore');
-  const lbSliderHandle = document.getElementById('lbSliderHandle');
-  const lbPhaseTabs = document.getElementById('lbPhaseTabs');
   const lbGallery = document.getElementById('lbGallery');
   const lbCounter = document.getElementById('lbCounter');
-
-  let currentProject = null;
-  let activePhases = new Set(['before', 'during', 'after']);
 
   /* ── FILTER ── */
   const filterBtns = document.querySelectorAll('.filter-btn');
@@ -738,88 +618,37 @@ const usedCategories = ['All', ...new Set(projects.map(p => p.category))];
 
   function openLightbox(idx) {
     const p = projectData[idx];
-    currentProject = p;
 
-    // Header
     lbTitle.textContent = p.title;
     lbSubtitle.textContent = p.subtitle;
     lbScope.innerHTML = p.scope.map(s =>
       `<span class="card-tag">${s}</span>`
     ).join('');
 
-    // Slider (transformation only)
-    if (p.type === 'transformation') {
-      const beforeImg = p.images.find(i => i.phase === 'before');
-      const afterImg = p.images.filter(i => i.phase === 'after')[0];
-      if (beforeImg && afterImg) {
-        lbBeforeImg.src = beforeImg.src;
-        lbBeforeImg.alt = beforeImg.alt;
-        lbAfterImg.src = afterImg.src;
-        lbAfterImg.alt = afterImg.alt;
-        lbSliderWrap.style.display = '';
-        resetSlider();
-      } else {
-        lbSliderWrap.style.display = 'none';
-      }
-      lbPhaseTabs.style.display = '';
-      activePhases = new Set(['before', 'during', 'after']);
-      document.querySelectorAll('.lb-phase-btn').forEach(b => b.classList.add('active'));
-    } else {
-      lbSliderWrap.style.display = 'none';
-      lbPhaseTabs.style.display = 'none';
-    }
-
-    // Gallery
     renderGallery(p);
 
-    // Show
     lb.classList.add('open');
     lb.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
   }
 
   function renderGallery(p) {
-    let imgs = p.images;
-
-    // For transformation, filter by active phases and skip slider pair
-    if (p.type === 'transformation') {
-      imgs = imgs.filter(i => activePhases.has(i.phase));
-    }
+    const imgs = p.images;
 
     lbGallery.innerHTML = imgs.map((img, i) => {
       const isWide = imgs.length === 1 || (imgs.length === 3 && i === 0);
-      const phaseLabel = img.phase ? `<span class="lb-phase-label" style="left:0.6rem;bottom:0.6rem;position:absolute;">${img.phase}</span>` : '';
       return `
         <div style="position:relative;" class="${isWide ? 'wide' : ''}">
           <div class="lb-gallery-img img-ph${isWide ? ' wide' : ''}"
                data-label="${img.alt}"
                style="background-image:url('${img.src}');background-size:cover;background-position:center;aspect-ratio:${isWide ? '16/10' : '4/3'};">
           </div>
-          ${phaseLabel}
         </div>
       `;
     }).join('');
 
     lbCounter.textContent = `${imgs.length} photo${imgs.length !== 1 ? 's' : ''}`;
   }
-
-  /* ── PHASE TABS ── */
-  document.querySelectorAll('.lb-phase-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const phase = btn.dataset.phase;
-      btn.classList.toggle('active');
-      if (btn.classList.contains('active')) {
-        activePhases.add(phase);
-      } else {
-        activePhases.delete(phase);
-      }
-      if (activePhases.size === 0) {
-        btn.classList.add('active');
-        activePhases.add(phase);
-      }
-      if (currentProject) renderGallery(currentProject);
-    });
-  });
 
   /* ── CLOSE LIGHTBOX ── */
   function closeLightbox() {
@@ -833,32 +662,4 @@ const usedCategories = ['All', ...new Set(projects.map(p => p.category))];
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && lb.classList.contains('open')) closeLightbox();
   });
-
-  /* ── BEFORE / AFTER SLIDER ── */
-  let isDragging = false;
-
-  function resetSlider() {
-    updateSliderPosition(50);
-  }
-
-  function updateSliderPosition(pct) {
-    pct = Math.max(2, Math.min(98, pct));
-    lbSliderBefore.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
-    lbSliderHandle.style.left = pct + '%';
-  }
-
-  function getSliderPct(e) {
-    const rect = lbSlider.getBoundingClientRect();
-    const x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
-    return (x / rect.width) * 100;
-  }
-
-  lbSlider.addEventListener('mousedown', e => { isDragging = true; updateSliderPosition(getSliderPct(e)); });
-  lbSlider.addEventListener('touchstart', e => { isDragging = true; updateSliderPosition(getSliderPct(e)); }, { passive: true });
-
-  window.addEventListener('mousemove', e => { if (isDragging) updateSliderPosition(getSliderPct(e)); });
-  window.addEventListener('touchmove', e => { if (isDragging) updateSliderPosition(getSliderPct(e)); }, { passive: true });
-
-  window.addEventListener('mouseup', () => { isDragging = false; });
-  window.addEventListener('touchend', () => { isDragging = false; });
 </script>
