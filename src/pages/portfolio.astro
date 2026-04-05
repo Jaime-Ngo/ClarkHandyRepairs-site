@@ -1,19 +1,198 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const categories = ['All', 'Plumbing', 'Electrical', 'Painting', 'Flooring', 'Drywall', 'Doors', 'Smart Home'];
+/*──────────────────────────────────────────────
+  PROJECT DATA
+  ─────────────────────────────────────────────
+  type:
+    "transformation" → shows before / after slider + gallery
+    "gallery"        → simple photo gallery
+    "grouped"        → collection of related one-offs
 
-// Portfolio items - replace src with real images when available
-const items = Array.from({ length: 18 }, (_, i) => ({
-  id: i + 1,
-  label: `Portfolio Photo ${i + 1}`,
-  category: categories[(i % (categories.length - 1)) + 1],
-}));
+  images[]:
+    phase: "before" | "during" | "after" | null
+    src:   path relative to /public  (e.g. /portfolio/kitchen/sink-wide.jpg)
+    alt:   accessibility text
+
+  Place your real images in public/portfolio/<slug>/
+  Then update the src paths below.
+──────────────────────────────────────────────*/
+
+const categories = ['All', 'Full Remodel', 'Kitchen', 'Bathroom', 'Flooring', 'Exterior', 'Garage', 'Painting', 'Trim & Doors'];
+
+const projects = [
+  {
+    id: 'whole-home-remodel',
+    title: 'Whole-Home Renovation',
+    subtitle: 'Complete gut & modernization of a two-story townhome',
+    category: 'Full Remodel',
+    type: 'transformation',
+    scope: ['Flooring', 'Painting', 'Drywall', 'Kitchen Cabinets', 'Staircase'],
+    thumbnail: '/portfolio/whole-home/entry-after.jpg',
+    images: [
+      { phase: 'before', src: '/portfolio/whole-home/bedroom-carpet.jpg',     alt: 'Bedroom with old carpet and blue-green walls' },
+      { phase: 'before', src: '/portfolio/whole-home/stairs-carpet.jpg',      alt: 'Staircase with heavily stained carpet' },
+      { phase: 'during', src: '/portfolio/whole-home/bedroom-gutted.jpg',     alt: 'Bedroom gutted — carpet removed, ceiling scraped' },
+      { phase: 'during', src: '/portfolio/whole-home/flooring-install.jpg',   alt: 'Vinyl plank flooring being installed in living room' },
+      { phase: 'during', src: '/portfolio/whole-home/cabinets-install.jpg',   alt: 'White shaker kitchen cabinets being leveled' },
+      { phase: 'during', src: '/portfolio/whole-home/trim-install.jpg',       alt: 'Baseboard trim staged for installation' },
+      { phase: 'after',  src: '/portfolio/whole-home/entry-after.jpg',        alt: 'Finished entry with new flooring and painted railing' },
+      { phase: 'after',  src: '/portfolio/whole-home/stairs-after.jpg',       alt: 'Staircase with new vinyl plank treads' },
+      { phase: 'after',  src: '/portfolio/whole-home/stairs-dining.jpg',      alt: 'Stairs and dining area with cohesive flooring' },
+      { phase: 'after',  src: '/portfolio/whole-home/living-room.jpg',        alt: 'Finished living room with new floors' },
+      { phase: 'after',  src: '/portfolio/whole-home/bedroom1-after.jpg',     alt: 'Bedroom with new gray vinyl plank flooring' },
+      { phase: 'after',  src: '/portfolio/whole-home/bedroom2-after.jpg',     alt: 'Second bedroom with matching flooring and ceiling fan' },
+      { phase: 'after',  src: '/portfolio/whole-home/stairs-below.jpg',       alt: 'View from below — stairs with white railing' },
+    ],
+  },
+  {
+    id: 'kitchen-laundry',
+    title: 'Kitchen & Laundry Remodel',
+    subtitle: 'New cabinets, countertops, and dedicated laundry alcove',
+    category: 'Kitchen',
+    type: 'gallery',
+    scope: ['Cabinetry', 'Countertops', 'Framing', 'Drywall', 'Plumbing'],
+    thumbnail: '/portfolio/kitchen-laundry/open-wall.jpg',
+    images: [
+      { src: '/portfolio/kitchen-laundry/open-wall.jpg',  alt: 'Kitchen mid-reno — cabinets, granite, tools on counter' },
+      { src: '/portfolio/kitchen-laundry/framing.jpg',    alt: 'Wood framing for laundry alcove partition' },
+      { src: '/portfolio/kitchen-laundry/drywall.jpg',    alt: 'Drywall installed around laundry area' },
+    ],
+  },
+  {
+    id: 'sink-countertop',
+    title: 'Kitchen Sink & Countertop',
+    subtitle: 'Black granite composite sink with industrial faucet on white quartz',
+    category: 'Kitchen',
+    type: 'gallery',
+    scope: ['Plumbing', 'Countertops'],
+    thumbnail: '/portfolio/sink/sink-wide.jpg',
+    images: [
+      { src: '/portfolio/sink/sink-wide.jpg',    alt: 'Wide shot — black sink, white counters, glass tile backsplash' },
+      { src: '/portfolio/sink/sink-top.jpg',      alt: 'Top-down view of double-bowl granite sink' },
+      { src: '/portfolio/sink/sink-angle.jpg',    alt: 'Angled view showing faucet and countertop detail' },
+    ],
+  },
+  {
+    id: 'deck-build',
+    title: 'Backyard Deck & Play Structure',
+    subtitle: 'Custom redwood deck with integrated slide and railing',
+    category: 'Exterior',
+    type: 'gallery',
+    scope: ['Framing', 'Decking', 'Railing'],
+    thumbnail: '/portfolio/deck/deck-finished.jpg',
+    images: [
+      { src: '/portfolio/deck/joists.jpg',         alt: 'Deck joist framing with posts set in concrete' },
+      { src: '/portfolio/deck/underside.jpg',       alt: 'Underside view showing post footings' },
+      { src: '/portfolio/deck/deck-finished.jpg',   alt: 'Finished deck platform with slide attached' },
+      { src: '/portfolio/deck/railing-detail.jpg',  alt: 'Close-up of redwood railing detail' },
+    ],
+  },
+  {
+    id: 'bathroom-accent',
+    title: 'Bathroom Accent Wall',
+    subtitle: 'Bold teal paint with brass fixtures and Edison-bulb sconces',
+    category: 'Bathroom',
+    type: 'gallery',
+    scope: ['Painting', 'Fixtures'],
+    thumbnail: '/portfolio/bathroom-accent/wall-sconce.jpg',
+    images: [
+      { src: '/portfolio/bathroom-accent/wall-wide.jpg',   alt: 'Teal accent wall with brass towel bar' },
+      { src: '/portfolio/bathroom-accent/wall-sconce.jpg',  alt: 'Brass sconce with Edison bulbs against teal wall' },
+    ],
+  },
+  {
+    id: 'bathroom-flooring',
+    title: 'Bathroom Flooring',
+    subtitle: 'Cherry-tone laminate with clean transitions at shower and doorway',
+    category: 'Flooring',
+    type: 'gallery',
+    scope: ['Flooring', 'Trim'],
+    thumbnail: '/portfolio/bath-floor/floor-vanity.jpg',
+    images: [
+      { src: '/portfolio/bath-floor/floor-vanity.jpg',     alt: 'Bathroom floor with white vanity and cherry laminate' },
+      { src: '/portfolio/bath-floor/floor-shower.jpg',      alt: 'Floor meeting glass shower base with clean transition' },
+      { src: '/portfolio/bath-floor/floor-transition.jpg',  alt: 'Transition strip between bathroom and bedroom flooring' },
+    ],
+  },
+  {
+    id: 'garage-reno',
+    title: 'Garage Renovation',
+    subtitle: 'Two-car garage finished with epoxy-ready floors, built-in storage, and bonus room conversion',
+    category: 'Garage',
+    type: 'gallery',
+    scope: ['Painting', 'Electrical', 'Cabinetry'],
+    thumbnail: '/portfolio/garage/garage-living.jpg',
+    images: [
+      { src: '/portfolio/garage/garage-bay1.jpg',    alt: 'Freshly painted garage bay with opener installed' },
+      { src: '/portfolio/garage/garage-bay2.jpg',     alt: 'Second angle showing workbench and cabinets' },
+      { src: '/portfolio/garage/garage-living.jpg',   alt: 'Converted garage space with ceiling fan and accent wall' },
+    ],
+  },
+  {
+    id: 'cabinet-refinish',
+    title: 'Cabinet Refinishing',
+    subtitle: 'Spray-painted vanity cabinets with new hardware',
+    category: 'Painting',
+    type: 'gallery',
+    scope: ['Painting', 'Hardware'],
+    thumbnail: '/portfolio/cabinets/doors-drying.jpg',
+    images: [
+      { src: '/portfolio/cabinets/doors-drying.jpg',   alt: 'Cabinet doors laid out for spray painting' },
+      { src: '/portfolio/cabinets/vanity-installed.jpg', alt: 'Finished vanity with marble top and new hardware' },
+    ],
+  },
+  {
+    id: 'trim-doors',
+    title: 'Interior Trim & Doors',
+    subtitle: 'Shaker-style doors, crown molding, and baseboard details',
+    category: 'Trim & Doors',
+    type: 'grouped',
+    scope: ['Doors', 'Crown Molding', 'Baseboard'],
+    thumbnail: '/portfolio/trim/shaker-door.jpg',
+    images: [
+      { src: '/portfolio/trim/shaker-door.jpg',     alt: 'White two-panel shaker door with matte black lever' },
+      { src: '/portfolio/trim/crown-detail.jpg',     alt: 'Crown molding corner detail' },
+      { src: '/portfolio/trim/hallway-molding.jpg',  alt: 'Hallway with crown molding and stairway' },
+      { src: '/portfolio/trim/light-floor.jpg',       alt: 'Light oak laminate floor with white baseboards' },
+    ],
+  },
+  {
+    id: 'drywall-rooms',
+    title: 'Drywall & Room Prep',
+    subtitle: 'Full drywall hang, tape, and mud for new construction rooms',
+    category: 'Full Remodel',
+    type: 'gallery',
+    scope: ['Drywall', 'Electrical Rough-in'],
+    thumbnail: '/portfolio/drywall/room-mudded.jpg',
+    images: [
+      { src: '/portfolio/drywall/room-mudded.jpg',    alt: 'Room with drywall fully mudded and ready for sanding' },
+      { src: '/portfolio/drywall/room-angle2.jpg',     alt: 'Second angle showing ceiling and electrical rough-in' },
+    ],
+  },
+  {
+    id: 'attic-finish',
+    title: 'Attic Living Space',
+    subtitle: 'Finished attic with hardwood floors, closets, and recessed lighting',
+    category: 'Full Remodel',
+    type: 'gallery',
+    scope: ['Flooring', 'Lighting', 'Closets'],
+    thumbnail: '/portfolio/attic/attic-dining.jpg',
+    images: [
+      { src: '/portfolio/attic/attic-dining.jpg',   alt: 'Attic space with dining table and dormer windows' },
+      { src: '/portfolio/attic/attic-sitting.jpg',    alt: 'Sitting area with window AC and closet' },
+      { src: '/portfolio/attic/attic-closet.jpg',     alt: 'Built-in closet and wood sliding doors' },
+    ],
+  },
+];
+
+// Extract unique categories from projects for filtering
+const usedCategories = ['All', ...new Set(projects.map(p => p.category))];
 ---
 
 <Layout title="Portfolio">
 
-  <!-- PAGE HERO -->
+  <!-- PAGE HERO  (unchanged) -->
   <section class="page-hero">
     <div class="page-hero-bg img-ph" data-label="Portfolio Hero Image"></div>
     <div class="page-hero-overlay"></div>
@@ -27,26 +206,104 @@ const items = Array.from({ length: 18 }, (_, i) => ({
   <!-- FILTER BAR -->
   <div class="filter-bar">
     <div class="container filter-inner">
-      {categories.map(cat => (
+      {usedCategories.map(cat => (
         <button class={`filter-btn ${cat === 'All' ? 'active' : ''}`} data-cat={cat}>{cat}</button>
       ))}
     </div>
   </div>
 
-  <!-- PHOTO GRID -->
+  <!-- PROJECT GRID -->
   <section class="portfolio-section">
     <div class="container">
-      <div class="portfolio-masonry" id="portfolioGrid">
-        {items.map(item => (
-          <div class="portfolio-item img-ph" data-label={item.label} data-cat={item.category}>
-            <div class="portfolio-hover">
-              <span>{item.category}</span>
+      <div class="project-grid" id="projectGrid">
+        {projects.map((project, idx) => (
+          <article
+            class="project-card"
+            data-cat={project.category}
+            data-idx={idx}
+            style={`animation-delay: ${idx * 0.06}s`}
+          >
+            {/* Thumbnail */}
+            <div class="card-thumb">
+              <div class="card-img img-ph" data-label={project.title} style={`background-image:url('${project.thumbnail}')`}></div>
+              {/* Transformation badge */}
+              {project.type === 'transformation' && (
+                <span class="card-badge">Before &amp; After</span>
+              )}
+              <div class="card-overlay">
+                <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <circle cx="11" cy="11" r="7" /><line x1="16.5" y1="16.5" x2="21" y2="21" />
+                </svg>
+              </div>
             </div>
-          </div>
+            {/* Info */}
+            <div class="card-info">
+              <h3 class="card-title">{project.title}</h3>
+              <p class="card-subtitle">{project.subtitle}</p>
+              <div class="card-tags">
+                {project.scope.slice(0, 3).map(tag => (
+                  <span class="card-tag">{tag}</span>
+                ))}
+              </div>
+            </div>
+          </article>
         ))}
       </div>
     </div>
   </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lb-backdrop"></div>
+    <div class="lb-container">
+      {/* Close */}
+      <button class="lb-close" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="4" x2="20" y2="20"/><line x1="20" y1="4" x2="4" y2="20"/></svg>
+      </button>
+
+      {/* Header */}
+      <div class="lb-header">
+        <h2 class="lb-title" id="lbTitle"></h2>
+        <p class="lb-subtitle" id="lbSubtitle"></p>
+        <div class="lb-scope" id="lbScope"></div>
+      </div>
+
+      {/* Slider (transformation only) */}
+      <div class="lb-slider-wrap" id="lbSliderWrap" style="display:none;">
+        <div class="lb-slider-label">Drag to Compare</div>
+        <div class="lb-slider" id="lbSlider">
+          <div class="lb-slider-before" id="lbSliderBefore">
+            <img id="lbBeforeImg" src="" alt="" />
+            <span class="lb-phase-label lb-phase-before">Before</span>
+          </div>
+          <div class="lb-slider-after" id="lbSliderAfter">
+            <img id="lbAfterImg" src="" alt="" />
+            <span class="lb-phase-label lb-phase-after">After</span>
+          </div>
+          <div class="lb-slider-handle" id="lbSliderHandle">
+            <div class="lb-handle-line"></div>
+            <div class="lb-handle-grip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9,6 3,12 9,18"/><polyline points="15,6 21,12 15,18"/></svg>
+            </div>
+            <div class="lb-handle-line"></div>
+          </div>
+        </div>
+      </div>
+
+      {/* Phase Tabs (transformation only) */}
+      <div class="lb-phase-tabs" id="lbPhaseTabs" style="display:none;">
+        <button class="lb-phase-btn active" data-phase="before">Before</button>
+        <button class="lb-phase-btn" data-phase="during">During</button>
+        <button class="lb-phase-btn active" data-phase="after">After</button>
+      </div>
+
+      {/* Gallery */}
+      <div class="lb-gallery" id="lbGallery"></div>
+
+      {/* Counter */}
+      <div class="lb-counter" id="lbCounter"></div>
+    </div>
+  </div>
 
   <!-- CTA -->
   <section class="portfolio-cta">
@@ -61,175 +318,530 @@ const items = Array.from({ length: 18 }, (_, i) => ({
 
 </Layout>
 
+
 <style>
-  /* PAGE HERO */
-  .page-hero {
-    position: relative;
-    height: 52vh;
-    min-height: 380px;
-    display: flex;
-    align-items: flex-end;
-    overflow: hidden;
-  }
-  .page-hero-bg {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-  }
-  .page-hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.45) 100%);
-    z-index: 1;
-  }
-  .page-hero-content {
-    position: relative;
-    z-index: 2;
-    padding-bottom: 4rem;
-    padding-top: var(--nav-h);
-  }
-  .page-hero-content h1 {
-    font-family: var(--font-display);
-    font-size: clamp(3rem, 7vw, 5.5rem);
-    line-height: 0.95;
-    letter-spacing: 0.02em;
-    color: var(--light);
-    margin-bottom: 1rem;
-  }
-  .page-hero-content p {
-    color: var(--light-dim);
-    font-size: 1rem;
-    max-width: 480px;
-  }
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   PAGE HERO  (same as before)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.page-hero {
+  position: relative;
+  height: 52vh;
+  min-height: 380px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+.page-hero-bg { position: absolute; inset: 0; z-index: 0; }
+.page-hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.45) 100%);
+  z-index: 1;
+}
+.page-hero-content {
+  position: relative; z-index: 2;
+  padding-bottom: 4rem; padding-top: var(--nav-h);
+}
+.page-hero-content h1 {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  line-height: 0.95; letter-spacing: 0.02em;
+  color: var(--light); margin-bottom: 1rem;
+}
+.page-hero-content p {
+  color: var(--light-dim); font-size: 1rem; max-width: 480px;
+}
 
-  /* FILTER BAR */
-  .filter-bar {
-    background: var(--dark-2);
-    border-bottom: 1px solid var(--gold-dim);
-    padding: 1rem 0;
-    position: sticky;
-    top: var(--nav-h);
-    z-index: 50;
-  }
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   FILTER BAR
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.filter-bar {
+  background: var(--dark-2);
+  border-bottom: 1px solid var(--gold-dim);
+  padding: 1rem 0;
+  position: sticky; top: var(--nav-h); z-index: 50;
+}
+.filter-inner {
+  display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center;
+  -webkit-overflow-scrolling: touch;
+}
+.filter-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--muted);
+  font-family: var(--font-cond);
+  font-size: 0.78rem; letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.4rem 1rem; border-radius: 2px;
+  cursor: pointer; transition: all 0.2s;
+  white-space: nowrap;
+}
+.filter-btn:hover { color: var(--light); border-color: rgba(255,255,255,0.15); }
+.filter-btn.active {
+  color: var(--gold); border-color: var(--gold-dim);
+  background: rgba(201,168,76,0.06);
+}
 
-  .filter-inner {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    align-items: center;
-  }
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   PROJECT GRID
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.portfolio-section { padding: 4rem 0 6rem; }
 
-  .filter-btn {
-    background: transparent;
-    border: 1px solid transparent;
-    color: var(--muted);
-    font-family: var(--font-cond);
-    font-size: 0.78rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    padding: 0.4rem 1rem;
-    border-radius: 2px;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-  .filter-btn:hover {
-    color: var(--light);
-    border-color: rgba(255,255,255,0.15);
-  }
-  .filter-btn.active {
-    color: var(--gold);
-    border-color: var(--gold-dim);
-    background: rgba(201,168,76,0.06);
-  }
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
 
-  /* PORTFOLIO GRID */
-  .portfolio-section {
-    padding: 4rem 0 6rem;
-  }
+/* ── Card ── */
+.project-card {
+  cursor: pointer;
+  border-radius: 3px;
+  overflow: hidden;
+  background: var(--dark-2);
+  border: 1px solid rgba(255,255,255,0.04);
+  transition: transform 0.35s cubic-bezier(.22,1,.36,1), box-shadow 0.35s ease;
+  animation: cardIn 0.5s ease both;
+}
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+}
 
-  .portfolio-masonry {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-  }
+/* thumbnail */
+.card-thumb {
+  position: relative;
+  height: 260px;
+  overflow: hidden;
+}
+.card-img {
+  width: 100%; height: 100%;
+  background-size: cover; background-position: center;
+  transition: transform 0.5s cubic-bezier(.22,1,.36,1);
+}
+.project-card:hover .card-img { transform: scale(1.05); }
 
-  .portfolio-item {
-    height: 280px;
-    border-radius: 1px;
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-  }
+.card-overlay {
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,0);
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.3s;
+}
+.project-card:hover .card-overlay { background: rgba(0,0,0,0.35); }
 
-  .portfolio-item:nth-child(5n + 1) { height: 360px; }
-  .portfolio-item:nth-child(7n + 3) { height: 320px; }
+.card-icon {
+  width: 36px; height: 36px; color: var(--gold);
+  opacity: 0; transform: scale(0.8);
+  transition: all 0.3s ease 0.05s;
+}
+.project-card:hover .card-icon { opacity: 1; transform: scale(1); }
 
-  .portfolio-hover {
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0);
-    display: flex;
-    align-items: flex-end;
-    padding: 1.2rem;
-    transition: background 0.3s;
-    z-index: 2;
-  }
+/* badge */
+.card-badge {
+  position: absolute; top: 0.75rem; left: 0.75rem;
+  background: var(--gold); color: var(--dark);
+  font-family: var(--font-cond);
+  font-size: 0.65rem; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 0.25rem 0.6rem; border-radius: 2px;
+  z-index: 3;
+}
 
-  .portfolio-item:hover .portfolio-hover {
-    background: rgba(0,0,0,0.55);
-  }
+/* info */
+.card-info { padding: 1.25rem 1.25rem 1.5rem; }
 
-  .portfolio-hover span {
-    font-family: var(--font-cond);
-    font-size: 0.75rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--gold);
-    opacity: 0;
-    transform: translateY(8px);
-    transition: all 0.3s;
-  }
+.card-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem; line-height: 1.2;
+  color: var(--light); margin-bottom: 0.35rem;
+  letter-spacing: 0.01em;
+}
+.card-subtitle {
+  font-size: 0.82rem; color: var(--muted);
+  line-height: 1.45; margin-bottom: 0.9rem;
+}
 
-  .portfolio-item:hover .portfolio-hover span {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.card-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+.card-tag {
+  font-family: var(--font-cond);
+  font-size: 0.62rem; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--gold);
+  border: 1px solid var(--gold-dim);
+  padding: 0.18rem 0.55rem; border-radius: 1px;
+  opacity: 0.75;
+}
 
-  .portfolio-item.hidden { display: none; }
+/* hidden state for filtering */
+.project-card.hidden {
+  display: none;
+}
 
-  @media (max-width: 768px) {
-    .portfolio-masonry { grid-template-columns: repeat(2, 1fr); }
-    .portfolio-item { height: 200px !important; }
-  }
-  @media (max-width: 480px) {
-    .portfolio-masonry { grid-template-columns: 1fr; }
-    .portfolio-item { height: 240px !important; }
-  }
+@media (max-width: 960px) {
+  .project-grid { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+}
+@media (max-width: 560px) {
+  .project-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .card-thumb { height: 220px; }
+}
 
-  /* CTA */
-  .portfolio-cta {
-    padding: 7rem 0;
-    background: var(--dark-2);
-    border-top: 1px solid var(--gold-dim);
-  }
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   LIGHTBOX
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.lightbox {
+  position: fixed; inset: 0; z-index: 9999;
+  display: flex; align-items: flex-start; justify-content: center;
+  overflow-y: auto;
+  pointer-events: none; opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.lightbox.open { pointer-events: all; opacity: 1; }
+
+.lb-backdrop {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.92);
+  backdrop-filter: blur(8px);
+}
+
+.lb-container {
+  position: relative; z-index: 2;
+  width: 100%; max-width: 900px;
+  padding: 2rem 1.5rem 4rem;
+  transform: translateY(20px);
+  transition: transform 0.35s cubic-bezier(.22,1,.36,1);
+}
+.lightbox.open .lb-container { transform: translateY(0); }
+
+/* close */
+.lb-close {
+  position: fixed; top: 1.25rem; right: 1.5rem;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 50%; width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; z-index: 10;
+  transition: all 0.2s;
+}
+.lb-close svg { width: 18px; height: 18px; color: var(--light); }
+.lb-close:hover { background: rgba(255,255,255,0.12); border-color: var(--gold-dim); }
+
+/* header */
+.lb-header { margin-bottom: 2rem; text-align: center; }
+.lb-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  color: var(--light); line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+.lb-subtitle { color: var(--muted); font-size: 0.92rem; margin-bottom: 1rem; }
+.lb-scope { display: flex; gap: 0.4rem; justify-content: center; flex-wrap: wrap; }
+.lb-scope .card-tag { opacity: 1; }
+
+/* ── Before / After Slider ── */
+.lb-slider-wrap { margin-bottom: 2.5rem; }
+.lb-slider-label {
+  text-align: center; margin-bottom: 0.6rem;
+  font-family: var(--font-cond);
+  font-size: 0.7rem; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--muted);
+}
+
+.lb-slider {
+  position: relative; width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 3px; overflow: hidden;
+  cursor: col-resize; user-select: none;
+  -webkit-user-select: none;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.lb-slider-before,
+.lb-slider-after {
+  position: absolute; inset: 0;
+}
+.lb-slider-before { z-index: 2; clip-path: inset(0 50% 0 0); }
+.lb-slider-after  { z-index: 1; }
+
+.lb-slider-before img,
+.lb-slider-after img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+}
+
+.lb-phase-label {
+  position: absolute; bottom: 1rem;
+  font-family: var(--font-cond);
+  font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  background: rgba(0,0,0,0.7); color: var(--light);
+  padding: 0.3rem 0.8rem; border-radius: 2px;
+  z-index: 5; pointer-events: none;
+}
+.lb-phase-before { left: 1rem; }
+.lb-phase-after  { right: 1rem; }
+
+/* handle */
+.lb-slider-handle {
+  position: absolute; top: 0; bottom: 0;
+  left: 50%; z-index: 3;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+.lb-handle-line {
+  width: 2px; flex: 1;
+  background: var(--gold);
+  opacity: 0.9;
+}
+.lb-handle-grip {
+  width: 40px; height: 40px;
+  background: var(--gold);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+  flex-shrink: 0;
+}
+.lb-handle-grip svg { width: 20px; height: 20px; color: var(--dark); }
+
+/* ── Phase Tabs ── */
+.lb-phase-tabs {
+  display: flex; justify-content: center;
+  gap: 0.5rem; margin-bottom: 1.5rem;
+}
+.lb-phase-btn {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--muted);
+  font-family: var(--font-cond);
+  font-size: 0.72rem; letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.4rem 1.2rem; border-radius: 2px;
+  cursor: pointer; transition: all 0.2s;
+}
+.lb-phase-btn:hover { color: var(--light); border-color: rgba(255,255,255,0.2); }
+.lb-phase-btn.active {
+  color: var(--gold); border-color: var(--gold-dim);
+  background: rgba(201,168,76,0.08);
+}
+
+/* ── Gallery ── */
+.lb-gallery {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+.lb-gallery-img {
+  width: 100%; border-radius: 2px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  border: 1px solid rgba(255,255,255,0.04);
+}
+.lb-gallery-img.img-ph {
+  aspect-ratio: 4 / 3;
+}
+.lb-gallery-img:hover { opacity: 0.85; }
+
+/* single wide image */
+.lb-gallery-img.wide {
+  grid-column: 1 / -1;
+}
+
+.lb-counter {
+  text-align: center; margin-top: 1.5rem;
+  font-family: var(--font-cond);
+  font-size: 0.7rem; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--muted);
+}
+
+@media (max-width: 560px) {
+  .lb-gallery { grid-template-columns: 1fr; }
+  .lb-container { padding: 1.5rem 1rem 3rem; }
+  .lb-slider { aspect-ratio: 4 / 3; }
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   CTA
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.portfolio-cta {
+  padding: 7rem 0;
+  background: var(--dark-2);
+  border-top: 1px solid var(--gold-dim);
+}
 </style>
 
-<script>
-  const buttons = document.querySelectorAll('.filter-btn');
-  const items = document.querySelectorAll('.portfolio-item');
 
-  buttons.forEach(btn => {
+<script define:vars={{ projects }}>
+  /* ── STATE ── */
+  const projectData = projects;
+  const lb = document.getElementById('lightbox');
+  const lbTitle = document.getElementById('lbTitle');
+  const lbSubtitle = document.getElementById('lbSubtitle');
+  const lbScope = document.getElementById('lbScope');
+  const lbSliderWrap = document.getElementById('lbSliderWrap');
+  const lbSlider = document.getElementById('lbSlider');
+  const lbBeforeImg = document.getElementById('lbBeforeImg');
+  const lbAfterImg = document.getElementById('lbAfterImg');
+  const lbSliderBefore = document.getElementById('lbSliderBefore');
+  const lbSliderHandle = document.getElementById('lbSliderHandle');
+  const lbPhaseTabs = document.getElementById('lbPhaseTabs');
+  const lbGallery = document.getElementById('lbGallery');
+  const lbCounter = document.getElementById('lbCounter');
+
+  let currentProject = null;
+  let activePhases = new Set(['before', 'during', 'after']);
+
+  /* ── FILTER ── */
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.project-card');
+
+  filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      buttons.forEach(b => b.classList.remove('active'));
+      filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       const cat = btn.dataset.cat;
-      items.forEach(item => {
-        if (cat === 'All' || item.dataset.cat === cat) {
-          item.classList.remove('hidden');
+      cards.forEach(card => {
+        if (cat === 'All' || card.dataset.cat === cat) {
+          card.classList.remove('hidden');
         } else {
-          item.classList.add('hidden');
+          card.classList.add('hidden');
         }
       });
     });
   });
+
+  /* ── OPEN LIGHTBOX ── */
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      const idx = parseInt(card.dataset.idx);
+      openLightbox(idx);
+    });
+  });
+
+  function openLightbox(idx) {
+    const p = projectData[idx];
+    currentProject = p;
+
+    // Header
+    lbTitle.textContent = p.title;
+    lbSubtitle.textContent = p.subtitle;
+    lbScope.innerHTML = p.scope.map(s =>
+      `<span class="card-tag">${s}</span>`
+    ).join('');
+
+    // Slider (transformation only)
+    if (p.type === 'transformation') {
+      const beforeImg = p.images.find(i => i.phase === 'before');
+      const afterImg = p.images.filter(i => i.phase === 'after')[0];
+      if (beforeImg && afterImg) {
+        lbBeforeImg.src = beforeImg.src;
+        lbBeforeImg.alt = beforeImg.alt;
+        lbAfterImg.src = afterImg.src;
+        lbAfterImg.alt = afterImg.alt;
+        lbSliderWrap.style.display = '';
+        resetSlider();
+      } else {
+        lbSliderWrap.style.display = 'none';
+      }
+      lbPhaseTabs.style.display = '';
+      activePhases = new Set(['before', 'during', 'after']);
+      document.querySelectorAll('.lb-phase-btn').forEach(b => b.classList.add('active'));
+    } else {
+      lbSliderWrap.style.display = 'none';
+      lbPhaseTabs.style.display = 'none';
+    }
+
+    // Gallery
+    renderGallery(p);
+
+    // Show
+    lb.classList.add('open');
+    lb.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function renderGallery(p) {
+    let imgs = p.images;
+
+    // For transformation, filter by active phases and skip slider pair
+    if (p.type === 'transformation') {
+      imgs = imgs.filter(i => activePhases.has(i.phase));
+    }
+
+    lbGallery.innerHTML = imgs.map((img, i) => {
+      const isWide = imgs.length === 1 || (imgs.length === 3 && i === 0);
+      const phaseLabel = img.phase ? `<span class="lb-phase-label" style="left:0.6rem;bottom:0.6rem;position:absolute;">${img.phase}</span>` : '';
+      return `
+        <div style="position:relative;" class="${isWide ? 'wide' : ''}">
+          <div class="lb-gallery-img img-ph${isWide ? ' wide' : ''}"
+               data-label="${img.alt}"
+               style="background-image:url('${img.src}');background-size:cover;background-position:center;aspect-ratio:${isWide ? '16/10' : '4/3'};">
+          </div>
+          ${phaseLabel}
+        </div>
+      `;
+    }).join('');
+
+    lbCounter.textContent = `${imgs.length} photo${imgs.length !== 1 ? 's' : ''}`;
+  }
+
+  /* ── PHASE TABS ── */
+  document.querySelectorAll('.lb-phase-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const phase = btn.dataset.phase;
+      btn.classList.toggle('active');
+      if (btn.classList.contains('active')) {
+        activePhases.add(phase);
+      } else {
+        activePhases.delete(phase);
+      }
+      if (activePhases.size === 0) {
+        btn.classList.add('active');
+        activePhases.add(phase);
+      }
+      if (currentProject) renderGallery(currentProject);
+    });
+  });
+
+  /* ── CLOSE LIGHTBOX ── */
+  function closeLightbox() {
+    lb.classList.remove('open');
+    lb.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelector('.lb-close').addEventListener('click', closeLightbox);
+  document.querySelector('.lb-backdrop').addEventListener('click', closeLightbox);
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && lb.classList.contains('open')) closeLightbox();
+  });
+
+  /* ── BEFORE / AFTER SLIDER ── */
+  let isDragging = false;
+
+  function resetSlider() {
+    updateSliderPosition(50);
+  }
+
+  function updateSliderPosition(pct) {
+    pct = Math.max(2, Math.min(98, pct));
+    lbSliderBefore.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+    lbSliderHandle.style.left = pct + '%';
+  }
+
+  function getSliderPct(e) {
+    const rect = lbSlider.getBoundingClientRect();
+    const x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
+    return (x / rect.width) * 100;
+  }
+
+  lbSlider.addEventListener('mousedown', e => { isDragging = true; updateSliderPosition(getSliderPct(e)); });
+  lbSlider.addEventListener('touchstart', e => { isDragging = true; updateSliderPosition(getSliderPct(e)); }, { passive: true });
+
+  window.addEventListener('mousemove', e => { if (isDragging) updateSliderPosition(getSliderPct(e)); });
+  window.addEventListener('touchmove', e => { if (isDragging) updateSliderPosition(getSliderPct(e)); }, { passive: true });
+
+  window.addEventListener('mouseup', () => { isDragging = false; });
+  window.addEventListener('touchend', () => { isDragging = false; });
 </script>
