@@ -6,108 +6,115 @@ import Layout from '../layouts/Layout.astro';
 
   <!-- CONTACT BODY -->
   <section class="contact-section">
-    <div class="container contact-grid">
+    <div class="container">
 
-      <!-- FORM -->
-      <div class="contact-form-wrap">
-        <span class="section-eyebrow">Send a Message</span>
-        <div class="gold-line"></div>
-        <h2 class="section-title">Request a<br /><span class="gold-text">Free Estimate</span></h2>
-        <p class="section-body" style="margin-bottom: 2.5rem;">Fill out the form below and we'll follow up with you shortly to discuss your project and schedule a visit.</p>
+      <!-- Background image card -->
+      <div class="contact-bg-card">
+        <div class="contact-grid">
 
-        <form class="contact-form" name="contact" netlify>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="name">Full Name</label>
-              <input type="text" id="name" name="name" placeholder="John Doe" required />
+          <!-- FORM -->
+          <div class="contact-form-wrap">
+            <span class="section-eyebrow">Send a Message</span>
+            <div class="gold-line"></div>
+            <h2 class="section-title">Request a<br /><span class="gold-text">Free Estimate</span></h2>
+            <p class="section-body" style="margin-bottom: 2.5rem;">Fill out the form below and we'll follow up with you shortly to discuss your project and schedule a visit.</p>
+
+            <form class="contact-form" name="contact" netlify>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">Full Name</label>
+                  <input type="text" id="name" name="name" placeholder="John Doe" required />
+                </div>
+                <div class="form-group">
+                  <label for="phone">Phone Number</label>
+                  <input type="tel" id="phone" name="phone" placeholder="(949) 000-0000" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="you@email.com" required />
+              </div>
+              <div class="form-group">
+                <label for="service">Service Needed</label>
+                <select id="service" name="service">
+                  <option value="" disabled selected>Select a service...</option>
+                  <option>Plumbing</option>
+                  <option>Electrical</option>
+                  <option>Painting</option>
+                  <option>Flooring</option>
+                  <option>Drywall</option>
+                  <option>Doors & Hardware</option>
+                  <option>Smart Home / TV Mounting</option>
+                  <option>General Handyman / Punch-List</option>
+                  <option>Demolition & Removal</option>
+                  <option>Custom / Multiple Services</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="message">Tell Us About Your Project</label>
+                <textarea id="message" name="message" rows="5" placeholder="Describe what you need done, any relevant details, and your preferred timeline..."></textarea>
+              </div>
+              <button type="submit" class="btn btn-gold btn-submit">Send Message</button>
+            </form>
+          </div>
+
+          <!-- SIDEBAR INFO -->
+          <div class="contact-info">
+            <div class="info-card">
+              <span class="section-eyebrow">Call or Text</span>
+              <div class="phone-row">
+                <span class="info-label">Cell</span>
+                <a href="tel:9494902399" class="info-link">(949) 490-2399</a>
+              </div>
+              <div class="phone-row">
+                <span class="info-label">Office</span>
+                <a href="tel:9497340972" class="info-link">(949) 734-0972</a>
+              </div>
             </div>
-            <div class="form-group">
-              <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" name="phone" placeholder="(949) 000-0000" />
+            <div class="info-card">
+              <span class="section-eyebrow">Email</span>
+              <a href="mailto:Info@clarkhandysolutions.com" class="info-link small">Info@clarkhandysolutions.com</a>
+            </div>
+            <div class="info-card">
+              <span class="section-eyebrow">Service Area</span>
+              <p class="info-text">Orange County, CA<br />and surrounding areas</p>
+            </div>
+            <div class="info-card">
+              <span class="section-eyebrow">Hours</span>
+              <p class="info-text">
+                Mon – Fri: 9:00 am – 6:00 pm<br />
+                Saturday: 10:00 am – 5:00 pm<br />
+                Sunday: Closed
+              </p>
+            </div>
+            <div class="info-card">
+              <span class="section-eyebrow">Follow Us</span>
+              <div class="social-links">
+                <a href="https://www.instagram.com/chandysolutions" target="_blank" rel="noopener" class="social-link">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+                  Instagram
+                </a>
+                <a href="https://www.facebook.com/CHandySolutionsOC/" target="_blank" rel="noopener" class="social-link">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                  Facebook
+                </a>
+                <a href="https://www.tiktok.com/@Chandysolutions" target="_blank" rel="noopener" class="social-link">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
+                  TikTok
+                </a>
+                <a href="https://nextdoor.com/page/c-handy-solutions-pollock-id" target="_blank" rel="noopener" class="social-link">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 5.522 4.477 10 10 10s10-4.478 10-10c0-5.523-4.477-10-10-10zm4.286 11.67c-.088.382-.44.63-.828.63a.855.855 0 0 1-.217-.028l-2.808-.707v4.977a.857.857 0 0 1-.857.858H10.43a.857.857 0 0 1-.857-.858v-4.977l-2.808.707a.853.853 0 0 1-.217.028.852.852 0 0 1-.828-.63l-.386-1.542a.857.857 0 0 1 .602-1.044l3.637-.916V8.4A2.4 2.4 0 0 1 12 6a2.4 2.4 0 0 1 2.428 2.4v1.768l3.637.916a.857.857 0 0 1 .602 1.044l-.381 1.542z"/></svg>
+                  Nextdoor
+                </a>
+                <a href="https://www.yelp.com/biz/clark-handy-solutions-westminster" target="_blank" rel="noopener" class="social-link">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.54 13.9l-1.55.54c-.47.16-.97-.17-.97-.67V7.33c0-.52.54-.86 1-.62l5.13 2.78c.44.24.48.86.07 1.15l-3.68 3.26zM10 16.5c0-.55.45-1 1-1s1 .45 1 1v4c0 .55-.45 1-1 1s-1-.45-1-1v-4zM7.5 14.1l-3.62 1.78c-.5.25-.6.9-.2 1.28l2.13 2.13c.37.37 1 .3 1.27-.15l2.24-3.87c.27-.47-.03-1.07-.57-1.16l-1.25-.01zM6.9 11.5L3 10.38c-.53-.16-.82-.73-.62-1.24l1.04-2.83c.2-.54.82-.73 1.27-.38L9 9.1c.44.34.38 1-.1 1.26l-2 1.14zM14.3 15.76l2.24 3.87c.27.45.9.52 1.27.15l2.13-2.13c.4-.38.3-1.03-.2-1.28L16.1 14.6c-.54-.27-1.16.1-1.23.66l-.57.5z"/></svg>
+                  Yelp
+                </a>
+              </div>
             </div>
           </div>
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="you@email.com" required />
-          </div>
-          <div class="form-group">
-            <label for="service">Service Needed</label>
-            <select id="service" name="service">
-              <option value="" disabled selected>Select a service...</option>
-              <option>Plumbing</option>
-              <option>Electrical</option>
-              <option>Painting</option>
-              <option>Flooring</option>
-              <option>Drywall</option>
-              <option>Doors & Hardware</option>
-              <option>Smart Home / TV Mounting</option>
-              <option>General Handyman / Punch-List</option>
-              <option>Demolition & Removal</option>
-              <option>Custom / Multiple Services</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="message">Tell Us About Your Project</label>
-            <textarea id="message" name="message" rows="5" placeholder="Describe what you need done, any relevant details, and your preferred timeline..."></textarea>
-          </div>
-          <button type="submit" class="btn btn-gold btn-submit">Send Message</button>
-        </form>
-      </div>
 
-      <!-- SIDEBAR INFO -->
-      <div class="contact-info">
-        <div class="info-card">
-          <span class="section-eyebrow">Call or Text</span>
-          <div class="phone-row">
-            <span class="info-label">Cell</span>
-            <a href="tel:9494902399" class="info-link">(949) 490-2399</a>
-          </div>
-          <div class="phone-row">
-            <span class="info-label">Office</span>
-            <a href="tel:9497340972" class="info-link">(949) 734-0972</a>
-          </div>
-        </div>
-        <div class="info-card">
-          <span class="section-eyebrow">Email</span>
-          <a href="mailto:Info@clarkhandysolutions.com" class="info-link small">Info@clarkhandysolutions.com</a>
-        </div>
-        <div class="info-card">
-          <span class="section-eyebrow">Service Area</span>
-          <p class="info-text">Orange County, CA<br />and surrounding areas</p>
-        </div>
-        <div class="info-card">
-          <span class="section-eyebrow">Hours</span>
-          <p class="info-text">
-            Mon – Fri: 9:00 am – 6:00 pm<br />
-            Saturday: 10:00 am – 5:00 pm<br />
-            Sunday: Closed
-          </p>
-        </div>
-        <div class="info-card">
-          <span class="section-eyebrow">Follow Us</span>
-          <div class="social-links">
-            <a href="https://www.instagram.com/chandysolutions" target="_blank" rel="noopener" class="social-link">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-              Instagram
-            </a>
-            <a href="https://www.facebook.com/CHandySolutionsOC/" target="_blank" rel="noopener" class="social-link">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-              Facebook
-            </a>
-            <a href="https://www.tiktok.com/@Chandysolutions" target="_blank" rel="noopener" class="social-link">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
-              TikTok
-            </a>
-            <a href="https://nextdoor.com/page/c-handy-solutions-pollock-id" target="_blank" rel="noopener" class="social-link">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 5.522 4.477 10 10 10s10-4.478 10-10c0-5.523-4.477-10-10-10zm4.286 11.67c-.088.382-.44.63-.828.63a.855.855 0 0 1-.217-.028l-2.808-.707v4.977a.857.857 0 0 1-.857.858H10.43a.857.857 0 0 1-.857-.858v-4.977l-2.808.707a.853.853 0 0 1-.217.028.852.852 0 0 1-.828-.63l-.386-1.542a.857.857 0 0 1 .602-1.044l3.637-.916V8.4A2.4 2.4 0 0 1 12 6a2.4 2.4 0 0 1 2.428 2.4v1.768l3.637.916a.857.857 0 0 1 .602 1.044l-.381 1.542z"/></svg>
-              Nextdoor
-            </a>
-            <a href="https://www.yelp.com/biz/clark-handy-solutions-westminster" target="_blank" rel="noopener" class="social-link">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.54 13.9l-1.55.54c-.47.16-.97-.17-.97-.67V7.33c0-.52.54-.86 1-.62l5.13 2.78c.44.24.48.86.07 1.15l-3.68 3.26zM10 16.5c0-.55.45-1 1-1s1 .45 1 1v4c0 .55-.45 1-1 1s-1-.45-1-1v-4zM7.5 14.1l-3.62 1.78c-.5.25-.6.9-.2 1.28l2.13 2.13c.37.37 1 .3 1.27-.15l2.24-3.87c.27-.47-.03-1.07-.57-1.16l-1.25-.01zM6.9 11.5L3 10.38c-.53-.16-.82-.73-.62-1.24l1.04-2.83c.2-.54.82-.73 1.27-.38L9 9.1c.44.34.38 1-.1 1.26l-2 1.14zM14.3 15.76l2.24 3.87c.27.45.9.52 1.27.15l2.13-2.13c.4-.38.3-1.03-.2-1.28L16.1 14.6c-.54-.27-1.16.1-1.23.66l-.57.5z"/></svg>
-              Yelp
-            </a>
-          </div>
         </div>
       </div>
 
@@ -123,33 +130,41 @@ import Layout from '../layouts/Layout.astro';
 
   /* ─── CONTACT SECTION ─── */
   .contact-section {
-  padding: 7rem 0;
-  padding-top: calc(var(--nav-h) + 5rem);
-  position: relative;
-  background-image: url('/images/construction-bg.jpg');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed; /* parallax feel — remove if you prefer static */
-}
+    padding: 7rem 0;
+    padding-top: calc(var(--nav-h) + 5rem);
+    position: relative;
+    background: var(--dark-1, #0a0a0a);
+  }
 
-/* Dark overlay so text stays readable */
-.contact-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.72);
-  z-index: 0;
-}
+  /* ─── CONTAINED BG CARD ─── */
+  .contact-bg-card {
+    position: relative;
+    background-image: url('/images/construction-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 6px;
+    overflow: hidden;
+    padding: 3.5rem 3rem;
+  }
 
-/* Lift content above overlay */
-.contact-grid {
-  display: grid;                          /* ← must still be here */
-  grid-template-columns: 1.4fr 1fr;
-  gap: 5rem;
-  align-items: start;
-  position: relative;                     /* add this */
-  z-index: 1;                             /* add this */
-}
+  /* Dark overlay inside the card */
+  .contact-bg-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.72);
+    z-index: 0;
+  }
+
+  /* ─── GRID ─── */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 5rem;
+    align-items: start;
+    position: relative;
+    z-index: 1;
+  }
 
   /* FORM */
   .contact-form {
@@ -260,15 +275,16 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .info-link {
-  display: block;
-  font-family: var(--font-display);
-  font-size: 1.8rem;
-  letter-spacing: 0.04em;
-  color: var(--gold);   /* ← changed from var(--light) */
-  margin-top: 0.4rem;
-  transition: color 0.2s;
-}
-.info-link:hover { color: var(--light); }  /* ← swapped hover */
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    letter-spacing: 0.04em;
+    color: var(--gold);
+    margin-top: 0.4rem;
+    transition: color 0.2s;
+  }
+  .info-link:hover { color: var(--light); }
+
   .info-link.small {
     font-family: var(--font-body);
     font-size: 0.95rem;
@@ -308,5 +324,9 @@ import Layout from '../layouts/Layout.astro';
     }
     .contact-info { position: static; }
     .form-row { grid-template-columns: 1fr; }
+    .contact-bg-card {
+      padding: 2rem 1.5rem;
+      border-radius: 4px;
+    }
   }
 </style>
