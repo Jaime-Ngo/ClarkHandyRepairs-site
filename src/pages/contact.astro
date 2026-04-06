@@ -19,7 +19,16 @@ import Layout from '../layouts/Layout.astro';
             <h2 class="section-title">Request a<br /><span class="gold-text">Free Estimate</span></h2>
             <p class="section-body" style="margin-bottom: 2.5rem;">Fill out the form below and we'll follow up with you shortly to discuss your project and schedule a visit.</p>
 
-            <form class="contact-form" name="contact" netlify>
+            <form class="contact-form" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+              <!-- Web3Forms access key -->
+              <input type="hidden" name="access_key" value="359711bc-3676-46ac-b53f-aa9cdeb4bccb" />
+              <!-- Email subject line -->
+              <input type="hidden" name="subject" value="New Estimate Request — Clark Handy Solutions" />
+              <!-- Send from name -->
+              <input type="hidden" name="from_name" value="Clark Handy Solutions Website" />
+              <!-- Honeypot spam protection -->
+              <input type="checkbox" name="botcheck" class="hidden" style="display:none" />
+
               <div class="form-row">
                 <div class="form-group">
                   <label for="name">Full Name</label>
@@ -55,7 +64,8 @@ import Layout from '../layouts/Layout.astro';
                 <label for="message">Tell Us About Your Project</label>
                 <textarea id="message" name="message" rows="5" placeholder="Describe what you need done, any relevant details, and your preferred timeline..."></textarea>
               </div>
-              <button type="submit" class="btn btn-gold btn-submit">Send Message</button>
+              <button type="submit" class="btn btn-gold btn-submit" id="submit-btn">Send Message</button>
+              <div id="form-status" class="form-status"></div>
             </form>
           </div>
 
@@ -122,6 +132,46 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
 </Layout>
+
+<script>
+  const form = document.getElementById('contact-form');
+  const btn = document.getElementById('submit-btn');
+  const status = document.getElementById('form-status');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    status.className = 'form-status';
+    status.textContent = '';
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(Object.fromEntries(new FormData(form))),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        status.className = 'form-status success';
+        status.textContent = 'Message sent! We\'ll be in touch shortly.';
+        form.reset();
+      } else {
+        status.className = 'form-status error';
+        status.textContent = 'Something went wrong. Please try again or call us directly.';
+      }
+    } catch {
+      status.className = 'form-status error';
+      status.textContent = 'Network error. Please try again or call us directly.';
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Send Message';
+    }
+  });
+</script>
 
 <style>
   .gold-text {
@@ -225,6 +275,27 @@ import Layout from '../layouts/Layout.astro';
   .btn-submit {
     align-self: flex-start;
     margin-top: 0.5rem;
+  }
+
+  .btn-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  /* ─── FORM STATUS ─── */
+  .form-status {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-top: 0.25rem;
+    min-height: 1.4em;
+  }
+
+  .form-status.success {
+    color: #5cb85c;
+  }
+
+  .form-status.error {
+    color: #e74c3c;
   }
 
   /* SIDEBAR */
