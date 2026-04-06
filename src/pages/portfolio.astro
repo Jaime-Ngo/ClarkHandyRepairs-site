@@ -5,7 +5,7 @@ const projects = [
     id: 'whole-home-remodel',
     title: 'Renovation',
     subtitle: 'Complete gut & modernization of a two-story townhome',
-    category: 'Full Remodel',
+    category: ['Renovations', 'Flooring'],
     type: 'transformation',
     scope: ['Flooring', 'Painting', 'Drywall', 'Kitchen Cabinets', 'Staircase'],
     thumbnail: '/portfolio/whole-home/entry-after.jpg',
@@ -75,7 +75,7 @@ const projects = [
     id: 'kitchen-flooring',
     title: 'Kitchen Flooring Installation',
     subtitle: 'Vinyl plank installation over old linoleum with baseboard trim and pipe details',
-    category: 'Kitchen',
+    category: ['Kitchen', 'Flooring'],
     type: 'gallery',
     scope: ['Flooring', 'Baseboard', 'Trim'],
     thumbnail: '/portfolio/kitchen-floor/kitchen-finished.jpg',
@@ -91,7 +91,7 @@ const projects = [
     id: 'deck-build',
     title: 'Custom Built Playset',
     subtitle: 'Custom redwood deck with integrated slide and railing',
-    category: 'Exterior',
+    category: 'Outdoor',
     type: 'transformation',
     scope: ['Framing', 'Decking', 'Railing'],
     thumbnail: '/portfolio/deck/full-playset.jpg',
@@ -133,7 +133,7 @@ const projects = [
     id: 'garage-bonus-room',
     title: 'Garage Conversion - Man Cave',
     subtitle: 'Drywall, paint, electrical, and ceiling fan in converted garage space',
-    category: 'Garage',
+    category: 'Painting',
     type: 'transformation',
     scope: ['Drywall', 'Painting', 'Electrical'],
     thumbnail: '/portfolio/garage/garage-living.jpg',
@@ -150,7 +150,7 @@ const projects = [
     id: 'garage-bays',
     title: 'Garage Interior Painting',
     subtitle: 'Full two-bay garage buildout with storage cabinets, workbench, and opener',
-    category: 'Garage',
+    category: 'Painting',
     type: 'transformation',
     scope: ['Painting', 'Electrical', 'Cabinetry'],
     thumbnail: '/portfolio/garage/garage-cabinets.jpg',
@@ -198,7 +198,7 @@ const projects = [
     id: 'attic-finish',
     title: 'Attic Renovation',
     subtitle: 'Complete attic transformation with new hardwood flooring, electrical, and closet buildout',
-    category: 'Full Remodel',
+    category: ['Renovations', 'Flooring'],
     type: 'transformation',
     scope: ['Flooring', 'Electrical', 'Closets'],
     thumbnail: '/portfolio/attic/attic-dining.jpg',
@@ -245,7 +245,7 @@ const projects = [
     id: 'staircase-enclosure',
     title: 'Staircase Enclosure',
     subtitle: 'Custom staircase enclosure with framing, drywall, and trim',
-    category: 'Full Remodel',
+    category: 'Renovations',
     type: 'gallery',
     scope: ['Framing', 'Drywall', 'Trim'],
     thumbnail: '/portfolio/enclosure/11.png',
@@ -265,7 +265,9 @@ const projects = [
   },
 ];
 
-const usedCategories = ['All', ...new Set(projects.map(p => p.category))];
+const usedCategories = ['All', ...new Set(projects.flatMap(p =>
+  Array.isArray(p.category) ? p.category : [p.category]
+))];
 ---
 <Layout title="Portfolio">
 
@@ -298,7 +300,7 @@ const usedCategories = ['All', ...new Set(projects.map(p => p.category))];
       {projects.map((project, idx) => (
         <article
           class="project-card"
-          data-cat={project.category}
+          data-cat={Array.isArray(project.category) ? project.category.join(',') : project.category}
           data-idx={idx}
           style={`animation-delay: ${idx * 0.06}s`}
         >
@@ -622,7 +624,7 @@ filterBtns.forEach(btn => {
     btn.classList.add('active');
     const cat = btn.dataset.cat;
     cards.forEach(card => {
-      if (cat === 'All' || card.dataset.cat === cat) {
+      if (cat === 'All' || card.dataset.cat.split(',').includes(cat)) {
         card.classList.remove('hidden');
       } else {
         card.classList.add('hidden');
