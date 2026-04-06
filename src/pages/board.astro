@@ -42,6 +42,17 @@ const posts = [
     bg: "/resources/4.png",
     icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
   },
+  {
+    id: 5,
+    tag: "Client's Corner",
+    title: "Leave Us a Review",
+    body: "Your feedback means the world. If you've worked with us and had a great experience, take a moment to leave a Google review. It helps other homeowners find quality work they can trust.",
+    link: "https://g.page/r/Cfdi4TP7ySehEBM/review",
+    linkLabel: "Write a Review →",
+    bg: "/resources/5.png",
+    bgStyle: "background-size: contain; background-repeat: no-repeat; background-position: center 60%;",
+    icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`,
+  },
 ];
 ---
 
@@ -62,7 +73,7 @@ const posts = [
     <div class="container">
       <div class="board-grid">
         {posts.map((post, i) => (
-          <article class={`board-card fade-up delay-${i + 1}`} style={`background-image: url('${post.bg}');`}>
+          <article class={`board-card fade-up delay-${i + 1}`} style={`background-image: url('${post.bg}'); ${post.bgStyle || ''}`}>
             <div class="card-overlay"></div>
             <div class="card-content">
               <div class="card-top">
