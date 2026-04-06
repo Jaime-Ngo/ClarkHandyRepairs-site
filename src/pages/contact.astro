@@ -136,24 +136,9 @@ import Layout from '../layouts/Layout.astro';
     background: var(--dark-1, #0a0a0a);
   }
 
-  /* ─── CONTAINED BG CARD ─── */
+  /* ─── CONTAINED CARD ─── */
   .contact-bg-card {
     position: relative;
-    background-image: url('/images/construction-bg.jpg');
-    background-size: cover;
-    background-position: center;
-    border-radius: 6px;
-    overflow: hidden;
-    padding: 3.5rem 3rem;
-  }
-
-  /* Dark overlay inside the card */
-  .contact-bg-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.72);
-    z-index: 0;
   }
 
   /* ─── GRID ─── */
@@ -324,9 +309,5 @@ import Layout from '../layouts/Layout.astro';
     }
     .contact-info { position: static; }
     .form-row { grid-template-columns: 1fr; }
-    .contact-bg-card {
-      padding: 2rem 1.5rem;
-      border-radius: 4px;
-    }
   }
 </style>
