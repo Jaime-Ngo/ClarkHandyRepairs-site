@@ -305,7 +305,7 @@ const usedCategories = ['All', ...new Set(projects.flatMap(p =>
           style={`animation-delay: ${idx * 0.06}s`}
         >
           <div class="card-thumb">
-            <div class="card-img img-ph" data-label={project.title} style={`background-image:url('${project.thumbnail}')`}></div>
+            <div class="card-img" style={`background-image:url('${project.thumbnail}')`}></div>
             <div class="card-overlay">
               <div class="card-text">
                 <h3 class="card-title">{project.title}</h3>
@@ -695,7 +695,7 @@ function renderGallery(p) {
     const isWide = imgs.length === 1 || (imgs.length === 3 && i === 0);
     return `
       <div style="position:relative;" class="${isWide ? 'wide' : ''}">
-        <div class="lb-gallery-img img-ph${isWide ? ' wide' : ''}"
+        <div class="lb-gallery-img${isWide ? ' wide' : ''}"
              data-label="${img.alt}"
              style="background-image:url('${img.src}');background-size:cover;background-position:center;aspect-ratio:${isWide ? '16/10' : '4/3'};">
         </div>
