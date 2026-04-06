@@ -1,19 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-/*──────────────────────────────────────────────
-  PROJECT DATA
-  ─────────────────────────────────────────────
-  type:
-    "transformation" → shows before / during / after labels in lightbox
-    "gallery"        → simple photo gallery
-    "grouped"        → collection of related one-offs
-  images[]:
-    phase: "before" | "during" | "after" | null
-    src:   path relative to /public  (e.g. /portfolio/kitchen/sink-wide.jpg)
-    alt:   accessibility text
-  Place your real images in public/portfolio/<slug>/
-  Then update the src paths below.
-──────────────────────────────────────────────*/
 const projects = [
   {
     id: 'whole-home-remodel',
@@ -24,15 +10,12 @@ const projects = [
     scope: ['Flooring', 'Painting', 'Drywall', 'Kitchen Cabinets', 'Staircase'],
     thumbnail: '/portfolio/whole-home/entry-after.jpg',
     images: [
-      // ── BEFORE ──
       { phase: 'before', src: '/portfolio/whole-home/bedroom-carpet.jpg',    alt: 'Bedroom with old carpet and blue-green walls' },
       { phase: 'before', src: '/portfolio/whole-home/stairs-carpet.jpg',     alt: 'Staircase with heavily stained carpet' },
-      // ── DURING ──
       { phase: 'during', src: '/portfolio/whole-home/bedroom-gutted.jpg',    alt: 'Bedroom gutted — carpet removed, ceiling scraped' },
       { phase: 'during', src: '/portfolio/whole-home/flooring-install.jpg',  alt: 'Vinyl plank flooring being installed in living room' },
       { phase: 'during', src: '/portfolio/whole-home/cabinets-install.jpg',  alt: 'White shaker kitchen cabinets being leveled' },
       { phase: 'during', src: '/portfolio/whole-home/trim-install.jpg',      alt: 'Baseboard trim staged for installation' },
-      // ── AFTER ──
       { phase: 'after',  src: '/portfolio/whole-home/entry-after.jpg',       alt: 'Finished entry with new flooring and painted railing' },
       { phase: 'after',  src: '/portfolio/whole-home/stairs-after.jpg',      alt: 'Staircase with new vinyl plank treads' },
       { phase: 'after',  src: '/portfolio/whole-home/stairs-dining.jpg',     alt: 'Stairs and dining area with cohesive flooring' },
@@ -132,6 +115,8 @@ const projects = [
       { src: '/portfolio/bath-floor/floor-vanity.jpg',     alt: 'Bathroom floor with white vanity and cherry laminate' },
       { src: '/portfolio/bath-floor/floor-shower.jpg',     alt: 'Floor meeting glass shower base with clean transition' },
       { src: '/portfolio/bath-floor/floor-transition.jpg', alt: 'Transition strip between bathroom and bedroom flooring' },
+      { src: '/portfolio/bath-floor/shiny-wood.jpg', alt: 'Transition strip between bathroom and bedroom flooring' },
+      { src: '/portfolio/bath-floor/shiny-wood-2.jpg', alt: 'Transition strip between bathroom and bedroom flooring' },
     ],
   },
   {
@@ -263,11 +248,6 @@ const usedCategories = ['All', ...new Set(projects.map(p => p.category))];
           <div class="card-info">
             <h3 class="card-title">{project.title}</h3>
             <p class="card-subtitle">{project.subtitle}</p>
-            <div class="card-tags">
-              {project.scope.slice(0, 3).map(tag => (
-                <span class="card-tag">{tag}</span>
-              ))}
-            </div>
           </div>
         </article>
       ))}
@@ -433,22 +413,15 @@ const usedCategories = ['All', ...new Set(projects.map(p => p.category))];
 .card-info { padding: 1.25rem 1.25rem 1.5rem; }
 .card-title {
   font-family: var(--font-display);
+  font-weight: 400 !important;
   font-size: 1.15rem; line-height: 1.2;
-  color: var(--light); margin-bottom: 0.35rem;
+  color: var(--muted) !important; margin-bottom: 0.35rem;
   letter-spacing: 0.01em;
+  text-transform: none !important;
 }
 .card-subtitle {
-  font-size: 0.82rem; color: var(--muted);
-  line-height: 1.45; margin-bottom: 0.9rem;
-}
-.card-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
-.card-tag {
-  font-family: var(--font-cond);
-  font-size: 0.62rem; letter-spacing: 0.12em;
-  text-transform: uppercase; color: var(--gold);
-  border: 1px solid var(--gold-dim);
-  padding: 0.18rem 0.55rem; border-radius: 1px;
-  opacity: 0.75;
+  font-size: 0.82rem; color: var(--gold) !important;
+  line-height: 1.45;
 }
 .project-card.hidden { display: none; }
 
@@ -549,6 +522,15 @@ const usedCategories = ['All', ...new Set(projects.map(p => p.category))];
   background: rgba(255,255,255,0.1);
   color: #fff;
   border: 1px solid rgba(255,255,255,0.25);
+}
+
+/* Card tags (lightbox only) */
+.card-tag {
+  font-family: var(--font-cond);
+  font-size: 0.62rem; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--gold);
+  border: 1px solid var(--gold-dim);
+  padding: 0.18rem 0.55rem; border-radius: 1px;
 }
 
 .lb-counter {
