@@ -56,13 +56,14 @@ const posts = [
 ];
 ---
 
-<Layout title="Message Board">
+<Layout title="Client's Corner">
 
   <!-- PAGE HEADER -->
-  <section class="page-header">
+  <section class="page-header" style="background-image: url('/resources/6.png');">
+    <div class="page-header-overlay"></div>
     <div class="container page-header-content">
       <span class="section-eyebrow fade-up delay-1">Updates & Resources</span>
-      <h1 class="fade-up delay-2">Message<br /><span class="gold">Board</span></h1>
+      <h1 class="fade-up delay-2">Client's<br /><span class="gold">Corner</span></h1>
       <p class="fade-up delay-3">Notes, recommendations, and resources from Clark, things worth knowing before your next project.</p>
     </div>
     <div class="header-rule"></div>
@@ -101,6 +102,15 @@ const posts = [
     padding-top: calc(var(--nav-h) + 5rem);
     padding-bottom: 4rem;
     overflow: hidden;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .page-header-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 0;
   }
 
   .page-header-content {
@@ -139,6 +149,8 @@ const posts = [
   }
 
   .header-rule {
+    position: relative;
+    z-index: 1;
     margin-top: 4rem;
     height: 1px;
     background: rgba(255,255,255,0.07);
