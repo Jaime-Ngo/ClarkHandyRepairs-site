@@ -289,14 +289,11 @@ const usedCategories = ['All', ...new Set(projects.map(p => p.category))];
         >
           <div class="card-thumb">
             <div class="card-img img-ph" data-label={project.title} style={`background-image:url('${project.thumbnail}')`}></div>
-            <!-- Always-visible title -->
-            <div class="card-title-bar">
-              <h3 class="card-title">{project.title}</h3>
-            </div>
-            <!-- Revealed on hover / first tap -->
-            <div class="card-reveal">
-              <p class="card-subtitle">{project.subtitle}</p>
-              <span class="card-view-cta">View Project →</span>
+            <div class="card-overlay">
+              <div class="card-text">
+                <h3 class="card-title">{project.title}</h3>
+                <p class="card-desc">{project.subtitle}</p>
+              </div>
             </div>
           </div>
         </article>
@@ -442,71 +439,53 @@ const usedCategories = ['All', ...new Set(projects.map(p => p.category))];
 }
 .project-card:hover .card-img { transform: scale(1.05); }
 
-/* ── TITLE BAR — always visible, bottom-left ── */
-.card-title-bar {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  padding: 1.25rem 1.25rem 1rem;
-  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
+/* ── CARD OVERLAY — gradient with title, darkens on hover ── */
+.project-card .card-overlay {
+  position: absolute !important; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0) 50%) !important;
+  display: flex !important;
+  align-items: flex-end !important;
+  justify-content: flex-start !important;
+  padding: 1.5rem !important;
+  transition: background 0.35s ease;
   z-index: 2;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
 }
-.card-title {
-  font-family: var(--font-display);
-  font-weight: 400 !important;
-  font-size: 1.15rem; line-height: 1.2;
-  color: var(--light) !important;
-  letter-spacing: 0.01em;
-  text-transform: none !important;
-  margin: 0;
-  text-shadow: 0 1px 6px rgba(0,0,0,0.6);
-}
-
-/* ── REVEAL OVERLAY — shown on hover (desktop) or .revealed (mobile) ── */
-.card-reveal {
-  position: absolute; inset: 0;
-  background: rgba(0,0,0,0.7);
-  backdrop-filter: blur(2px);
+.project-card .card-text {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 1.5rem;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 3;
+  gap: 0;
 }
-/* Desktop: hover reveals */
-@media (hover: hover) {
-  .project-card:hover .card-reveal { opacity: 1; }
-  .project-card:hover .card-title-bar { opacity: 0; }
+.project-card .card-title {
+  font-family: var(--font-display);
+  font-weight: 700 !important;
+  font-size: 1.4rem !important; line-height: 1.1 !important;
+  color: var(--gold) !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+  margin: 0 !important;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  opacity: 1 !important;
+  transition: transform 0.3s ease;
 }
-/* Mobile: .revealed class reveals */
-.project-card.revealed .card-reveal { opacity: 1; }
-.project-card.revealed .card-title-bar { opacity: 0; }
+.project-card .card-desc {
+  font-size: 0.82rem !important;
+  color: var(--muted) !important;
+  line-height: 1.45 !important;
+  margin: 0 !important;
+  max-height: 0 !important;
+  opacity: 0 !important;
+  overflow: hidden !important;
+  transition: max-height 0.35s ease, opacity 0.3s ease 0.05s, margin 0.35s ease;
+}
 
-.card-subtitle {
-  font-size: 0.88rem;
-  color: var(--light) !important;
-  line-height: 1.5;
-  margin-bottom: 1.25rem;
-  max-width: 260px;
-}
-.card-view-cta {
-  font-family: var(--font-cond);
-  font-size: 0.72rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--gold);
-  border: 1px solid var(--gold-dim);
-  padding: 0.45rem 1.2rem;
-  border-radius: 2px;
-  transition: all 0.2s;
-}
-.card-view-cta:hover {
-  background: rgba(201,168,76,0.1);
+/* Desktop: .hovered class reveals subtitle */
+.project-card.hovered .card-overlay,
+.project-card.revealed .card-overlay { background: rgba(0,0,0,0.65) !important; }
+.project-card.hovered .card-desc,
+.project-card.revealed .card-desc {
+  max-height: 60px !important;
+  opacity: 1 !important;
+  margin-top: 0.5rem !important;
 }
 
 .project-card.hidden { display: none; }
@@ -641,6 +620,14 @@ filterBtns.forEach(btn => {
    Desktop (hover devices): hover shows description, click opens lightbox
    Mobile (touch devices): 1st tap shows description, 2nd tap opens lightbox */
 cards.forEach(card => {
+  /* Desktop hover — add/remove .hovered class via JS */
+  card.addEventListener('mouseenter', () => {
+    if (!isTouchDevice) card.classList.add('hovered');
+  });
+  card.addEventListener('mouseleave', () => {
+    card.classList.remove('hovered');
+  });
+
   card.addEventListener('click', (e) => {
     const idx = parseInt(card.dataset.idx);
 
