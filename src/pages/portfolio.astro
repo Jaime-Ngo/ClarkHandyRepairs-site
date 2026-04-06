@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 const projects = [
   {
     id: 'whole-home-remodel',
-    title: 'Whole-Home Renovation',
+    title: 'Renovation',
     subtitle: 'Complete gut & modernization of a two-story townhome',
     category: 'Full Remodel',
     type: 'transformation',
@@ -27,7 +27,7 @@ const projects = [
   },
   {
     id: 'pocket-door-flooring',
-    title: 'Pocket Door Installation & Flooring',
+    title: 'Pocket Door + Flooring Installation',
     subtitle: 'New cabinets, countertops, and pocket door framing with flooring',
     category: 'Kitchen',
     type: 'transformation',
@@ -41,7 +41,7 @@ const projects = [
   },
   {
     id: 'sink-countertop',
-    title: 'Kitchen Sink & Countertop',
+    title: 'Kitchen Sink Installation',
     subtitle: 'Black granite composite sink with industrial faucet on white quartz',
     category: 'Kitchen',
     type: 'gallery',
@@ -55,7 +55,7 @@ const projects = [
   },
   {
     id: 'kitchen-flooring',
-    title: 'Kitchen Flooring',
+    title: 'Kitchen Flooring Installation',
     subtitle: 'Vinyl plank installation over old linoleum with baseboard trim and pipe details',
     category: 'Kitchen',
     type: 'gallery',
@@ -71,7 +71,7 @@ const projects = [
   },
   {
     id: 'deck-build',
-    title: 'Backyard Deck & Play Structure',
+    title: 'Custom Built Playset',
     subtitle: 'Custom redwood deck with integrated slide and railing',
     category: 'Exterior',
     type: 'transformation',
@@ -92,7 +92,7 @@ const projects = [
   },
   {
     id: 'bathroom-accent',
-    title: 'Bathroom Accent Wall',
+    title: 'Interior Painting - Acrylic',
     subtitle: 'Bold teal paint with brass fixtures and Edison-bulb sconces',
     category: 'Bathroom',
     type: 'gallery',
@@ -105,7 +105,7 @@ const projects = [
   },
   {
     id: 'bathroom-flooring',
-    title: 'Bathroom Flooring',
+    title: 'Laminate Flooring Installation',
     subtitle: 'Cherry-tone laminate with clean transitions at shower and doorway',
     category: 'Flooring',
     type: 'gallery',
@@ -121,7 +121,7 @@ const projects = [
   },
   {
     id: 'garage-bonus-room',
-    title: 'Garage Bonus Room Conversion',
+    title: 'Garage Conversion - Man Cave',
     subtitle: 'Drywall, paint, electrical, and ceiling fan in converted garage space',
     category: 'Garage',
     type: 'transformation',
@@ -135,7 +135,7 @@ const projects = [
   },
   {
     id: 'garage-bays',
-    title: 'Garage — Paint, Cabinets & Electrical',
+    title: 'Garage Interior Painting',
     subtitle: 'Full two-bay garage buildout with storage cabinets, workbench, and opener',
     category: 'Garage',
     type: 'transformation',
@@ -151,7 +151,7 @@ const projects = [
   },
   {
     id: 'cabinet-refinish',
-    title: 'Cabinet Refinishing',
+    title: 'Bathroom Vanity Paint + Finish',
     subtitle: 'Spray-painted vanity cabinets with new hardware',
     category: 'Painting',
     type: 'gallery',
@@ -164,7 +164,7 @@ const projects = [
   },
   {
     id: 'trim-doors',
-    title: 'Interior Trim & Doors',
+    title: 'Interior Doors + Trim',
     subtitle: 'Shaker-style doors, crown molding, and baseboard details',
     category: 'Trim & Doors',
     type: 'grouped',
@@ -179,7 +179,7 @@ const projects = [
   },
   {
     id: 'attic-finish',
-    title: 'Attic Renovation — Flooring & Electrical',
+    title: 'Attic Renovation',
     subtitle: 'Complete attic transformation with new hardwood flooring, electrical, and closet buildout',
     category: 'Full Remodel',
     type: 'transformation',
@@ -471,13 +471,14 @@ const usedCategories = ['All', ...new Set(projects.map(p => p.category))];
 .lb-header { margin-bottom: 2rem; text-align: center; }
 .lb-title {
   font-family: var(--font-display);
+  font-weight: 400 !important;
   font-size: clamp(1.6rem, 4vw, 2.4rem);
-  color: var(--light); line-height: 1.1;
+  color: var(--muted) !important; line-height: 1.1;
   margin-bottom: 0.5rem;
+  text-transform: none !important;
 }
-.lb-subtitle { color: var(--muted); font-size: 0.92rem; margin-bottom: 1rem; }
-.lb-scope { display: flex; gap: 0.4rem; justify-content: center; flex-wrap: wrap; }
-.lb-scope .card-tag { opacity: 1; }
+.lb-subtitle { color: var(--gold) !important; font-size: 0.92rem; margin-bottom: 1rem; }
+.lb-scope { display: none; }
 
 /* ── Gallery ── */
 .lb-gallery {
