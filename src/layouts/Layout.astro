@@ -11,6 +11,15 @@ const { title = 'Clark Handy Solutions' } = Astro.props;
   <meta name="description" content="Clark Handy Solutions — Professional handyman services in Orange County, CA. Plumbing, electrical, painting, flooring, drywall, and more." />
   <title>{title} | Clark Handy Solutions</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+
+  <!-- Google tag (gtag.js) -->
+  <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-MC3TL08PLS"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-MC3TL08PLS');
+  </script>
 </head>
 <body>
 
