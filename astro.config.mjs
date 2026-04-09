@@ -7,7 +7,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://clarkhandysolutions.com',
+  site: 'https://www.clarkhandysolutions.com',
   integrations: [sitemap()],
   vite: {
     plugins: [tailwindcss()]
