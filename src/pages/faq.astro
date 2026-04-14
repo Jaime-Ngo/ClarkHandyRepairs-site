@@ -1,0 +1,248 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const faqs = [
+  {
+    question: 'What services do you offer?',
+    answer: 'We offer Interior Painting, Flooring, Drywall Repair, Door Installation, Plumbing, Electrical, HVAC, Junk Removal, Furniture Assembly + More. Check out our <a href="/services">Services page</a> or <a href="mailto:Info@clarkhandysolutions.com">email us</a> for any additional service questions.',
+  },
+  {
+    question: 'What areas do you service?',
+    answer: 'We proudly service Huntington Beach, Fountain Valley, Garden Grove, Westminster, Costa Mesa, Santa Ana, Orange + surrounding Orange County areas.',
+  },
+  {
+    question: 'Do you provide free estimates?',
+    answer: 'Yes, estimates are free. You can also provide a photo and quick description of the job and we may be able to give you an estimate over the phone.',
+  },
+  {
+    question: 'How soon can you schedule me?',
+    answer: 'We aim for the fastest turnaround. Same day or next day depending on availability and size of the job.',
+  },
+  {
+    question: 'What forms of payment do you accept?',
+    answer: 'We accept all forms of payment including cash, check, debit/credit cards, bank transfers, Zelle, Venmo and more.',
+  },
+  {
+    question: 'What do I do if I need to reschedule?',
+    answer: 'No problem. You can call our office or send an email to <a href="mailto:scheduling@clarkhandysolutions.com">scheduling@clarkhandysolutions.com</a>, and we\'ll get a date that\'s better for you.',
+  },
+  {
+    question: 'What\'s the best way to book a service?',
+    answer: 'The best way would be to use our <a href="/contact">Estimate Request form</a>. For more immediate services and responses, you can call our office.',
+  },
+  {
+    question: 'Can I bundle multiple small jobs in one visit?',
+    answer: 'Of course! In fact, we encourage clients to bundle services to take advantage of reduced costs.',
+  },
+];
+---
+
+<Layout title="FAQ">
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero-bg-solid"></div>
+    <div class="page-hero-overlay"></div>
+    <div class="container page-hero-content">
+      <span class="section-eyebrow fade-up delay-1">Got Questions?</span>
+      <h1 class="fade-up delay-2">Frequently Asked <span class="gold-text">Questions</span></h1>
+      <p class="fade-up delay-3">Everything you need to know before booking. If you don't see your question here, feel free to reach out.</p>
+    </div>
+  </section>
+
+  <!-- FAQ LIST -->
+  <section class="faq-section">
+    <div class="container faq-container">
+      <div class="faq-list">
+        {faqs.map((faq, i) => (
+          <div class="faq-item" data-index={i}>
+            <button class="faq-question" aria-expanded="false">
+              <span class="faq-question-text">{faq.question}</span>
+              <svg class="faq-chevron" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <path d="M4 6.5l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <p set:html={faq.answer} />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .gold-text {
+    color: var(--gold);
+  }
+
+  /* PAGE HERO */
+  .page-hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding-top: calc(var(--nav-h) + 4rem);
+    padding-bottom: 5rem;
+  }
+
+  .page-hero-bg-solid {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: var(--dark-2);
+  }
+
+  .page-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.45) 100%);
+    z-index: 1;
+  }
+
+  .page-hero-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .page-hero-content h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 0.95;
+    letter-spacing: 0.02em;
+    color: var(--light);
+    margin-bottom: 1rem;
+  }
+
+  .page-hero-content p {
+    color: var(--light-dim);
+    font-size: 1rem;
+    max-width: 480px;
+  }
+
+  /* FAQ SECTION */
+  .faq-section {
+    padding: 5rem 0;
+    background: var(--dark);
+  }
+
+  .faq-container {
+    max-width: 800px;
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid rgba(201,168,76,0.12);
+  }
+
+  .faq-item:first-child {
+    border-top: 1px solid rgba(201,168,76,0.12);
+  }
+
+  .faq-question {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 1.75rem 0;
+    text-align: left;
+  }
+
+  .faq-question-text {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    letter-spacing: 0.02em;
+    color: var(--light);
+    line-height: 1.3;
+  }
+
+  .faq-chevron {
+    color: var(--gold);
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+  }
+
+  .faq-question[aria-expanded="true"] .faq-chevron {
+    transform: rotate(180deg);
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.35s ease;
+    padding: 0 0;
+  }
+
+  .faq-answer.open {
+    padding: 0 0 1.75rem 0;
+  }
+
+  .faq-answer p {
+    font-size: 0.95rem;
+    color: var(--light-dim);
+    line-height: 1.8;
+    max-width: 680px;
+  }
+
+  .faq-answer a {
+    color: var(--gold);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s;
+  }
+
+  .faq-answer a:hover {
+    color: var(--light);
+  }
+
+  @media (max-width: 560px) {
+    .faq-question-text {
+      font-size: 1.05rem;
+    }
+
+    .faq-question {
+      padding: 1.4rem 0;
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      const answer = btn.nextElementSibling;
+
+      // Close all others
+      document.querySelectorAll('.faq-question').forEach(other => {
+        if (other !== btn) {
+          other.setAttribute('aria-expanded', 'false');
+          const otherAnswer = other.nextElementSibling;
+          if (otherAnswer) {
+            otherAnswer.style.maxHeight = null;
+            otherAnswer.classList.remove('open');
+          }
+        }
+      });
+
+      // Toggle current
+      btn.setAttribute('aria-expanded', String(!expanded));
+      if (!expanded && answer) {
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        answer.classList.add('open');
+      } else if (answer) {
+        answer.style.maxHeight = null;
+        answer.classList.remove('open');
+      }
+    });
+  });
+</script>
