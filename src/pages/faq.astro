@@ -84,7 +84,7 @@ const faqs = [
     display: flex;
     align-items: center;
     overflow: hidden;
-    padding-top: calc(var(--nav-h) + 4rem);
+    padding-top: calc(var(--nav-h) + 8rem) !important;
     padding-bottom: 5rem;
   }
 
@@ -194,15 +194,16 @@ const faqs = [
     max-width: 680px;
   }
 
-  .faq-answer a {
-    color: var(--gold);
+  :global(.faq-answer p a),
+  :global(.faq-answer p a:visited) {
+    color: var(--gold) !important;
     text-decoration: underline;
     text-underline-offset: 3px;
     transition: color 0.2s;
   }
 
-  .faq-answer a:hover {
-    color: var(--light);
+  :global(.faq-answer p a:hover) {
+    color: var(--light) !important;
   }
 
   @media (max-width: 560px) {
