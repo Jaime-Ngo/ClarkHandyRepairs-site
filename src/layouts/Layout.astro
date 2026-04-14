@@ -60,7 +60,7 @@ const { title = 'Clark Handy Solutions' } = Astro.props;
         </li>
         <li><a href="/portfolio">Portfolio</a></li>
         <li><a href="/board">Resources</a></li>
-        <li><a href="/faq">FAQ</a></li>
+        <li><a href="/faq" class="nav-faq">FAQs</a></li>
         <li><a href="/contact" class="nav-cta">Get a Quote</a></li>
       </ul>
 
@@ -100,7 +100,7 @@ const { title = 'Clark Handy Solutions' } = Astro.props;
         </li>
         <li><a href="/portfolio">Portfolio</a></li>
         <li><a href="/board">Resources</a></li>
-        <li><a href="/faq">FAQ</a></li>
+        <li><a href="/faq" class="nav-faq">FAQs</a></li>
         <li><a href="/contact" class="mobile-cta">Get a Quote</a></li>
       </ul>
       <div class="mobile-socials">
@@ -164,7 +164,7 @@ const { title = 'Clark Handy Solutions' } = Astro.props;
             <li><a href="/services">Services</a></li>
             <li><a href="/portfolio">Portfolio</a></li>
             <li><a href="/board">Resources</a></li>
-            <li><a href="/faq">FAQ</a></li>
+            <li><a href="/faq">FAQs</a></li>
             <li><a href="/contact">Get a Quote</a></li>
           </ul>
         </div>
@@ -257,6 +257,11 @@ const { title = 'Clark Handy Solutions' } = Astro.props;
   }
 
   .nav-links-desktop a:hover { color: var(--light); }
+
+  .nav-faq {
+    text-transform: none !important;
+    letter-spacing: 0.12em !important;
+  }
 
   .nav-cta {
     color: var(--gold) !important;
@@ -380,6 +385,7 @@ const { title = 'Clark Handy Solutions' } = Astro.props;
   }
   .nav-mobile-menu a:hover { color: var(--gold); }
   .mobile-cta { color: var(--gold) !important; }
+  .nav-mobile-menu .nav-faq { text-transform: none !important; }
 
   /* SERVICES ACCORDION TOGGLE */
   .mobile-section-toggle {
@@ -456,32 +462,32 @@ const { title = 'Clark Handy Solutions' } = Astro.props;
   }
 
   /* FOOTER */
-footer {
-  background: var(--dark-2);
-  border-top: 1px solid var(--gold-dim);
-  padding: 5rem 0 2rem;
-  margin-top: 0;
-  position: relative;
-  overflow: hidden;
-}
+  footer {
+    background: var(--dark-2);
+    border-top: 1px solid var(--gold-dim);
+    padding: 5rem 0 2rem;
+    margin-top: 0;
+    position: relative;
+    overflow: hidden;
+  }
 
-footer::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url('/images/map-bg.webp');
-  background-size: cover;
-  background-position: center top;
-  opacity: 0.08;
-  filter: grayscale(100%) sepia(30%);
-  pointer-events: none;
-  z-index: 0;
-}
+  footer::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('/images/map-bg.webp');
+    background-size: cover;
+    background-position: center top;
+    opacity: 0.08;
+    filter: grayscale(100%) sepia(30%);
+    pointer-events: none;
+    z-index: 0;
+  }
 
-footer .container {
-  position: relative;
-  z-index: 1;
-}
+  footer .container {
+    position: relative;
+    z-index: 1;
+  }
 
   .footer-grid {
     display: grid;
