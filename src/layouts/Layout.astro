@@ -166,6 +166,7 @@ const { title = 'Clark Handy Solutions' } = Astro.props;
             <li><a href="/board">Resources</a></li>
             <li><a href="/faq">FAQs</a></li>
             <li><a href="/contact">Get a Quote</a></li>
+            <li><a href="/careers" class="footer-careers-link">Career Opportunities</a></li>
           </ul>
         </div>
 
@@ -568,6 +569,17 @@ const { title = 'Clark Handy Solutions' } = Astro.props;
     transition: color 0.2s;
   }
   .footer-col ul a:hover { color: var(--light); }
+
+  /* CAREER OPPORTUNITIES LINK */
+  .footer-careers-link {
+    color: var(--gold) !important;
+    opacity: 0.85;
+    transition: opacity 0.2s !important;
+  }
+  .footer-careers-link:hover {
+    opacity: 1 !important;
+    color: var(--gold) !important;
+  }
 
   .footer-bottom {
     border-top: 1px solid rgba(255,255,255,0.06);

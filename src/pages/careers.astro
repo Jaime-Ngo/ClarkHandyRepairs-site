@@ -1,0 +1,525 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Career Opportunities">
+  <section class="careers-hero">
+    <div class="hero-bg-texture"></div>
+    <div class="container">
+      <div class="hero-inner">
+        <p class="hero-eyebrow">Join the Team</p>
+        <h1>Career <em>Opportunities</em></h1>
+        <p class="hero-sub">We're always looking for skilled, dependable tradespeople to grow with us across Orange County. If you take pride in your craft, we want to hear from you.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="careers-form-section">
+    <div class="container">
+      <div class="form-wrapper">
+
+        <div class="form-aside">
+          <div class="aside-block">
+            <div class="aside-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3>Who We Hire</h3>
+            <p>Skilled tradespeople across plumbing, electrical, carpentry, painting, flooring, drywall, smart home installs, and general handyman work.</p>
+          </div>
+          <div class="aside-block">
+            <div class="aside-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <h3>Flexible Schedules</h3>
+            <p>We work with both full-time and part-time contractors. Set your availability and take jobs that fit your life.</p>
+          </div>
+          <div class="aside-block">
+            <div class="aside-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <h3>Orange County Based</h3>
+            <p>All work is local, no long hauls. Serve your community and build your reputation right here in OC.</p>
+          </div>
+          <div class="aside-divider"></div>
+          <p class="aside-note">Questions? Reach us at<br/><a href="mailto:Info@clarkhandysolutions.com">Info@clarkhandysolutions.com</a></p>
+        </div>
+
+        <div class="form-card">
+          <h2>Apply Now</h2>
+          <p class="form-intro">Fill out the form below and we'll be in touch to discuss the opportunity.</p>
+
+          <!-- Success state -->
+          <div class="form-success" id="formSuccess">
+            <div class="success-icon">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            </div>
+            <h3>Application Received!</h3>
+            <p>Thanks for your interest in joining Clark Handy Solutions. We'll review your info and reach out soon.</p>
+          </div>
+
+          <form id="careerForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
+            <!-- Web3Forms access key -->
+            <input type="hidden" name="access_key" value="219eddcb-2e84-4f58-b524-8176f65e38ef" />
+            <input type="hidden" name="subject" value="New Career Application – Clark Handy Solutions" />
+            <input type="hidden" name="from_name" value="Clark Handy Solutions Careers" />
+            <input type="hidden" name="redirect" value="false" />
+            <!-- Honeypot -->
+            <input type="checkbox" name="botcheck" style="display:none;" />
+
+            <div class="form-row two-col">
+              <div class="form-group">
+                <label for="name">Full Name <span class="req">*</span></label>
+                <input type="text" id="name" name="name" placeholder="John Smith" required autocomplete="name" />
+              </div>
+              <div class="form-group">
+                <label for="city">City <span class="req">*</span></label>
+                <input type="text" id="city" name="city" placeholder="Westminster, CA" required />
+              </div>
+            </div>
+
+            <div class="form-row two-col">
+              <div class="form-group">
+                <label for="phone">Phone Number <span class="req">*</span></label>
+                <input type="tel" id="phone" name="phone" placeholder="(949) 000-0000" required autocomplete="tel" />
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address <span class="req">*</span></label>
+                <input type="email" id="email" name="email" placeholder="you@email.com" required autocomplete="email" />
+              </div>
+            </div>
+
+            <div class="form-row two-col">
+              <div class="form-group">
+                <label for="trade">Trade / Specialty <span class="req">*</span></label>
+                <div class="select-wrapper">
+                  <select id="trade" name="trade" required>
+                    <option value="" disabled selected>Select a trade…</option>
+                    <option>Plumbing</option>
+                    <option>Electrical</option>
+                    <option>Painting</option>
+                    <option>Flooring</option>
+                    <option>Drywall</option>
+                    <option>Carpentry / Doors & Hardware</option>
+                    <option>Furniture Assembly</option>
+                    <option>Smart Home & Tech</option>
+                    <option>HVAC</option>
+                    <option>General Handyman</option>
+                    <option>Other</option>
+                  </select>
+                  <svg class="select-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="experience">Years of Experience <span class="req">*</span></label>
+                <div class="select-wrapper">
+                  <select id="experience" name="years_of_experience" required>
+                    <option value="" disabled selected>Select range…</option>
+                    <option>Less than 1 year</option>
+                    <option>1–2 years</option>
+                    <option>3–5 years</option>
+                    <option>6–10 years</option>
+                    <option>11–15 years</option>
+                    <option>15+ years</option>
+                  </select>
+                  <svg class="select-chevron" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Additional Information</label>
+              <textarea id="message" name="message" rows="5" placeholder="Tell us about yourself, your certifications, availability, or anything else you'd like us to know…"></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">
+              <span class="btn-text">Submit Application</span>
+              <span class="btn-loading" style="display:none;">Sending…</span>
+              <svg class="btn-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+
+            <p class="form-disclaimer">We respect your privacy. Your information will only be used to evaluate your application.</p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* ── HERO ── */
+  .careers-hero {
+    padding: 14rem 0 6rem;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--gold-dim);
+  }
+
+  .hero-bg-texture {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 60% 40%, rgba(184,148,72,0.07) 0%, transparent 70%),
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 40px,
+        rgba(255,255,255,0.012) 40px,
+        rgba(255,255,255,0.012) 41px
+      );
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 680px;
+  }
+
+  .hero-eyebrow {
+    font-family: var(--font-cond);
+    font-size: 0.72rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .careers-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    line-height: 1.05;
+    color: var(--light);
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .careers-hero h1 em {
+    font-style: normal;
+    color: var(--gold);
+  }
+
+  .hero-sub {
+    color: var(--muted);
+    font-size: 1.1rem;
+    line-height: 1.75;
+    max-width: 560px;
+  }
+
+  /* ── FORM SECTION ── */
+  .careers-form-section {
+    padding: 6rem 0 8rem;
+  }
+
+  .form-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  /* ── ASIDE ── */
+  .form-aside {
+    position: sticky;
+    top: 130px;
+  }
+
+  .aside-block {
+    margin-bottom: 2.5rem;
+  }
+
+  .aside-icon {
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--gold-dim);
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    background: rgba(184,148,72,0.05);
+  }
+
+  .aside-block h3 {
+    font-family: var(--font-cond);
+    font-size: 0.8rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--light);
+    margin-bottom: 0.6rem;
+  }
+
+  .aside-block p {
+    color: var(--muted);
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
+
+  .aside-divider {
+    height: 1px;
+    background: var(--gold-dim);
+    margin: 2rem 0;
+  }
+
+  .aside-note {
+    color: var(--muted);
+    font-size: 0.85rem;
+    line-height: 1.7;
+  }
+
+  .aside-note a {
+    color: var(--gold);
+    transition: opacity 0.2s;
+  }
+  .aside-note a:hover { opacity: 0.75; }
+
+  /* ── FORM CARD ── */
+  .form-card {
+    background: var(--dark-2);
+    border: 1px solid var(--gold-dim);
+    border-radius: 3px;
+    padding: 3.5rem;
+  }
+
+  .form-card h2 {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--light);
+    margin-bottom: 0.5rem;
+  }
+
+  .form-intro {
+    color: var(--muted);
+    font-size: 0.92rem;
+    margin-bottom: 2.5rem;
+  }
+
+  /* ── FORM ELEMENTS ── */
+  .form-row { margin-bottom: 1.5rem; }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin-bottom: 0;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .two-col .form-group { margin-bottom: 0; }
+
+  label {
+    font-family: var(--font-cond);
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--light-dim, #ccc);
+  }
+
+  .req { color: var(--gold); }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 2px;
+    color: var(--light);
+    font-family: var(--font-body, sans-serif);
+    font-size: 0.95rem;
+    padding: 0.85rem 1rem;
+    transition: border-color 0.2s, background 0.2s;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  input::placeholder,
+  textarea::placeholder { color: rgba(255,255,255,0.25); }
+
+  input:focus,
+  textarea:focus {
+    border-color: var(--gold-dim);
+    background: rgba(184,148,72,0.04);
+  }
+
+  textarea { resize: vertical; min-height: 130px; }
+
+  /* SELECT */
+  .select-wrapper {
+    position: relative;
+  }
+
+  select {
+    appearance: none;
+    -webkit-appearance: none;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 2px;
+    color: var(--light);
+    font-family: var(--font-body, sans-serif);
+    font-size: 0.95rem;
+    padding: 0.85rem 2.5rem 0.85rem 1rem;
+    width: 100%;
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  select option {
+    background: #1a1a1a;
+    color: var(--light);
+  }
+
+  select:focus {
+    border-color: var(--gold-dim);
+    background: rgba(184,148,72,0.04);
+  }
+
+  .select-chevron {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--muted);
+    pointer-events: none;
+  }
+
+  /* SUBMIT */
+  .submit-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-family: var(--font-cond);
+    font-size: 0.82rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    padding: 1rem 2.5rem;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.25s;
+    margin-top: 0.5rem;
+  }
+
+  .submit-btn:hover {
+    background: var(--gold);
+    color: var(--dark);
+  }
+
+  .submit-btn:hover .btn-arrow { transform: translateX(4px); }
+  .btn-arrow { transition: transform 0.2s; }
+
+  .submit-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .form-disclaimer {
+    color: var(--muted);
+    font-size: 0.78rem;
+    margin-top: 1.25rem;
+    opacity: 0.7;
+  }
+
+  /* SUCCESS STATE */
+  .form-success {
+    display: none;
+    text-align: center;
+    padding: 3rem 1rem;
+  }
+
+  .form-success.show { display: block; }
+
+  .success-icon {
+    width: 70px;
+    height: 70px;
+    border: 1px solid var(--gold-dim);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    margin: 0 auto 1.5rem;
+    background: rgba(184,148,72,0.06);
+  }
+
+  .form-success h3 {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    color: var(--light);
+    margin-bottom: 0.75rem;
+  }
+
+  .form-success p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .form-wrapper {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    .form-aside { position: static; }
+  }
+
+  @media (max-width: 600px) {
+    .form-card { padding: 2rem 1.5rem; }
+    .two-col { grid-template-columns: 1fr; }
+    .careers-hero { padding: 12rem 0 4rem; }
+  }
+</style>
+
+<script>
+  const form = document.getElementById('careerForm') as HTMLFormElement;
+  const successEl = document.getElementById('formSuccess');
+  const submitBtn = document.getElementById('submitBtn') as HTMLButtonElement;
+  const btnText = submitBtn?.querySelector('.btn-text') as HTMLElement;
+  const btnLoading = submitBtn?.querySelector('.btn-loading') as HTMLElement;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    btnText.style.display = 'none';
+    btnLoading.style.display = 'inline';
+
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData);
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      const json = await res.json();
+      if (json.success) {
+        form.style.display = 'none';
+        if (successEl) {
+          successEl.style.display = 'block';
+          successEl.classList.add('show');
+        }
+      } else {
+        alert('Something went wrong. Please try again or email us directly.');
+        submitBtn.disabled = false;
+        btnText.style.display = 'inline';
+        btnLoading.style.display = 'none';
+      }
+    } catch {
+      alert('Network error. Please try again.');
+      submitBtn.disabled = false;
+      btnText.style.display = 'inline';
+      btnLoading.style.display = 'none';
+    }
+  });
+</script>
