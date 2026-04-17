@@ -225,8 +225,6 @@ const services = [
 
   <!-- ADDITIONAL / MISC CTA -->
   <section class="services-cta">
-    <img class="services-cta-bg" src="/images/services-cta-bg.webp" alt="" />
-    <div class="services-cta-overlay"></div>
     <div class="container services-cta-content">
       <span class="section-eyebrow">Don't See Your Job Listed?</span>
       <h2 class="section-title">We Probably <span class="gold-text">Do It.</span></h2>
@@ -405,23 +403,8 @@ const services = [
   .services-cta {
     position: relative;
     padding: 8rem 0;
+    background: var(--dark);
     overflow: hidden;
-  }
-
-  .services-cta-bg {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .services-cta-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to right, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.6) 100%);
-    z-index: 1;
   }
 
   .services-cta-content {
