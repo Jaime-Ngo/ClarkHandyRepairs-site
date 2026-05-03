@@ -394,8 +394,9 @@ const usedCategories = ['All', ...new Set(projects.flatMap(p =>
 </div>
 
 <!-- CTA -->
-<section class="portfolio-cta">
-  <div class="container" style="text-align:center;">
+<section class="portfolio-cta" style="background-image: url('/assets/wall.webp'); background-size: cover; background-position: center; position: relative; border-top: none;">
+  <div style="position:absolute; inset:0; background:rgba(0,0,0,0.72);"></div>
+  <div class="container" style="text-align:center; position:relative; z-index:1;">
     <span class="section-eyebrow">Like What You See?</span>
     <div class="gold-line" style="margin: 0 auto 1.5rem;"></div>
     <h2 class="section-title">Let's Add Your Project<br /><span style="color:var(--gold);">to This Wall</span></h2>
